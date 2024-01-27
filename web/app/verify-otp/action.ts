@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
 export async function verifyOtp(
-  prevState: { email: string | null },
+  prevState: { error?: string; email: string },
   formData: FormData,
 ) {
   const email = prevState.email;
@@ -21,7 +21,7 @@ export async function verifyOtp(
     });
 
     if (error) {
-      redirect("/error");
+      return { email, error: error.message };
     }
 
     redirect("/");

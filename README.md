@@ -30,12 +30,14 @@
     - [x] Protected Paths
       - [x] !user && in user => sign-in
       - [x] user && in sign-in => user
-      - [ ] !user && in verify-otp => sign-in
-      - [ ] user && in verify-otp => user
+      - [x] !user && in verify-otp => sign-in
+      - [x] user && in verify-otp => user
     - [x] Otp
       - [x] Sign in with OTP
       - [x] Verify OTP
-      - [ ] Custom SMTP (mailjet integration)
+      - [x] useActionState
+    - [ ] Custom SMTP (mailjet integration)
+      - [ ] Env variables (public & secret)
     - [ ] Info addition
       - Username
   - [ ] Drizzle ORM

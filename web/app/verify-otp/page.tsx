@@ -10,7 +10,8 @@ const VerifyOtpPage = () => {
   const email = searchParams.get("email");
 
   const [state, formAction, isPending] = useActionState(verifyOtp, {
-    email,
+    error: "",
+    email: email || "",
   });
 
   return (
@@ -27,6 +28,7 @@ const VerifyOtpPage = () => {
         <button disabled={isPending}>
           {isPending ? "Submitting..." : "Submit OTP"}
         </button>
+        {state.error && <p style={{ color: "red" }}>{state.error}</p>}
       </form>
     </main>
   );
