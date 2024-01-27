@@ -41,11 +41,15 @@ export async function updateSession(request: NextRequest) {
 
   const url = request.nextUrl.clone();
 
-  if (!user && request.nextUrl.pathname.startsWith("/user")) {
+  const requestUrl = (url: string) => {
+    return request.nextUrl.pathname.startsWith(`/${url}`);
+  };
+
+  if ((!user && requestUrl("user")) || requestUrl("verify-otp")) {
     // no user & in user page, potentially respond by redirecting the user to the sign-in page
-    url.pathname = "/sign-in";
+    url.pathname = "sign-in";
     return NextResponse.redirect(url);
-  } else if (user && request.nextUrl.pathname.startsWith("/sign-in")) {
+  } else if ((user && requestUrl("sign-in")) || requestUrl("verify-otp")) {
     // user is signed in & in sign-in, redirect to user page
     url.pathname = "/user";
     return NextResponse.redirect(url);
