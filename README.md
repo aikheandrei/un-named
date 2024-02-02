@@ -32,11 +32,12 @@
       - [x] user & in authPaths => user
     - [ ] OTP verification using Custom SMTP (mailjet integration)
       - [x] Grab email_otp via createClient with supabase.auth.admin.generateLinfor elavated priviliges (administrative context)
-      - [ ] Sign up procedure:
+      - [x] Sign up procedure:
         - [x] Update params on sign up
         - [x] Update form to OTP verification
       - [x] Env variables (public & secret)
       - [x] Link mailjet to send OTP
+      - [ ] Get email on params if possible
       - [ ] Clean the mess you made 
       - [ ] zod validation
       - [ ] twmerge (utils.ts)
@@ -44,6 +45,12 @@
     - [ ] Info addition
       - Username
   - [ ] Drizzle ORM
+    - [ ] Install dependencies
+    - [ ] Setup env
+    - [ ] Drizzle connection (db/index.ts)
+    - [ ] Define Schema
+    - [ ] Config file
+    - [ ] Seed test
     - [ ] Link with supabase auth
   - [x] lib & utils folder
 
