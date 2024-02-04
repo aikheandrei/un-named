@@ -8,10 +8,10 @@ export async function verifyOtp(
   prevState: { error?: string; email: string },
   formData: FormData,
 ) {
-  const email = formData.get("email") as string;
+  const email = prevState.email;
   const token = formData.get("token") as string;
 
-  if (email && token) {
+  if (prevState.email && token) {
     const supabase = await createClient();
 
     const { error } = await supabase.auth.verifyOtp({
@@ -23,13 +23,8 @@ export async function verifyOtp(
     if (error) {
       return { email, error: error.message };
     }
-
-    console.log(email);
-    console.log(token);
     redirect("/");
   }
 
-  console.log(email);
-  console.log(token);
   return { email };
 }

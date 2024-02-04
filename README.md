@@ -37,7 +37,7 @@
         - [x] Update form to OTP verification
       - [x] Env variables (public & secret)
       - [x] Link mailjet to send OTP
-      - [ ] Get email on params if possible
+      - [x] Get email on params if possible
       - [ ] Clean the mess you made 
       - [ ] zod validation
       - [ ] twmerge (utils.ts)
