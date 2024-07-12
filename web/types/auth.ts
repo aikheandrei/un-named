@@ -13,7 +13,7 @@ export interface AuthActions {
     currentState: AuthState,
     credentials: AuthCredentials,
   ) => Promise<AuthState>;
-  onSucess?: () => void;
+  onSuccess?: () => void;
 }
 
 export interface AuthContextType {

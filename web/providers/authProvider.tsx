@@ -24,7 +24,7 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const loginAuth = useAuthAction({
     action: AuthApi.login,
-    onSucess: () => router.push("/"),
+    onSuccess: () => router.push("/"),
   });
 
   const signupAuth = useAuthAction({
