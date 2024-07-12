@@ -80,7 +80,7 @@
     - Types
 
       - [x] LoginContextType
-      - [ ] Auth
+      - [x] Auth
 
     - Better error handling
       - [x] Otp

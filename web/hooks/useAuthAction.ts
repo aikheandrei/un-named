@@ -2,7 +2,7 @@ import { startTransition, useActionState, useEffect, useState } from "react";
 
 import { AuthActions, AuthCredentials, AuthState } from "@/types/auth";
 
-const useAuthAction = ({ action, onSucess }: AuthActions) => {
+const useAuthAction = ({ action, onSuccess }: AuthActions) => {
   const [error, setError] = useState<string>();
 
   const actionWrapper = async (
@@ -19,7 +19,7 @@ const useAuthAction = ({ action, onSucess }: AuthActions) => {
 
   useEffect(() => {
     if (state.success) {
-      onSucess?.();
+      onSuccess?.();
     } else {
       setError(state.error);
     }
