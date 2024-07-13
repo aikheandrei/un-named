@@ -1,22 +1,6 @@
 import { startTransition, useActionState, useEffect, useState } from "react";
 
-interface AuthState {
-  error: string;
-  success: boolean;
-}
-
-interface AuthCredentials {
-  email: string;
-  password: string;
-}
-
-interface AuthActions {
-  action: (
-    currentState: AuthState,
-    credentials: AuthCredentials,
-  ) => Promise<AuthState>;
-  onSucess?: () => void;
-}
+import { AuthActions, AuthCredentials, AuthState } from "@/types/auth";
 
 const useAuthAction = ({ action, onSucess }: AuthActions) => {
   const [error, setError] = useState<string>();
