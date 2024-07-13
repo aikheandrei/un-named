@@ -7,11 +7,7 @@ import { useRouter } from "next/navigation";
 import { AuthApi } from "@/lib/auth/api";
 import useAuthAction from "@/hooks/useAuthAction";
 
-interface AuthContextType {
-  error?: string;
-  isPending: boolean;
-  handleAuth: (email: string, password: string) => void;
-}
+import { AuthContextType } from "@/types/auth";
 
 const createAuthContext = () =>
   createContext<AuthContextType>({
