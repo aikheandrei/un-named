@@ -1,17 +1,10 @@
 "use client";
 
-import {
-  createContext,
-  startTransition,
-  useActionState,
-  useEffect,
-  useState,
-} from "react";
+import { createContext } from "react";
 import type { FC, PropsWithChildren } from "react";
 import { useRouter } from "next/navigation";
 
 import { AuthApi } from "@/lib/auth/api";
-import { LoginContextType, SignupContextType } from "@/types/auth";
 import useAuthAction from "@/hooks/useAuthAction";
 
 interface AuthContextType {
@@ -32,34 +25,6 @@ export const signupContext = createAuthContext();
 
 export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
-  const [signupError, setSignupError] = useState<string>();
-
-  const [signupState, signupAction, signupIsPending] = useActionState(
-    AuthApi.signup,
-    {
-      error: "",
-      success: false,
-    },
-  );
-
-  useEffect(() => {
-    if (signupState.error) {
-      setSignupError(signupState.error);
-    }
-    console.log("hello signup");
-  }, [signupState]);
-
-  const handleSignup = (email: string, password: string) => {
-    try {
-      startTransition(() => {
-        signupAction({ email, password });
-      });
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Unknown error";
-      console.log(Error(errorMessage));
-    }
-  };
 
   const loginAuth = useAuthAction({
     action: AuthApi.login,
