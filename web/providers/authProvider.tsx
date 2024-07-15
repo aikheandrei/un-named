@@ -28,12 +28,7 @@ const createAuthContext = () =>
   });
 
 export const loginContext = createAuthContext();
-
-export const signupContext = createContext<SignupContextType>({
-  signupError: undefined,
-  signupIsPending: false,
-  handleSignup: () => {},
-});
+export const signupContext = createAuthContext();
 
 export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
@@ -71,15 +66,13 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     onSucess: () => router.push("/"),
   });
 
+  const signupAuth = useAuthAction({
+    action: AuthApi.signup,
+  });
+
   return (
     <loginContext.Provider value={loginAuth}>
-      <signupContext.Provider
-        value={{
-          signupError,
-          signupIsPending,
-          handleSignup,
-        }}
-      >
+      <signupContext.Provider value={signupAuth}>
         {children}
       </signupContext.Provider>
     </loginContext.Provider>

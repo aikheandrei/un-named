@@ -7,12 +7,19 @@ import { loginContext, signupContext } from "@/providers/authProvider";
 export const useLogin = () => {
   const { error, isPending, handleAuth } = useContext(loginContext);
 
-  return { error, isPending, handleAuth };
+  return {
+    loginError: error,
+    loginIsPending: isPending,
+    handleLogin: handleAuth,
+  };
 };
 
 export const useSignup = () => {
-  const { signupError, signupIsPending, handleSignup } =
-    useContext(signupContext);
+  const { error, isPending, handleAuth } = useContext(signupContext);
 
-  return { signupError, signupIsPending, handleSignup };
+  return {
+    signupError: error,
+    signupIsPending: isPending,
+    handleSignup: handleAuth,
+  };
 };
