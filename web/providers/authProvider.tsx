@@ -12,12 +12,22 @@ import { useRouter } from "next/navigation";
 
 import { AuthApi } from "@/lib/auth/api";
 import { LoginContextType, SignupContextType } from "@/types/auth";
+import useAuthAction from "@/hooks/useAuthAction";
 
-export const loginContext = createContext<LoginContextType>({
-  loginError: undefined,
-  loginIsPending: false,
-  handleLogin: () => {},
-});
+interface AuthContextType {
+  error?: string;
+  isPending: boolean;
+  handleAuth: (email: string, password: string) => void;
+}
+
+const createAuthContext = () =>
+  createContext<AuthContextType>({
+    error: undefined,
+    isPending: false,
+    handleAuth: () => {},
+  });
+
+export const loginContext = createAuthContext();
 
 export const signupContext = createContext<SignupContextType>({
   signupError: undefined,
@@ -27,16 +37,7 @@ export const signupContext = createContext<SignupContextType>({
 
 export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
-  const [loginError, setLoginError] = useState<string>();
   const [signupError, setSignupError] = useState<string>();
-
-  const [loginState, loginAction, loginIsPending] = useActionState(
-    AuthApi.login,
-    {
-      error: "",
-      success: false,
-    },
-  );
 
   const [signupState, signupAction, signupIsPending] = useActionState(
     AuthApi.signup,
@@ -47,30 +48,11 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   );
 
   useEffect(() => {
-    if (!loginState.success) {
-      setLoginError(loginState.error);
-    } else {
-      router.push("/");
-    }
-  }, [loginState]);
-
-  useEffect(() => {
     if (signupState.error) {
       setSignupError(signupState.error);
     }
+    console.log("hello signup");
   }, [signupState]);
-
-  const handleLogin = (email: string, password: string) => {
-    try {
-      startTransition(() => {
-        loginAction({ email, password });
-      });
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Unknown error";
-      console.log(Error(errorMessage));
-    }
-  };
 
   const handleSignup = (email: string, password: string) => {
     try {
@@ -84,14 +66,13 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     }
   };
 
+  const loginAuth = useAuthAction({
+    action: AuthApi.login,
+    onSucess: () => router.push("/"),
+  });
+
   return (
-    <loginContext.Provider
-      value={{
-        loginError,
-        loginIsPending,
-        handleLogin,
-      }}
-    >
+    <loginContext.Provider value={loginAuth}>
       <signupContext.Provider
         value={{
           signupError,

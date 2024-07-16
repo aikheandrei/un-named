@@ -40,7 +40,7 @@ const AuthForm = () => {
     },
   });
 
-  const { loginError, loginIsPending, handleLogin } = useLogin();
+  const { error, isPending, handleAuth } = useLogin();
   const { signupError, signupIsPending, handleSignup } = useSignup();
 
   const onSubmit = (data: z.infer<typeof FormSchema>, isSignup: boolean) => {
@@ -51,7 +51,7 @@ const AuthForm = () => {
 
       setIsVerify(!isVerify);
     } else {
-      handleLogin(data.email, data.password);
+      handleAuth(data.email, data.password);
     }
   };
 
@@ -83,8 +83,8 @@ const AuthForm = () => {
             error={errors.confirmPassword}
           />
 
-          {(signupError || loginError) && (
-            <p style={{ color: "red" }}>{signupError || loginError}</p>
+          {(signupError || error) && (
+            <p style={{ color: "red" }}>{signupError || error}</p>
           )}
 
           <button
@@ -97,7 +97,7 @@ const AuthForm = () => {
             type="button"
             onClick={handleSubmit((data) => onSubmit(data, false))}
           >
-            {loginIsPending ? "Logging in..." : "Log in"}
+            {isPending ? "Logging in..." : "Log in"}
           </button>
         </form>
       )}

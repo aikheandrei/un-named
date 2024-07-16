@@ -6,47 +6,53 @@ import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import supabaseAdmin from "@/lib/supabase/admin";
 import { GenerateLinkParams } from "@supabase/supabase-js";
-// import Mailjet from "node-mailjet";
+import Mailjet from "node-mailjet";
 
-export async function login(
-  prevState: { error?: string },
-  data: { email: string; password: string },
-) {
+export async function login({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) {
   const supabase = await createClient();
 
   const userData = {
-    email: data.email,
-    password: data.password,
+    email: email,
+    password: password,
   };
 
   const { error } = await supabase.auth.signInWithPassword(userData);
 
   if (error) {
-    return { error: prevState.error || error.message };
+    console.log(error);
+    redirect("/error");
   }
 
   revalidatePath("/", "layout");
   redirect("/");
 }
 
-export async function signupWithOtp(
-  prevState: { error?: string },
-  data: { email: string; password: string },
-) {
+export async function signupWithOtp({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) {
   const supabase = supabaseAdmin();
 
-  const { email, password } = data;
-
-  const userData: GenerateLinkParams = {
+  const emailData: GenerateLinkParams = {
     type: "signup",
     email: email,
     password: password,
   };
 
-  const { error } = await supabase.auth.admin.generateLink(userData);
+  const { data, error } = await supabase.auth.admin.generateLink(emailData);
 
   if (error) {
-    return { error: prevState.error || error.message };
+    console.log(error);
+    redirect("/error");
   }
 
   // const mailjet = Mailjet.apiConnect(
@@ -75,5 +81,4 @@ export async function signupWithOtp(
   // });
 
   console.log(data);
-  return { email, password };
 }
