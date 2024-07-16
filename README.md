@@ -71,15 +71,16 @@
         - [x] Error handling
       - [x] Signup
       - [x] Clean out authForm 
-      - [ ] Otp verification 
-      - [ ] Optimize authProvider instead of useEffect
       - [ ] DRY
-        - [ ] @providers/authProvider.tsx
+        - [x] @providers/authProvider.tsx
         - [ ] @auth/api.ts
+      - [x] @hooks/useAuthAction.ts
+      - [ ] Otp verification
 
     - Types
 
       - [x] LoginContextType
+      - [ ] Auth
 
     - Better error handling
       - [x] Otp
