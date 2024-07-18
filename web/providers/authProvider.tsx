@@ -55,10 +55,8 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   }, [loginState]);
 
   useEffect(() => {
-    if (!signupState.success) {
+    if (signupState.error) {
       setSignupError(signupState.error);
-    } else {
-      router.push("/");
     }
   }, [signupState]);
 

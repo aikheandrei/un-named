@@ -1,13 +1,12 @@
 "use client";
 
-import { startTransition, useActionState, useState } from "react";
+import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { signupWithOtp } from "@/actions/auth/auth-actions";
-import { useLogin } from "@/hooks/useAuth";
+import { useLogin, useSignup } from "@/hooks/useAuth";
 
 import OtpForm from "./otp-form";
 import FormField from "./ui/auth-field";
@@ -42,16 +41,11 @@ const AuthForm = () => {
   });
 
   const { loginError, loginIsPending, handleLogin } = useLogin();
-
-  const [otpState, otpAction, otpIsPending] = useActionState(signupWithOtp, {
-    error: "",
-  });
+  const { signupError, signupIsPending, handleSignup } = useSignup();
 
   const onSubmit = (data: z.infer<typeof FormSchema>, isSignup: boolean) => {
     if (isSignup) {
-      startTransition(() => {
-        otpAction({ email: data.email, password: data.password });
-      });
+      handleSignup(data.email, data.password);
 
       router.replace(pathname + "?email=" + data.email);
 
@@ -63,7 +57,7 @@ const AuthForm = () => {
 
   return (
     <>
-      {isVerify && !otpIsPending && !otpState.error ? (
+      {isVerify && !signupIsPending && !signupError ? (
         <OtpForm />
       ) : (
         <form className="flex w-52 flex-col p-2">
@@ -89,15 +83,15 @@ const AuthForm = () => {
             error={errors.confirmPassword}
           />
 
-          {(otpState.error || loginError) && (
-            <p style={{ color: "red" }}>{otpState.error || loginError}</p>
+          {(signupError || loginError) && (
+            <p style={{ color: "red" }}>{signupError || loginError}</p>
           )}
 
           <button
             type="button"
             onClick={handleSubmit((data) => onSubmit(data, true))}
           >
-            {otpIsPending ? "Signing up..." : "Sign up"}
+            {signupIsPending ? "Signing up..." : "Sign up"}
           </button>
           <button
             type="button"
