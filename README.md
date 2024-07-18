@@ -69,8 +69,13 @@
         - [x] Move login service to api layer (reduces complexity and applies KISS method)
       - [x] Better solution for api layer
         - [x] Error handling
-      - [ ] Signup
-      - [ ] OTP full implementation
+      - [x] Signup
+      - [x] Clean out authForm 
+      - [ ] Otp verification 
+      - [ ] Optimize authProvider instead of useEffect
+      - [ ] DRY
+        - [ ] @providers/authProvider.tsx
+        - [ ] @auth/api.ts
 
     - Types
 
