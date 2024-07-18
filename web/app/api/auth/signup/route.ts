@@ -1,4 +1,5 @@
 import supabaseAdmin from "@/lib/supabase/admin";
+-[];
 import { GenerateLinkParams } from "@supabase/supabase-js";
 
 export async function POST(req: Request) {

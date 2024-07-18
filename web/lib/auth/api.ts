@@ -59,67 +59,94 @@ type AuthAction =
   | { type: "SIGNUP"; payload: AuthState };
 
 interface AuthState {
-  prevState: { error: string; success: boolean } | undefined;
-  credentials: { email: string; password: string };
-  authType: string;
+  error: string;
+  success: boolean;
 }
 
 export const getAuthActions = (
   dispatch: Dispatch<AuthAction>,
 ): AuthDispatchActions => ({
-  login: (prevState, credentials, authType) =>
+  login: async (prevState, credentials, authType) => {
+    const { error, success } = await authActions(
+      prevState,
+      credentials,
+      authType,
+    );
+
+    // console.log(error, success);
+
     dispatch({
       type: "LOGIN",
-      payload: { prevState, credentials, authType },
-    }),
-  signup: (prevState, credentials, authType) =>
+      payload: { error: error, success: success },
+    });
+  },
+  signup: async (prevState, credentials, authType) => {
+    const { error, success } = await authActions(
+      prevState,
+      credentials,
+      authType,
+    );
+
     dispatch({
       type: "SIGNUP",
-      payload: { prevState, credentials, authType },
-    }),
+      payload: { error, success },
+    });
+  },
 });
 
-const authReducer = (state: AuthState, action: AuthAction) => {
+export const authReducer = (state: AuthState, action: AuthAction) => {
   switch (action.type) {
-    case "LOGIN":
+    case "LOGIN": {
       return {
-        prevState: action.payload.prevState,
-        credentials: action.payload.credentials,
-        authType: action.payload.authType,
+        ...state,
+        error: action.payload.error,
+        success: action.payload.success,
       };
+    }
     case "SIGNUP":
       return {
-        prevState: action.payload.prevState,
-        credentials: action.payload.credentials,
-        authType: action.payload.authType,
+        ...state,
+        error: action.payload.error,
+        success: action.payload.success,
       };
     default:
       return state;
   }
 };
 
-const authState: AuthState = {
-  prevState: { error: "", success: false },
-  credentials: { email: "", password: "" },
-  authType: "",
+const callAuthReducer = (
+  prevState: { error: string; success: boolean } | undefined,
+  credentials: { email: string; password: string },
+  authType: string,
+) => {
+  const authState: AuthState = {
+    error: "",
+    success: false,
+  };
+
+  const [state, dispatch] = useReducer(authReducer, authState);
+
+  const authAction = getAuthActions(dispatch);
+
+  authAction.login(prevState, credentials, authType);
+
+  return { error: state.error, success: state.success };
 };
 
-// const [state, dispatch] = useReducer(authReducer, authState);
-//
-// const authAction = getAuthActions(dispatch);
-
-export class AuthApi {
-  static async login(
+const AuthApi = {
+  login: async (
     prevState: { error: string; success: boolean } | undefined,
     credentials: { email: string; password: string },
-  ) {
-    return authActions(prevState, credentials, "login");
-  }
+  ): Promise<AuthState> => {
+    return callAuthReducer(prevState, credentials, "login");
+  },
 
-  static async signup(
+  signup: async (
     prevState: { error: string; success: boolean } | undefined,
     credentials: { email: string; password: string },
-  ) {
-    return authActions(prevState, credentials, "signup");
-  }
-}
+  ): Promise<AuthState> => {
+    return callAuthReducer(prevState, credentials, "signup");
+  },
+};
+
+export default AuthApi;
