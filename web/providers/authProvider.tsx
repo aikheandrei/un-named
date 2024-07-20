@@ -11,7 +11,7 @@ import type { FC, PropsWithChildren } from "react";
 import { useRouter } from "next/navigation";
 
 import { AuthApi } from "@/lib/auth/api";
-import { LoginContextType } from "@/types/auth";
+import { LoginContextType, SignupContextType } from "@/types/auth";
 
 export const loginContext = createContext<LoginContextType>({
   loginError: undefined,
@@ -19,11 +19,16 @@ export const loginContext = createContext<LoginContextType>({
   handleLogin: () => {},
 });
 
-export const signupContext = createContext({});
+export const signupContext = createContext<SignupContextType>({
+  signupError: undefined,
+  signupIsPending: false,
+  handleSignup: () => {},
+});
 
 export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
   const [loginError, setLoginError] = useState<string>();
+  const [signupError, setSignupError] = useState<string>();
 
   const [loginState, loginAction, loginIsPending] = useActionState(
     AuthApi.login,
@@ -51,7 +56,7 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     if (!signupState.success) {
-      setLoginError(signupState.error);
+      setSignupError(signupState.error);
     } else {
       router.push("/");
     }
@@ -89,7 +94,15 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
         handleLogin,
       }}
     >
-      {children}
+      <signupContext.Provider
+        value={{
+          signupError,
+          signupIsPending,
+          handleSignup,
+        }}
+      >
+        {children}
+      </signupContext.Provider>
     </loginContext.Provider>
   );
 };
