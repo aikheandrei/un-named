@@ -34,7 +34,7 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   );
 
   const [signupState, signupAction, signupIsPending] = useActionState(
-    AuthApi.login,
+    AuthApi.signup,
     {
       error: "",
       success: false,
@@ -49,10 +49,30 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     }
   }, [loginState]);
 
+  useEffect(() => {
+    if (!signupState.success) {
+      setLoginError(signupState.error);
+    } else {
+      router.push("/");
+    }
+  }, [signupState]);
+
   const handleLogin = (email: string, password: string) => {
     try {
       startTransition(() => {
         loginAction({ email, password });
+      });
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error";
+      console.log(Error(errorMessage));
+    }
+  };
+
+  const handleSignup = (email: string, password: string) => {
+    try {
+      startTransition(() => {
+        signupAction({ email, password });
       });
     } catch (error) {
       const errorMessage =
