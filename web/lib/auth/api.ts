@@ -39,4 +39,34 @@ export class AuthApi {
       throw handleError(error);
     }
   }
+
+  static async signup(
+    prevState: { error: string; success: boolean } | undefined,
+    credentials: { email: string; password: string },
+  ) {
+    try {
+      const userCredentials = {
+        email: credentials.email,
+        password: credentials.password,
+      };
+
+      const response = await fetch(`${AuthApi.API_URL}/signup`, {
+        method: "POST",
+        body: JSON.stringify(userCredentials),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const responseData = await response.json();
+
+      if (!response.ok) {
+        return { error: responseData.error, success: prevState?.success };
+      }
+
+      return { success: true, ...responseData };
+    } catch (error) {
+      throw handleError(error);
+    }
+  }
 }
