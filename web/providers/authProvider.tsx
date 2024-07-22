@@ -33,6 +33,14 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     },
   );
 
+  const [signupState, signupAction, signupIsPending] = useActionState(
+    AuthApi.login,
+    {
+      error: "",
+      success: false,
+    },
+  );
+
   useEffect(() => {
     if (!loginState.success) {
       setLoginError(loginState.error);
