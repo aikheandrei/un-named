@@ -16,6 +16,7 @@
     - [x] node-mailjet
     - [x] zod
     - [x] react-hook-form
+    - [x] @hookform/resolvers
     - [ ] Shadcn
   - [ ] 
 
@@ -93,6 +94,7 @@
     - [ ] Hooks
     - [ ] Providers
     - [ ] Reducers
+    - [ ] Utils
 
   - Misc
     - [ ] Make use of useReducer
