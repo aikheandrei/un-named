@@ -74,7 +74,6 @@
     - Types
 
       - [x] LoginContextType
-      - [ ]
 
     - Better error handling
       - [x] Otp
@@ -122,12 +121,10 @@
     - [x] auth/
   - [x] App/api
   - [x] Hooks
+  - [x] Types
+  - [x] Providers
   - [x] Auth stucture
-  - [ ] Types
   - [ ] Utils
-  - [ ] Server
-  - [ ] Types
-    - [ ] Zod schema types
 
 - FRONT-END UI/UX (Figma/Photoshop)
 
