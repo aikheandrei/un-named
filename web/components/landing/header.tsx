@@ -64,14 +64,14 @@ export const Header = async () => {
         </div>
 
         <div className="space-x-2">
-          {session?.user?.admin && (
+          {/* {session?.user?.admin && (
             <Link
               className={`${buttonVariants({ variant: "outline" })} rounded-md border-[3px] border-white px-4 py-5 font-halimount text-xl tracking-wide text-white drop-shadow-[0px_5px_5px_rgba(0,0,0,0.90)]`}
               href="/admin-dashboard"
             >
               <p className="text-2xl">Admin</p>
             </Link>
-          )}
+          )} */}
           <Link
             className={`${buttonVariants({ variant: "outline" })} mt-4 rounded-md border-[3px] border-white px-4 py-5 font-halimount text-2xl tracking-wide text-white drop-shadow-[0px_5px_5px_rgba(0,0,0,0.90)]`}
             href="/overview"

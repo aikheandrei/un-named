@@ -29,24 +29,37 @@ export const Header = () => {
     checkUserSignIn();
   });
 
-  const inAdminPage = usePathname() === "/router/admin-dashboard";
+  const inAdminPage = usePathname() === "/admin-dashboard";
 
   return (
     <header>
       <nav className="fixed left-[50%] h-14 w-[40rem] -translate-x-1/2 gap-2 whitespace-nowrap border border-t-0 backdrop-blur-md">
         <div className="absolute right-[100%] flex flex-col items-center justify-center gap-2 pr-8 pt-4">
+          {!inAdminPage ? (
+            <>
+              <Link
+                className={`${buttonVariants({ variant: "default" })} w-28 font-geistsans text-sm`}
+                href={"/admin-dashboard"}
+              >
+                Admin
+              </Link>
+              <RatingModal>Rate!</RatingModal>
+            </>
+          ) : (
+            <>
+              <Link
+                className={`${buttonVariants({ variant: "default" })} w-28 font-geistsans text-sm`}
+                href={"/route"}
+              >
+                Reviews
+              </Link>
+            </>
+          )}
           <Link
-            className={`${buttonVariants({ variant: "default" })} w-28 font-geistsans text-sm`}
+            className={`${buttonVariants({ variant: "outline" })} w-28 font-geistsans text-sm`}
             href={"/overview"}
           >
             {isSignedIn ? "Account" : "Sign in"}
-          </Link>
-          <RatingModal>Rate!</RatingModal>
-          <Link
-            className={`${buttonVariants({ variant: "outline" })} w-28 font-geistsans text-sm`}
-            href={"/admin-dashboard"}
-          >
-            Admin
           </Link>
           <AverageRating />
         </div>
