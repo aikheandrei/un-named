@@ -8,20 +8,24 @@ const HeaderLinks = [
     Text: "About",
   },
   {
-    Href: "#story",
-    Text: "Story",
+    Href: "#game-mechanics",
+    Text: "Game Mechanics",
+  },
+  {
+    Href: "#asset-gallery",
+    Text: "Asset Gallery",
   },
   {
     Href: "/route",
     Text: "Reviews",
   },
   {
-    Href: "#testimonial",
-    Text: "Testimonial",
+    Href: "#story",
+    Text: "Story",
   },
   {
-    Href: "#asset-gallery",
-    Text: "Asset Gallery",
+    Href: "#testimonial",
+    Text: "Testimonial",
   },
 ];
 

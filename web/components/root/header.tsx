@@ -42,14 +42,12 @@ export const Header = () => {
             {isSignedIn ? "Account" : "Sign in"}
           </Link>
           <RatingModal>Rate!</RatingModal>
-          {user?.admin && (
-            <Link
-              className={`${buttonVariants({ variant: "outline" })} w-28 font-geistsans text-sm`}
-              href={"/admin-dashboard"}
-            >
-              Admin
-            </Link>
-          )}
+          <Link
+            className={`${buttonVariants({ variant: "outline" })} w-28 font-geistsans text-sm`}
+            href={"/admin-dashboard"}
+          >
+            Admin
+          </Link>
           <AverageRating />
         </div>
 
