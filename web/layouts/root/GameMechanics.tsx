@@ -6,7 +6,7 @@ export const GameMechanics = () => {
   return (
     <>
       <section
-        id="asset-gallery"
+        id="game-mechanics"
         className="inspect relative h-[120svh] flex-col text-white"
       >
         <img
@@ -37,14 +37,14 @@ export const GameMechanics = () => {
               />
             </div>
           </div>
-          <div className="flex w-[25rem] flex-col gap-10">
+          <div className="-mt-32 flex w-[25rem] flex-col gap-10">
             <div className="flex flex-col gap-2">
-              <h1 className="font-newyear text-5xl tracking-widest drop-shadow-[0_5px_10px_rgba(0,0,0,0.80)]">
+              <h1 className="font-newyear text-6xl tracking-widest drop-shadow-[0_5px_10px_rgba(0,0,0,0.80)]">
                 GAME MECHANICS
               </h1>
-              <p className="mt-2 font-halimount text-2xl tracking-[.05rem] drop-shadow-[0_5px_10px_rgba(0,0,0,0.50)]">
+              <p className="mt-2 font-halimount text-3xl tracking-[.05rem] drop-shadow-[0_5px_10px_rgba(0,0,0,0.50)]">
                 Its simple! JUMP, SWING, and DODGE enemies as you navigate
-                through the jungle to reach the highest score!.
+                through the jungle to live the longest!.
               </p>
             </div>
           </div>
