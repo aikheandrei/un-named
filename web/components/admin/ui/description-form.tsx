@@ -75,7 +75,7 @@ export const DescriptionForm: React.FC<
         <Textarea
           name="description"
           defaultValue={setDescription}
-          placeholder="write a description..."
+          placeholder="write a story..."
         />
         <Button
           className="mt-3 flex w-full items-center gap-1 text-center"

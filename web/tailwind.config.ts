@@ -56,7 +56,9 @@ export default {
   			geistmono: 'var(--font-geist-mono)',
   			geistsans: 'var(--font-geist-sans)',
   			dangsik: 'var(--font-dangsik)',
-  			pocahontas: 'var(--font-pocahontas)'
+  			pocahontas: 'var(--font-pocahontas)',
+  			newyear: 'var(--font-newyear)',
+  			halimount: 'var(--font-halimount)'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
