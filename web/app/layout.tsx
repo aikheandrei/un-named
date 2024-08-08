@@ -12,6 +12,16 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+const dangsik = localFont({
+  src: "../fonts/DANGSIKDEMO-BF673ef8f770e37.otf",
+  variable: "--font-dangsik",
+  weight: "100 900",
+});
+const pocahontas = localFont({
+  src: "../fonts/Pocahontas.ttf",
+  variable: "--font-pocahontas",
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${dangsik.variable} ${pocahontas.variable} antialiased`}
       >
         {children}
       </body>
