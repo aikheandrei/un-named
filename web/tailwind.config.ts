@@ -54,7 +54,9 @@ export default {
   		},
   		fontFamily: {
   			geistmono: 'var(--font-geist-mono)',
-  			geistsans: 'var(--font-geist-sans)'
+  			geistsans: 'var(--font-geist-sans)',
+  			dangsik: 'var(--font-dangsik)',
+  			pocahontas: 'var(--font-pocahontas)'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
