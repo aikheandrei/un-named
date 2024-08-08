@@ -21,6 +21,7 @@
     "drizzle-orm": "^0.36.4",
     "lenis": "^1.1.18",
     "lucide-react": "^0.464.0",
+    "motion": "^11.15.0",
     "mysql2": "^3.11.4",
     "next": "15.0.3",
     "next-auth": "^5.0.0-beta.25",

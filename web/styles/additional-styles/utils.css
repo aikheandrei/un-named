@@ -4,6 +4,10 @@
     --foreground: #171717;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     color: var(--foreground);
     background: var(--background);
@@ -13,7 +17,11 @@
 
 @layer utilities {
   .inspect {
-    border: red solid 1px;
+    border: rgba(255, 0, 0, 0) solid 1px;
+  }
+
+  .inspection {
+    border: rgb(255, 0, 0) solid 1px;
   }
 
   @media (prefers-color-scheme: dark) {

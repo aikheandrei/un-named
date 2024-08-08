@@ -1,11 +1,12 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { StarRating } from "@/components/ui/star-rating";
-import { reviewProps } from "@/types/props";
+import { ReviewProps } from "@/types/props";
 import { useEffect, useState } from "react";
 
-export const AverageRating = () => {
-  const [reviewsData, setReviewsData] = useState<reviewProps[]>([]);
+export const AverageRating: React.FC<{ isRoot?: boolean }> = ({ isRoot }) => {
+  const [reviewsData, setReviewsData] = useState<ReviewProps[]>([]);
 
   const fetchReviews = async () => {
     const res = await fetch(
@@ -34,10 +35,23 @@ export const AverageRating = () => {
 
   return (
     <>
-      <div className="flex flex-row gap-[0.1rem] text-yellow-400">
-        <StarRating rating={ratingAverage} size={20} />
-      </div>
-      <p className="font-geistsans text-sm">{ratingAverage}</p>
+      {isRoot ? (
+        <div className="mt-2 flex flex-row gap-[0.4rem] text-yellow-400 drop-shadow-[0px_5px_5px_rgba(0,0,0,0.90)]">
+          <StarRating rating={ratingAverage} size={38} />
+        </div>
+      ) : (
+        <>
+          <Button
+            variant={"outline"}
+            className="flex h-14 w-28 flex-col font-geistsans"
+          >
+            <div className="flex flex-row gap-[0.1rem] text-yellow-400">
+              <StarRating rating={ratingAverage} size={20} />
+            </div>
+            <p className="-mt-1 font-geistsans text-sm">{ratingAverage}</p>
+          </Button>
+        </>
+      )}
     </>
   );
 };

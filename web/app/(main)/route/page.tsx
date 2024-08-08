@@ -16,31 +16,53 @@ const RoutePage = async () => {
   return (
     <section>
       <div className="mx-auto w-[40rem] border-x-2 pt-14">
+        <h2 className="w-full border border-b-2 py-6 text-center font-geistmono text-lg font-extrabold">
+          Story
+        </h2>
         <Description />
-        {["Testimonials", "Reviews"].map((title, index) => (
-          <div key={index}>
-            <h2 className="font-geistmono text-sm">{title}</h2>
-            {reviewsData
-              .filter(({ testimonial }) =>
-                index === 0 ? testimonial : testimonial !== undefined,
-              )
-              .map(({ id, userId, review, rating }) => {
-                const user = usersData.find((user) => user.id === userId);
+        <h2 className="w-full border border-b-2 py-6 text-center font-geistmono text-lg font-extrabold">
+          Testimonials
+        </h2>
+        {reviewsData
+          .filter(({ testimonial }) => testimonial)
+          .map(({ id, userId, review, rating, testimonial }) => {
+            const user = usersData.find((user) => user.id === userId);
 
-                return (
-                  <UserReview
-                    key={id}
-                    id={id}
-                    img={user?.image}
-                    userName={user?.name}
-                    userEmail={user?.email}
-                    review={review}
-                    rating={rating}
-                  />
-                );
-              })}
-          </div>
-        ))}
+            return (
+              <UserReview
+                key={id}
+                id={id}
+                img={user?.image}
+                userName={user?.name}
+                userEmail={user?.email}
+                review={review}
+                rating={rating}
+                testimonial={testimonial}
+              />
+            );
+          })}
+
+        <h2 className="w-full border border-b-2 py-6 text-center font-geistmono text-lg font-extrabold">
+          Reviews
+        </h2>
+        {reviewsData
+          .filter(({ testimonial }) => !testimonial)
+          .map(({ id, userId, review, rating, testimonial }) => {
+            const user = usersData.find((user) => user.id === userId);
+
+            return (
+              <UserReview
+                key={id}
+                id={id}
+                img={user?.image}
+                userName={user?.name}
+                userEmail={user?.email}
+                review={review}
+                rating={rating}
+                testimonial={testimonial}
+              />
+            );
+          })}
       </div>
     </section>
   );

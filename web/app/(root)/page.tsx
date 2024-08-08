@@ -7,6 +7,7 @@ import About from "@/layouts/root/About";
 import Hero from "@/layouts/root/Hero";
 import Story from "@/layouts/root/Story";
 import Testimonial from "@/layouts/root/Testimonial";
+import AssetGallery from "@/layouts/root/AssetGallery";
 
 export const runtime = "edge";
 
@@ -26,6 +27,7 @@ const RootPage = () => {
     <>
       <Hero />
       <About />
+      <AssetGallery />
       <Story />
       <Testimonial />
     </>

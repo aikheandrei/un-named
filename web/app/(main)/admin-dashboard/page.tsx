@@ -68,7 +68,9 @@ const AdminDashboardPage = () => {
           <section className="grid h-[100svh] items-center justify-center">
             <div className="mx-auto w-[40rem] border-x-2 pt-14">
               <Description isAdmin={true} />
-              <h2 className="font-geistmono text-sm">Testimonials</h2>
+              <h2 className="w-full border border-b-2 py-6 text-center font-geistmono text-lg font-extrabold">
+                Testimonials
+              </h2>
               {reviewsData
                 .filter(({ testimonial }) => testimonial)
                 .map(({ id, userId, review, rating, testimonial }) => {
@@ -90,7 +92,9 @@ const AdminDashboardPage = () => {
                   );
                 })}
 
-              <h2 className="font-geistmono text-sm">Reviews</h2>
+              <h2 className="w-full border border-b-2 py-6 text-center font-geistmono text-lg font-extrabold">
+                Reviews
+              </h2>
               {reviewsData
                 .filter(({ testimonial }) => !testimonial)
                 .map(({ id, userId, review, rating, testimonial }) => {
