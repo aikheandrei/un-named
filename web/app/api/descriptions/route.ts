@@ -72,11 +72,11 @@ export async function PUT(request: Request) {
 
 export async function DELETE(request: Request) {
   try {
-    const { title } = await request.json();
+    const { id } = await request.json();
 
     const data = await database
       .delete(descriptionSchema)
-      .where(eq(descriptionSchema.title, title));
+      .where(eq(descriptionSchema.id, id));
 
     console.log(data);
     return NextResponse.json(data);

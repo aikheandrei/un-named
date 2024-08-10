@@ -1,7 +1,11 @@
 export const RootHeader = () => {
   return (
     <header>
-      <div>hjkl</div>
+      <nav>
+        <a href="">About</a>
+        <a href="">Asset Gallery</a>
+        <a href="">Story</a>
+      </nav>
     </header>
   );
 };

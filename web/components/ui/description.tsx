@@ -21,14 +21,14 @@ const Description: React.FC<{ isAdmin?: boolean }> = ({ isAdmin = false }) => {
     fetchDescriptions();
   }, []);
 
-  const deleteDescription = async (title: string) => {
+  const deleteDescription = async (id: number) => {
     await fetch(`/api/descriptions`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title,
+        id,
       }),
     });
     fetchDescriptions();
@@ -67,7 +67,7 @@ const Description: React.FC<{ isAdmin?: boolean }> = ({ isAdmin = false }) => {
                 >
                   Edit
                 </DescriptionModal>
-                <Button onClick={() => deleteDescription(title)}>Delete</Button>
+                <Button onClick={() => deleteDescription(id)}>Delete</Button>
               </div>
             )}
           </div>
