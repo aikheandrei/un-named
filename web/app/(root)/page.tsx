@@ -1,4 +1,4 @@
-import Root from "@/layouts/Root";
+import Root from "@/layouts/root/Root";
 
 export const runtime = "edge";
 
