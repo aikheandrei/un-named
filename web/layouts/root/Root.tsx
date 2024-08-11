@@ -1,10 +1,25 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import Lenis from "lenis";
 import { buttonVariants } from "@/components/ui/button";
+import { useEffect } from "react";
 
 export default function Root() {
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: DOMHighResTimeStamp) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  });
+
   return (
-    <section className="flex min-h-screen items-center justify-center">
+    <section className="flex h-[200svh] items-center justify-center">
       <div className="font-geistsans">
         <h1 className="mb-2 flex gap-2 font-geistmono text-[1.4rem] font-bold">
           Drizzling
