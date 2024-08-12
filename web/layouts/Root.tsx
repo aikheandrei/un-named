@@ -4,7 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 
 export default function Root() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
+    <section className="flex min-h-screen items-center justify-center">
       <div className="font-geistsans">
         <h1 className="mb-2 flex gap-2 font-geistmono text-[1.4rem] font-bold">
           Drizzling
@@ -28,13 +28,13 @@ export default function Root() {
         </ol>
 
         <Link
-          href="/router/route"
+          href="/route"
           // className="flex h-12 max-w-fit items-center justify-center rounded-full bg-foreground px-[1.5rem] text-base text-background transition-colors hover:bg-[#ccc]"
           className={buttonVariants({ variant: "default" })}
         >
           Checkout route →
         </Link>
       </div>
-    </div>
+    </section>
   );
 }

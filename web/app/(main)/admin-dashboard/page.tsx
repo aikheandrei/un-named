@@ -1,6 +1,5 @@
 "use client";
-import { DescriptionModal } from "@/components/admin/description-modal";
-import { Button } from "@/components/ui/button";
+
 import { Description } from "@/components/ui/description";
 import { UserReview } from "@/components/ui/user-review";
 import { ReviewProps, UserProps } from "@/types/props";
@@ -9,8 +8,6 @@ import { useEffect, useState } from "react";
 export const runtime = "edge";
 
 const AdminDashboardPage = () => {
-  const [isTestimonial, setIsTestimonial] = useState<boolean>(false);
-
   const [user, setUser] = useState<UserProps | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [reviewsData, setReviewsData] = useState<ReviewProps[]>([]);
