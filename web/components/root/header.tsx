@@ -43,7 +43,7 @@ export const Header = () => {
           {!inAdminPage && (
             <Link
               className={`${buttonVariants({ variant: "outline" })} w-24 font-geistsans text-sm`}
-              href={"/router/admin-dashboard"}
+              href={"/admin-dashboard"}
             >
               Admin
             </Link>

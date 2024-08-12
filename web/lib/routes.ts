@@ -4,12 +4,16 @@ const Routes = [
     Text: "root",
   },
   {
-    Link: "/router",
-    Text: "router",
+    Link: "/route",
+    Text: "route",
   },
   {
-    Link: "/router/route",
-    Text: "route✨",
+    Link: "/overview",
+    Text: "overview",
+  },
+  {
+    Link: "/admin-dashboard",
+    Text: "admin-dashboard",
   },
 ];
 
