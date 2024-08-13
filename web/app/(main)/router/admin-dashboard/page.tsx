@@ -70,9 +70,6 @@ const AdminDashboardPage = () => {
         <>
           <section className="grid h-[100svh] items-center justify-center">
             <div className="mx-auto w-[40rem] border-x-2 pt-14">
-              <DescriptionModal request="POST">
-                New Description
-              </DescriptionModal>
               <Description isAdmin={true} />
               <h2 className="font-geistmono text-sm">Testimonials</h2>
               {reviewsData
