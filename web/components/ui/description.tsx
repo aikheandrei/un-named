@@ -31,10 +31,24 @@ const Description: React.FC<{ isAdmin?: boolean }> = ({ isAdmin = false }) => {
         title,
       }),
     });
+    fetchDescriptions();
+  };
+
+  const handleRefreshDescriptions = () => {
+    fetchDescriptions();
+    console.log("fetch description");
   };
 
   return (
     <>
+      {isAdmin && (
+        <DescriptionModal
+          onDescriptionUpdate={handleRefreshDescriptions}
+          request="POST"
+        >
+          New Description
+        </DescriptionModal>
+      )}
       {descriptionsData.map(
         ({ id, title, description, createdAt, updatedAt }, index) => (
           <div className="text-sm" key={index}>
@@ -46,6 +60,7 @@ const Description: React.FC<{ isAdmin?: boolean }> = ({ isAdmin = false }) => {
               <div className="space-x-2 font-geistsans">
                 <DescriptionModal
                   request="PUT"
+                  onDescriptionUpdate={handleRefreshDescriptions}
                   id={id}
                   title={title}
                   description={description}

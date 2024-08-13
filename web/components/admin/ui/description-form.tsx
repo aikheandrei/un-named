@@ -10,12 +10,15 @@ interface RatingFormProps {
   request: string;
 }
 
-export const DescriptionForm: React.FC<RatingFormProps> = ({
+export const DescriptionForm: React.FC<
+  RatingFormProps & { onDescriptionUpdate?: () => void }
+> = ({
   toggleModal,
   id,
   setTitle,
   setDescription,
   request,
+  onDescriptionUpdate,
 }) => {
   return (
     <div
@@ -31,7 +34,7 @@ export const DescriptionForm: React.FC<RatingFormProps> = ({
           const description = formData.get("description") as string;
 
           if (request === "POST") {
-            await fetch(`/api/descriptions`, {
+            const response = await fetch(`/api/descriptions`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -41,7 +44,10 @@ export const DescriptionForm: React.FC<RatingFormProps> = ({
                 description,
               }),
             });
-            toggleModal?.();
+
+            if (response.ok) {
+              onDescriptionUpdate?.();
+            }
           } else if (request === "PUT") {
             await fetch(`/api/descriptions`, {
               method: "PUT",
@@ -54,8 +60,10 @@ export const DescriptionForm: React.FC<RatingFormProps> = ({
                 description,
               }),
             });
-            toggleModal?.();
           }
+
+          toggleModal?.();
+          onDescriptionUpdate?.();
         }}
       >
         <Textarea

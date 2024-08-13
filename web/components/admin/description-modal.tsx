@@ -9,20 +9,16 @@ import Backdrop from "../ui/backdrop";
 
 interface RatingModalProps {
   children: React.ReactNode;
-  id?: string;
+  id?: number;
   title?: string;
   description?: string;
   edit?: boolean | false;
   request: string;
 }
 
-export const DescriptionModal: React.FC<RatingModalProps> = ({
-  children,
-  id,
-  title,
-  description,
-  request,
-}) => {
+export const DescriptionModal: React.FC<
+  RatingModalProps & { onDescriptionUpdate?: () => void }
+> = ({ children, id, title, description, request, onDescriptionUpdate }) => {
   const [modal, toggleModal] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
@@ -54,6 +50,7 @@ export const DescriptionModal: React.FC<RatingModalProps> = ({
               setDescription={description}
               toggleModal={() => toggleModal(!modal)}
               request={request}
+              onDescriptionUpdate={onDescriptionUpdate}
             />
           </Backdrop>,
           ratingModal,
