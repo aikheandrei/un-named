@@ -1,5 +1,4 @@
 "use client";
-
 import { DescriptionModal } from "@/components/admin/description-modal";
 import { Button } from "@/components/ui/button";
 import { Description } from "@/components/ui/description";
@@ -10,9 +9,10 @@ import { useEffect, useState } from "react";
 export const runtime = "edge";
 
 const AdminDashboardPage = () => {
-  const [user, setUser] = useState<UserProps | null>(null);
-  const [loading, setloading] = useState<boolean>(true);
+  const [isTestimonial, setIsTestimonial] = useState<boolean>(false);
 
+  const [user, setUser] = useState<UserProps | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   const [reviewsData, setReviewsData] = useState<ReviewProps[]>([]);
   const [usersData, setUsersData] = useState<UserProps[]>([]);
 
@@ -35,14 +35,13 @@ const AdminDashboardPage = () => {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/auth`,
       ).then((res) => res.json());
-
       if (res) {
         setUser(res.user);
       }
     } catch (error) {
       console.error("Failed to fetch user admin status", error);
     } finally {
-      setloading(false);
+      setLoading(false);
     }
   };
 
@@ -51,6 +50,11 @@ const AdminDashboardPage = () => {
     fetchReviews();
     fetchUsers();
   }, []);
+
+  const handleRefreshReviews = () => {
+    fetchReviews();
+    fetchUsers();
+  };
 
   if (loading) {
     return (
@@ -69,36 +73,50 @@ const AdminDashboardPage = () => {
               <DescriptionModal request="POST">
                 New Description
               </DescriptionModal>
-
               <Description isAdmin={true} />
-              {["Testimonials", "Reviews"].map((title, index) => (
-                <div key={index}>
-                  <h2 className="font-geistmono text-sm" key={index}>
-                    {title}
-                  </h2>
-                  {reviewsData
-                    .filter(({ testimonial }) =>
-                      index === 0 ? testimonial : testimonial !== undefined,
-                    )
-                    .map(({ id, userId, review, rating, testimonial }) => {
-                      const user = usersData.find((user) => user.id === userId);
+              <h2 className="font-geistmono text-sm">Testimonials</h2>
+              {reviewsData
+                .filter(({ testimonial }) => testimonial)
+                .map(({ id, userId, review, rating, testimonial }) => {
+                  const user = usersData.find((user) => user.id === userId);
 
-                      return (
-                        <UserReview
-                          key={id}
-                          id={id}
-                          img={user?.image}
-                          userName={user?.name}
-                          userEmail={user?.email}
-                          review={review}
-                          rating={rating}
-                          testimonial={testimonial}
-                          isAdmin={true}
-                        />
-                      );
-                    })}
-                </div>
-              ))}
+                  return (
+                    <UserReview
+                      key={id}
+                      id={id}
+                      img={user?.image}
+                      userName={user?.name}
+                      userEmail={user?.email}
+                      review={review}
+                      rating={rating}
+                      testimonial={testimonial}
+                      isAdmin={true}
+                      onTestimonialToggle={handleRefreshReviews}
+                    />
+                  );
+                })}
+
+              <h2 className="font-geistmono text-sm">Reviews</h2>
+              {reviewsData
+                .filter(({ testimonial }) => !testimonial)
+                .map(({ id, userId, review, rating, testimonial }) => {
+                  const user = usersData.find((user) => user.id === userId);
+
+                  return (
+                    <UserReview
+                      key={id}
+                      id={id}
+                      img={user?.image}
+                      userName={user?.name}
+                      userEmail={user?.email}
+                      review={review}
+                      rating={rating}
+                      testimonial={testimonial}
+                      isAdmin={true}
+                      onTestimonialToggle={handleRefreshReviews}
+                    />
+                  );
+                })}
             </div>
           </section>
           <div id="description-modal"></div>
