@@ -193,6 +193,7 @@ jje/
   - [ ]
   - [ ] Skeleton loader
   - [ ] Props on types
+  - [ ] Refreshes dynamicaly
 
 - MISCS
 
