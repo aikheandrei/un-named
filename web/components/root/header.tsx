@@ -34,7 +34,7 @@ export const Header = () => {
       <nav className="fixed left-[50%] h-14 w-[40rem] -translate-x-1/2 gap-2 whitespace-nowrap border border-t-0 backdrop-blur-md">
         <div className="absolute right-[100%] flex flex-col items-center justify-center gap-2 pr-8 pt-4">
           <Link
-            className={`${buttonVariants({ variant: "default" })} w-24 text-sm`}
+            className={`${buttonVariants({ variant: "default" })} w-24 font-geistsans text-sm`}
             href={"/router/overview"}
           >
             {isSignedIn ? "Account" : "Sign in"}
@@ -42,7 +42,7 @@ export const Header = () => {
           <RatingModal>Rate!</RatingModal>
           {!inAdminPage && (
             <Link
-              className={`${buttonVariants({ variant: "outline" })} w-24 text-sm`}
+              className={`${buttonVariants({ variant: "outline" })} w-24 font-geistsans text-sm`}
               href={"/router/admin-dashboard"}
             >
               Admin
