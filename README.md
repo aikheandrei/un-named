@@ -172,8 +172,9 @@ jje/
     - [x] Created and updated at (date)
     - [x] Route handler
     - [x] Fetching
-    - [ ] Editing/Updating
-    - [ ] Deleting
+    - [x] Editing/Updating
+    - [x] Deleting
+    - [ ] Format date/time to ph timezone
     - [ ] Proper loading/fetching
   - [ ] Notification
   - [ ] Testimonials
