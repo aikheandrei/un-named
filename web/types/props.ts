@@ -21,6 +21,7 @@ export interface UserProps {
 }
 
 export interface DescriptionProps {
+  id: number;
   title: string;
   description: string;
   createdAt: number;

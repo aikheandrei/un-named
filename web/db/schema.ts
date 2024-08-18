@@ -111,6 +111,7 @@ export const reviews = mysqlTable("reviews_table", {
 });
 
 export const descriptions = mysqlTable("descriptions_table", {
+  id: serial("id").primaryKey(),
   title: text("title").notNull(),
   description: text("review").notNull(),
   createdAt: datetime("createdAt", { mode: "date", fsp: 3 })

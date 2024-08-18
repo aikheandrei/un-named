@@ -49,17 +49,20 @@ export async function POST(request: Request) {
 
 export async function PUT(request: Request) {
   try {
-    const { title, description } = await request.json();
+    const { id, title, description } = await request.json();
+
+    const currentTimestamp = new Date();
 
     const data = await database
       .update(descriptionSchema)
       .set({
         title,
         description,
+        updatedAt: currentTimestamp,
       })
-      .where(eq(descriptionSchema.title, title));
+      .where(eq(descriptionSchema.id, id));
 
-    console.log(data);
+    console.log({ id, title, description, updatedAt: currentTimestamp });
     return NextResponse.json(data);
   } catch (error) {
     console.error("Error during HTTP POST request:", error);
