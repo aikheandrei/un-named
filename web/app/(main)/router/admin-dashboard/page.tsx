@@ -66,7 +66,9 @@ const AdminDashboardPage = () => {
         <>
           <section className="grid h-[100svh] items-center justify-center">
             <div className="mx-auto w-[40rem] border-x-2 pt-14">
-              <DescriptionModal>New Description</DescriptionModal>
+              <DescriptionModal request="POST">
+                New Description
+              </DescriptionModal>
 
               <Description isAdmin={true} />
               {["Testimonials", "Reviews"].map((title, index) => (

@@ -3,6 +3,7 @@
 import { DescriptionProps } from "@/types/props";
 import { useEffect, useState } from "react";
 import { Button } from "./button";
+import { DescriptionModal } from "../admin/description-modal";
 
 const Description: React.FC<{ isAdmin?: boolean }> = ({ isAdmin = false }) => {
   const [descriptionsData, setDescriptionsData] = useState<DescriptionProps[]>(
@@ -35,7 +36,7 @@ const Description: React.FC<{ isAdmin?: boolean }> = ({ isAdmin = false }) => {
   return (
     <>
       {descriptionsData.map(
-        ({ title, description, createdAt, updatedAt }, index) => (
+        ({ id, title, description, createdAt, updatedAt }, index) => (
           <div className="text-sm" key={index}>
             <h1>{title}</h1>
             <p>{description}</p>
@@ -43,7 +44,14 @@ const Description: React.FC<{ isAdmin?: boolean }> = ({ isAdmin = false }) => {
             <p>{updatedAt}</p>
             {isAdmin && (
               <div className="space-x-2 font-geistsans">
-                <Button>Edit</Button>
+                <DescriptionModal
+                  request="PUT"
+                  id={id}
+                  title={title}
+                  description={description}
+                >
+                  Edit
+                </DescriptionModal>
                 <Button onClick={() => deleteDescription(title)}>Delete</Button>
               </div>
             )}
