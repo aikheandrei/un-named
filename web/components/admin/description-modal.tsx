@@ -2,16 +2,18 @@
 
 import { useEffect, useState } from "react";
 
-import { RatingForm } from "./ui/rating-form";
-import Backdrop from "../ui/backdrop";
 import { Button } from "../ui/button";
 import { createPortal } from "react-dom";
+import { DescriptionForm } from "./ui/description-form";
+import Backdrop from "../ui/backdrop";
 
 interface RatingModalProps {
   children: React.ReactNode;
+  title: string;
+  description: string;
 }
 
-export const RatingModal = ({ children }: RatingModalProps) => {
+export const DescriptionModal = ({ children }: RatingModalProps) => {
   const [modal, toggleModal] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
@@ -21,13 +23,14 @@ export const RatingModal = ({ children }: RatingModalProps) => {
 
   if (!isClient) return <></>;
 
-  const ratingModal = document.getElementById("rating-modal") || document.body;
+  const ratingModal =
+    document.getElementById("description-modal") || document.body;
 
   return (
     <>
       <Button
         onClick={() => toggleModal(!modal)}
-        className="w-24 font-geistsans text-sm"
+        className="font-geistsans text-sm"
         variant={"outline"}
       >
         {children}
@@ -36,7 +39,7 @@ export const RatingModal = ({ children }: RatingModalProps) => {
       {modal &&
         createPortal(
           <Backdrop onClick={() => toggleModal(!modal)}>
-            <RatingForm toggleModal={() => toggleModal(!modal)} />
+            <DescriptionForm toggleModal={() => toggleModal(!modal)} />
           </Backdrop>,
           ratingModal,
         )}

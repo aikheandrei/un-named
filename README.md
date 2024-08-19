@@ -168,8 +168,13 @@ jje/
     - [x] Manage testimonials/reviews
     - [ ] Drag & drop??????
   - [ ] Description
-    - [ ] Crud process
-    - [ ] Created and updated at (date)
+    - [x] Update schema for descriptions
+    - [x] Created and updated at (date)
+    - [x] Route handler
+    - [x] Fetching
+    - [ ] Editing/Updating
+    - [ ] Deleting
+    - [ ] Proper loading/fetching
   - [ ] Notification
   - [ ] Testimonials
   - [ ] Visitors count

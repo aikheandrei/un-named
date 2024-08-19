@@ -1,5 +1,7 @@
 "use client";
 
+import { DescriptionModal } from "@/components/admin/description-modal";
+import { Button } from "@/components/ui/button";
 import { Description } from "@/components/ui/description";
 import { UserReview } from "@/components/ui/user-review";
 import { ReviewProps, UserProps } from "@/types/props";
@@ -61,39 +63,44 @@ const AdminDashboardPage = () => {
   return (
     <>
       {user?.admin ? (
-        <section className="grid h-[100svh] items-center justify-center">
-          <div className="mx-auto w-[40rem] border-x-2 pt-14">
-            <Description />
-            {["Testimonials", "Reviews"].map((title, index) => (
-              <div key={index}>
-                <h2 className="font-geistmono text-sm" key={index}>
-                  {title}
-                </h2>
-                {reviewsData
-                  .filter(({ testimonial }) =>
-                    index === 0 ? testimonial : testimonial !== undefined,
-                  )
-                  .map(({ id, userId, review, rating, testimonial }) => {
-                    const user = usersData.find((user) => user.id === userId);
+        <>
+          <section className="grid h-[100svh] items-center justify-center">
+            <div className="mx-auto w-[40rem] border-x-2 pt-14">
+              <DescriptionModal>New Description</DescriptionModal>
 
-                    return (
-                      <UserReview
-                        key={id}
-                        id={id}
-                        img={user?.image}
-                        userName={user?.name}
-                        userEmail={user?.email}
-                        review={review}
-                        rating={rating}
-                        testimonial={testimonial}
-                        isAdmin={true}
-                      />
-                    );
-                  })}
-              </div>
-            ))}
-          </div>
-        </section>
+              <Description isAdmin={true} />
+              {["Testimonials", "Reviews"].map((title, index) => (
+                <div key={index}>
+                  <h2 className="font-geistmono text-sm" key={index}>
+                    {title}
+                  </h2>
+                  {reviewsData
+                    .filter(({ testimonial }) =>
+                      index === 0 ? testimonial : testimonial !== undefined,
+                    )
+                    .map(({ id, userId, review, rating, testimonial }) => {
+                      const user = usersData.find((user) => user.id === userId);
+
+                      return (
+                        <UserReview
+                          key={id}
+                          id={id}
+                          img={user?.image}
+                          userName={user?.name}
+                          userEmail={user?.email}
+                          review={review}
+                          rating={rating}
+                          testimonial={testimonial}
+                          isAdmin={true}
+                        />
+                      );
+                    })}
+                </div>
+              ))}
+            </div>
+          </section>
+          <div id="description-modal"></div>
+        </>
       ) : (
         <section className="grid h-[100svh] items-center justify-center font-geistmono">
           <p className="text-sm">You're not an admin</p>

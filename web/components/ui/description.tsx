@@ -2,8 +2,9 @@
 
 import { DescriptionProps } from "@/types/props";
 import { useEffect, useState } from "react";
+import { Button } from "./button";
 
-const Description = () => {
+const Description: React.FC<{ isAdmin?: boolean }> = ({ isAdmin = false }) => {
   const [descriptionsData, setDescriptionsData] = useState<DescriptionProps[]>(
     [],
   );
@@ -19,7 +20,17 @@ const Description = () => {
     fetchDescriptions();
   }, []);
 
-  // console.log(descriptionsData);
+  const deleteDescription = async (title: string) => {
+    await fetch(`/api/descriptions`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+      }),
+    });
+  };
 
   return (
     <>
@@ -30,6 +41,12 @@ const Description = () => {
             <p>{description}</p>
             <p>{createdAt}</p>
             <p>{updatedAt}</p>
+            {isAdmin && (
+              <div className="space-x-2 font-geistsans">
+                <Button>Edit</Button>
+                <Button onClick={() => deleteDescription(title)}>Delete</Button>
+              </div>
+            )}
           </div>
         ),
       )}
