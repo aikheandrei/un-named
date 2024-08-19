@@ -66,3 +66,19 @@ export async function PUT(request: Request) {
     return handleError(error);
   }
 }
+
+export async function DELETE(request: Request) {
+  try {
+    const { title } = await request.json();
+
+    const data = await database
+      .delete(descriptionSchema)
+      .where(eq(descriptionSchema.title, title));
+
+    console.log(data);
+    return NextResponse.json(data);
+  } catch (error) {
+    console.error("Error during HTTP POST request:", error);
+    return handleError(error);
+  }
+}
