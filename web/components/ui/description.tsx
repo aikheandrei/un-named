@@ -1,21 +1,38 @@
+"use client";
+
 import { DescriptionProps } from "@/types/props";
+import { useEffect, useState } from "react";
 
-const Description = async () => {
-  const descriptionsData: DescriptionProps[] = await fetch(
-    `${process.env.WEBSITE_URL}/api/descriptions`,
-  ).then((res) => res.json());
+const Description = () => {
+  const [descriptionsData, setDescriptionsData] = useState<DescriptionProps[]>(
+    [],
+  );
 
-  console.log(descriptionsData);
+  const fetchDescriptions = async () => {
+    const descriptions: DescriptionProps[] = await fetch(
+      `/api/descriptions`,
+    ).then((res) => res.json());
+    descriptions ? setDescriptionsData(descriptions) : [];
+  };
+
+  useEffect(() => {
+    fetchDescriptions();
+  }, []);
+
+  // console.log(descriptionsData);
 
   return (
     <>
-      <h1>Description</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus
-        reiciendis voluptatum blanditiis. Temporibus laborum cupiditate
-        repudiandae, alias voluptatibus fuga voluptas quis vitae expedita soluta
-        culpa rem sit sint aut consectetur.
-      </p>
+      {descriptionsData.map(
+        ({ title, description, createdAt, updatedAt }, index) => (
+          <div className="text-sm" key={index}>
+            <h1>{title}</h1>
+            <p>{description}</p>
+            <p>{createdAt}</p>
+            <p>{updatedAt}</p>
+          </div>
+        ),
+      )}
     </>
   );
 };
