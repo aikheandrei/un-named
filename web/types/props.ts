@@ -19,3 +19,10 @@ export interface UserProps {
   image: string;
   admin: boolean;
 }
+
+export interface DescriptionProps {
+  title: string;
+  description: string;
+  createdAt: number;
+  updatedAt: number;
+}

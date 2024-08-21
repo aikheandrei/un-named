@@ -1,4 +1,12 @@
-const Description = () => {
+import { DescriptionProps } from "@/types/props";
+
+const Description = async () => {
+  const descriptionsData: DescriptionProps[] = await fetch(
+    `${process.env.WEBSITE_URL}/api/descriptions`,
+  ).then((res) => res.json());
+
+  console.log(descriptionsData);
+
   return (
     <>
       <h1>Description</h1>
