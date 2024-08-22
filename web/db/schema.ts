@@ -1,5 +1,7 @@
+import { sql } from "drizzle-orm";
 import {
   boolean,
+  datetime,
   int,
   mysqlTable,
   primaryKey,
@@ -106,4 +108,16 @@ export const reviews = mysqlTable("reviews_table", {
     .notNull()
     .references(() => users.id, { onDelete: "cascade" })
     .default(""),
+});
+
+export const descriptions = mysqlTable("descriptions_table", {
+  title: text("review").notNull(),
+  description: text("review").notNull(),
+  createdAt: datetime("createdAt", { mode: "date", fsp: 3 })
+    .default(sql`CURRENT_TIMESTAMP(3)`)
+    .notNull(),
+  updatedAt: datetime("updatedAt", { mode: "date", fsp: 3 })
+    .default(sql`CURRENT_TIMESTAMP(3)`)
+    .notNull()
+    .$onUpdate(() => sql`CURRENT_TIMESTAMP(3)`),
 });
