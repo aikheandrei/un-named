@@ -167,6 +167,8 @@ jje/
     - [x] Loading state
     - [x] Manage testimonials/reviews
     - [ ] Drag & drop??????
+  - [ ] Description
+    - [ ] Crud process
   - [ ] Notification
   - [ ] Testimonials
   - [ ] Visitors count
