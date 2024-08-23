@@ -1,3 +1,4 @@
+import { Description } from "@/components/ui/description";
 import { UserReview } from "@/components/ui/user-review";
 import { ReviewProps, UserProps } from "@/types/props";
 
@@ -15,11 +16,10 @@ const RoutePage = async () => {
   return (
     <section>
       <div className="mx-auto w-[40rem] border-x-2 pt-14">
+        <Description />
         {["Testimonials", "Reviews"].map((title, index) => (
-          <>
-            <h2 className="font-geistmono text-sm" key={index}>
-              {title}
-            </h2>
+          <div key={index}>
+            <h2 className="font-geistmono text-sm">{title}</h2>
             {reviewsData
               .filter(({ testimonial }) =>
                 index === 0 ? testimonial : testimonial !== undefined,
@@ -39,7 +39,7 @@ const RoutePage = async () => {
                   />
                 );
               })}
-          </>
+          </div>
         ))}
       </div>
     </section>
