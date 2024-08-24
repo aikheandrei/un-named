@@ -164,7 +164,9 @@ jje/
     - [ ] Review date
   - [ ] Admin page
     - [x] Non admin prevention
-    - [ ] Manage testimonials/comments
+    - [x] Loading state
+    - [x] Manage testimonials/reviews
+    - [ ] Drag & drop??????
   - [ ] Notification
   - [ ] Testimonials
   - [ ] Visitors count

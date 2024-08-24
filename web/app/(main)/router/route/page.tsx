@@ -17,7 +17,9 @@ const RoutePage = async () => {
       <div className="mx-auto w-[40rem] border-x-2 pt-14">
         {["Testimonials", "Reviews"].map((title, index) => (
           <>
-            <h2 key={index}>{title}</h2>
+            <h2 className="font-geistmono text-sm" key={index}>
+              {title}
+            </h2>
             {reviewsData
               .filter(({ testimonial }) =>
                 index === 0 ? testimonial : testimonial !== undefined,
