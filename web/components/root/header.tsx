@@ -7,6 +7,7 @@ import { RatingModal } from "./rating-modal";
 import { buttonVariants } from "../ui/button";
 import { RouteLinks } from "./utils/route-links";
 import { AverageRating } from "./utils/average-rating";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -26,6 +27,8 @@ export const Header = () => {
     checkUserSignIn();
   });
 
+  const inAdminPage = usePathname() === "/router/admin-dashboard";
+
   return (
     <header>
       <nav className="fixed left-[50%] h-14 w-[40rem] -translate-x-1/2 gap-2 whitespace-nowrap border border-t-0 font-geistsans backdrop-blur-md">
@@ -37,12 +40,14 @@ export const Header = () => {
             {isSignedIn ? "Account" : "Sign in"}
           </Link>
           <RatingModal>Rate!</RatingModal>
-          <Link
-            className={`${buttonVariants({ variant: "outline" })} w-24 text-sm`}
-            href={"/router/admin-dashboard"}
-          >
-            Admin
-          </Link>
+          {!inAdminPage && (
+            <Link
+              className={`${buttonVariants({ variant: "outline" })} w-24 text-sm`}
+              href={"/router/admin-dashboard"}
+            >
+              Admin
+            </Link>
+          )}
           <AverageRating />
         </div>
 

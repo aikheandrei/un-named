@@ -15,21 +15,30 @@ const RoutePage = async () => {
   return (
     <section>
       <div className="mx-auto w-[40rem] border-x-2 pt-14">
-        {reviewsData.map(({ id, userId, review, rating }) => {
-          const user = usersData.find((user) => user.id === userId);
+        {["Testimonials", "Reviews"].map((title, index) => (
+          <>
+            <h2 key={index}>{title}</h2>
+            {reviewsData
+              .filter(({ testimonial }) =>
+                index === 0 ? testimonial : testimonial !== undefined,
+              )
+              .map(({ id, userId, review, rating }) => {
+                const user = usersData.find((user) => user.id === userId);
 
-          return (
-            <UserReview
-              key={id}
-              id={id}
-              img={user?.image}
-              userName={user?.name}
-              userEmail={user?.email}
-              review={review}
-              rating={rating}
-            />
-          );
-        })}
+                return (
+                  <UserReview
+                    key={id}
+                    id={id}
+                    img={user?.image}
+                    userName={user?.name}
+                    userEmail={user?.email}
+                    review={review}
+                    rating={rating}
+                  />
+                );
+              })}
+          </>
+        ))}
       </div>
     </section>
   );
