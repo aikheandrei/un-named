@@ -1,3 +1,5 @@
+"use client";
+
 import { ReviewProps } from "@/types/props";
 import { StarRating } from "../ui/star-rating";
 import { Button } from "./button";
@@ -12,6 +14,19 @@ const UserReview: React.FC<ReviewProps> = ({
   userEmail,
   isAdmin,
 }) => {
+  const setTestimonial = async (testimonial: boolean, id: number) => {
+    await fetch(`/api/reviews`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        testimonial,
+        id,
+      }),
+    });
+  };
+
   return (
     <div className="flex gap-2 border-b-2 px-8 py-4">
       <img
@@ -35,8 +50,16 @@ const UserReview: React.FC<ReviewProps> = ({
 
         {isAdmin && (
           <>
-            <p className="mb-[.4rem] mt-[.1rem] leading-5">true</p>
-            <Button>testimonial</Button>
+            {testimonial ? (
+              <p className="mb-[.4rem] mt-[.1rem] leading-5">true</p>
+            ) : (
+              <p className="mb-[.4rem] mt-[.1rem] leading-5">false</p>
+            )}
+            {id !== undefined && (
+              <Button onClick={() => setTestimonial(!testimonial, id)}>
+                Testimonial
+              </Button>
+            )}
           </>
         )}
       </div>

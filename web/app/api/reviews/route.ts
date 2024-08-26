@@ -47,18 +47,14 @@ export async function POST(request: Request) {
 
 export async function PUT(request: Request) {
   try {
-    const { review, rating, userId } = await request.json();
+    const { testimonial, id } = await request.json();
 
-    const data = await database.insert(reviewSchema).values({
-      review,
-      rating,
-      userId,
-    });
-
-    const currentReview = await database
-      .select({ id: reviewSchema.id, review: reviewSchema.review })
-      .from(reviewSchema)
-      .where(eq(reviewSchema.id, data[0].insertId));
+    const data = await database
+      .update(reviewSchema)
+      .set({
+        testimonial,
+      })
+      .where(eq(reviewSchema.id, id));
 
     // console.log(currentReview);
     return NextResponse.json(data);
