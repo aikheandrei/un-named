@@ -40,6 +40,7 @@ export const RatingForm: React.FC<RatingFormProps> = ({ toggleModal }) => {
       onClick={(e) => e.stopPropagation()}
     >
       <form
+        className="text-sm"
         onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
           const formData = new FormData(e.currentTarget);

@@ -1,22 +1,9 @@
-import { reviewProps } from "@/types/props";
+import { ReviewProps } from "@/types/props";
 import { StarRating } from "../ui/star-rating";
+import { Button } from "./button";
 
-const AdminUserReview: React.FC<reviewProps> = ({
-  review,
-  rating,
-  testimonial,
-  img,
-  userName,
-  userEmail,
-}) => {
-  return (
-    <>
-      <div></div>
-    </>
-  );
-};
-
-const UserReview: React.FC<reviewProps> = ({
+const UserReview: React.FC<ReviewProps> = ({
+  id,
   review,
   rating,
   testimonial,
@@ -32,7 +19,8 @@ const UserReview: React.FC<reviewProps> = ({
         src={img}
         alt="User Profile"
       />
-      <div className="mt-[.05rem] font-geistsans">
+
+      <div className="mt-[.05rem] font-geistsans text-sm">
         <a className="flex gap-2">
           <span className="font-semibold">{userName}</span>
           <span className="text-neutral-500">{userEmail}</span>
@@ -40,7 +28,17 @@ const UserReview: React.FC<reviewProps> = ({
         <div className="-ml-[.2rem] mt-[.15rem] flex flex-row gap-[0.03rem] text-yellow-400">
           <StarRating rating={rating ?? 0} size={18} />
         </div>
-        <p className="mt-[.1rem] leading-5">{review}</p>
+
+        <p className="mb-[1rem] mt-[.1rem] leading-5">
+          {id} {review}
+        </p>
+
+        {isAdmin && (
+          <>
+            <p className="mb-[.4rem] mt-[.1rem] leading-5">true</p>
+            <Button>testimonial</Button>
+          </>
+        )}
       </div>
     </div>
   );

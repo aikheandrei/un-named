@@ -1,10 +1,10 @@
 import { UserReview } from "@/components/ui/user-review";
-import { reviewProps, UserProps } from "@/types/props";
+import { ReviewProps, UserProps } from "@/types/props";
 
 export const runtime = "edge";
 
 const RoutePage = async () => {
-  const reviewsData: reviewProps[] = await fetch(
+  const reviewsData: ReviewProps[] = await fetch(
     `${process.env.WEBSITE_URL}/api/reviews`,
   ).then((res) => res.json());
 
@@ -21,6 +21,7 @@ const RoutePage = async () => {
           return (
             <UserReview
               key={id}
+              id={id}
               img={user?.image}
               userName={user?.name}
               userEmail={user?.email}

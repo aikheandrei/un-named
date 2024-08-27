@@ -37,7 +37,7 @@ export const AverageRating = () => {
       <div className="flex flex-row gap-[0.1rem] text-yellow-400">
         <StarRating rating={ratingAverage} size={20} />
       </div>
-      <p>{ratingAverage}</p>
+      <p className="text-sm">{ratingAverage}</p>
     </>
   );
 };
