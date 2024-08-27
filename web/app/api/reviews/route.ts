@@ -44,3 +44,26 @@ export async function POST(request: Request) {
     return handleError(error);
   }
 }
+
+export async function PUT(request: Request) {
+  try {
+    const { review, rating, userId } = await request.json();
+
+    const data = await database.insert(reviewSchema).values({
+      review,
+      rating,
+      userId,
+    });
+
+    const currentReview = await database
+      .select({ id: reviewSchema.id, review: reviewSchema.review })
+      .from(reviewSchema)
+      .where(eq(reviewSchema.id, data[0].insertId));
+
+    // console.log(currentReview);
+    return NextResponse.json(data);
+  } catch (error) {
+    console.error("Error during HTTP POST request:", error);
+    return handleError(error);
+  }
+}

@@ -27,7 +27,7 @@ export const RatingModal = ({ children }: RatingModalProps) => {
     <>
       <Button
         onClick={() => toggleModal(!modal)}
-        className="w-24"
+        className="w-24 text-sm"
         variant={"outline"}
       >
         {children}

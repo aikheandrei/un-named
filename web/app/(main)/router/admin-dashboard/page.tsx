@@ -1,7 +1,7 @@
 "use client";
 
-import { UserProps } from "@/types/props";
-import Image from "next/image";
+import { UserReview } from "@/components/ui/user-review";
+import { ReviewProps, UserProps } from "@/types/props";
 import { useEffect, useState } from "react";
 
 export const runtime = "edge";
@@ -9,6 +9,23 @@ export const runtime = "edge";
 const AdminDashboardPage = () => {
   const [user, setUser] = useState<UserProps | null>(null);
   const [loading, setloading] = useState<boolean>(true);
+
+  const [reviewsData, setReviewsData] = useState<ReviewProps[]>([]);
+  const [usersData, setUsersData] = useState<UserProps[]>([]);
+
+  const fetchReviews = async () => {
+    const reviews = await fetch(
+      `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/reviews`,
+    ).then((res) => res.json());
+    reviews ? setReviewsData(reviews) : [];
+  };
+
+  const fetchUsers = async () => {
+    const users = await fetch(
+      `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/users`,
+    ).then((res) => res.json());
+    users ? setUsersData(users) : [];
+  };
 
   const checkUserSignIn = async () => {
     try {
@@ -28,6 +45,8 @@ const AdminDashboardPage = () => {
 
   useEffect(() => {
     checkUserSignIn();
+    fetchReviews();
+    fetchUsers();
   }, []);
 
   if (loading) {
@@ -41,19 +60,25 @@ const AdminDashboardPage = () => {
   return (
     <>
       {user?.admin ? (
-        <section className="grid h-[100svh] items-center justify-center font-geistmono text-sm">
-          <div>
-            <p>
-              signed in {user?.name} {user?.admin}
-            </p>
-            <Image
-              src="/d85d022bedcf129ebd23a2b21e97ef19.jpg"
-              alt=""
-              width={300}
-              height={300}
-              priority
-            />
-            <p className="mt-2">(deserted)</p>
+        <section className="grid h-[100svh] items-center justify-center font-geistmono">
+          <div className="mx-auto w-[40rem] border-x-2 pt-14">
+            {reviewsData.map(({ id, userId, review, rating, testimonial }) => {
+              const user = usersData.find((user) => user.id === userId);
+
+              return (
+                <UserReview
+                  key={id}
+                  id={id}
+                  img={user?.image}
+                  userName={user?.name}
+                  userEmail={user?.email}
+                  review={review}
+                  rating={rating}
+                  testimonial={testimonial}
+                  isAdmin={true}
+                />
+              );
+            })}
           </div>
         </section>
       ) : (

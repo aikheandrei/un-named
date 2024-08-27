@@ -1,8 +1,8 @@
-export interface reviewProps {
+export interface ReviewProps {
   id?: number;
   review: string;
   rating: number;
-  testimonial?: number;
+  testimonial?: boolean | false;
   userId?: string;
   // for user review component
   img?: string;
