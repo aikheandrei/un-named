@@ -1,12 +1,29 @@
 import { reviewProps } from "@/types/props";
 import { StarRating } from "../ui/star-rating";
 
-export const UserReview: React.FC<reviewProps> = ({
+const AdminUserReview: React.FC<reviewProps> = ({
+  review,
+  rating,
+  testimonial,
   img,
   userName,
   userEmail,
+}) => {
+  return (
+    <>
+      <div></div>
+    </>
+  );
+};
+
+const UserReview: React.FC<reviewProps> = ({
   review,
   rating,
+  testimonial,
+  img,
+  userName,
+  userEmail,
+  isAdmin,
 }) => {
   return (
     <div className="flex gap-2 border-b-2 px-8 py-4">
@@ -28,3 +45,5 @@ export const UserReview: React.FC<reviewProps> = ({
     </div>
   );
 };
+
+export { UserReview };

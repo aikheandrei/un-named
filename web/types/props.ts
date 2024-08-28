@@ -1,11 +1,14 @@
 export interface reviewProps {
-  img?: string;
   id?: number;
-  userName?: string;
+  review: string;
+  rating: number;
+  testimonial?: number;
   userId?: string;
+  // for user review component
+  img?: string;
+  userName?: string;
   userEmail?: string;
-  review?: string;
-  rating?: number;
+  isAdmin?: boolean | false;
 }
 
 export interface UserProps {
