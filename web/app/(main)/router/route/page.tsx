@@ -1,4 +1,4 @@
-import { UserReview } from "@/components/router/user-review";
+import { UserReview } from "@/components/ui/user-review";
 import { reviewProps, UserProps } from "@/types/props";
 
 export const runtime = "edge";

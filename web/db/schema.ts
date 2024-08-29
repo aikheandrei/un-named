@@ -101,6 +101,7 @@ export const reviews = mysqlTable("reviews_table", {
   id: serial("id").primaryKey(),
   review: text("review").notNull(),
   rating: int("rating").notNull(),
+  testimonial: boolean("testimonial").default(false),
   userId: varchar("userId", { length: 255 })
     .notNull()
     .references(() => users.id, { onDelete: "cascade" })
