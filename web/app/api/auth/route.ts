@@ -5,7 +5,7 @@ export async function GET() {
   try {
     const session = await auth();
 
-    console.log(session);
+    // console.log(session);
     return NextResponse.json(session);
   } catch (error) {
     NextResponse.json(
