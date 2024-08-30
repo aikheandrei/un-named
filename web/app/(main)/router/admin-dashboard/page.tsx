@@ -1,29 +1,28 @@
 "use client";
 
+import { UserProps } from "@/types/props";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export const runtime = "edge";
 
-interface UserProps {
-  id: string;
-  name: string;
-  email: string;
-  emailVerified: string | null;
-  image: string | null;
-  admin: boolean | null;
-}
-
 const AdminDashboardPage = () => {
   const [user, setUser] = useState<UserProps | null>(null);
+  const [loading, setloading] = useState<boolean>(true);
 
   const checkUserSignIn = async () => {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/auth`,
-    ).then((res) => res.json());
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/auth`,
+      ).then((res) => res.json());
 
-    if (res) {
-      setUser(res.user);
+      if (res) {
+        setUser(res.user);
+      }
+    } catch (error) {
+      console.error("Failed to fetch user admin status", error);
+    } finally {
+      setloading(false);
     }
   };
 
@@ -31,12 +30,19 @@ const AdminDashboardPage = () => {
     checkUserSignIn();
   }, []);
 
+  if (loading) {
+    return (
+      <section className="grid h-[100svh] items-center justify-center font-geistmono">
+        <p>loading...</p>
+      </section>
+    );
+  }
+
   return (
     <>
       {user?.admin ? (
         <section className="grid h-[100svh] items-center justify-center font-geistmono text-sm">
           <div>
-            {/* <p>{user}</p> */}
             <p>
               signed in {user?.name} {user?.admin}
             </p>
