@@ -21,7 +21,7 @@ export const users = mysqlTable("users_table", {
     fsp: 3,
   }),
   image: varchar("image", { length: 255 }),
-  admin: boolean("admin"),
+  admin: boolean("admin").default(false),
 });
 
 export const accounts = mysqlTable(
