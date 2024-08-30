@@ -150,7 +150,7 @@ jje/
     - [x] Redirect to sign-in page & back
     - [ ] Seperate sign in/out page (utilize client pages)
     - [ ] Account deletion
-    - [ ] Sign/log-in using email
+    - [ ] Sign/log-in using email (w/magic link)
   - [ ] Commenting/review & rating
     - [x] Adding
     - [x] Prevent if not sign in (check auth/session)
@@ -160,13 +160,14 @@ jje/
     - [x] Rating system
     - [x] Link Rating with user
     - [x] Calc display percentage of average rating
-    - [ ] display average rating & user ratings + reviews
+    - [x] display average rating & user ratings + reviews
     - [ ] Review date
+  - [ ] Admin page
+    - [x] Non admin prevention
+    - [ ] Manage testimonials/comments
   - [ ] Notification
   - [ ] Testimonials
   - [ ] Visitors count
-  - [ ] Admin page
-    - [ ] Manage testimonials/comments
   - [ ] Contact/Emailing
   - [ ]
   - [ ] File sharing/download
