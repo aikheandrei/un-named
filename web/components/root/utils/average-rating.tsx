@@ -34,7 +34,9 @@ export const AverageRating = () => {
 
   return (
     <>
-      <StarRating rating={ratingAverage} />
+      <div className="flex flex-row gap-[0.1rem] text-yellow-400">
+        <StarRating rating={ratingAverage} size={20} />
+      </div>
       <p>{ratingAverage}</p>
     </>
   );
