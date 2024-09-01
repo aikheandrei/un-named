@@ -1,4 +1,5 @@
 import { reviewProps } from "@/types/props";
+import { StarRating } from "../ui/star-rating";
 
 export const UserReview: React.FC<reviewProps> = ({
   img,
@@ -19,8 +20,10 @@ export const UserReview: React.FC<reviewProps> = ({
           <span className="font-semibold">{userName}</span>
           <span className="text-neutral-500">{userEmail}</span>
         </a>
-        <p className="mt-[.08rem] leading-5">{review}</p>
-        <p className="mt-[.08rem] leading-5">{rating}</p>
+        <div className="-ml-[.2rem] mt-[.15rem] flex flex-row gap-[0.03rem] text-yellow-400">
+          <StarRating rating={rating ?? 0} size={18} />
+        </div>
+        <p className="mt-[.1rem] leading-5">{review}</p>
       </div>
     </div>
   );

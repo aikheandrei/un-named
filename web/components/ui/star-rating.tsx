@@ -1,21 +1,24 @@
 import { IoMdStar, IoMdStarOutline, IoMdStarHalf } from "react-icons/io";
 
-const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
+const StarRating: React.FC<{ rating: number; size: number }> = ({
+  rating,
+  size,
+}) => {
   const renderStars = (fullStar: number, isHalfStar: boolean) => {
     const stars = [];
 
     for (let i = 0; i < fullStar; i++) {
-      stars.push(<IoMdStar key={`full-${i}`} size={20} />);
+      stars.push(<IoMdStar key={`full-${i}`} size={size} />);
     }
 
-    isHalfStar ? stars.push(<IoMdStarHalf key="half" size={20} />) : null;
+    isHalfStar ? stars.push(<IoMdStarHalf key="half" size={size} />) : null;
 
     const emptyStar = 5 - fullStar - (isHalfStar ? 1 : 0);
     for (let i = 0; i < emptyStar; i++) {
-      stars.push(<IoMdStarOutline key={`empty-${i}`} size={20} />);
+      stars.push(<IoMdStarOutline key={`empty-${i}`} size={size} />);
     }
 
-    return <div className="flex flex-row gap-[0.1rem]">{stars}</div>;
+    return <>{stars}</>;
   };
 
   const fullStars = Math.floor(rating);
