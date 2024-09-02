@@ -1,9 +1,8 @@
 "use client";
 
+import { StarRating } from "@/components/ui/star-rating";
 import { reviewProps } from "@/types/props";
 import { useEffect, useState } from "react";
-
-import { IoMdStarOutline } from "react-icons/io";
 
 export const AverageRating = () => {
   const [reviewsData, setReviewsData] = useState<reviewProps[]>([]);
@@ -16,10 +15,6 @@ export const AverageRating = () => {
     setReviewsData(res);
   };
 
-  useEffect(() => {
-    fetchReviews();
-  }, []);
-
   const calcRatingAverage = () => {
     if (!reviewsData.length) return 0;
 
@@ -31,29 +26,16 @@ export const AverageRating = () => {
     return Math.round((sum / reviewsData.length) * 10) / 10;
   };
 
-  const rating = calcRatingAverage();
-  // console.log(rating);
-  // console.log(
-  //   rating >= 5
-  //     ? "five"
-  //     : rating >= 4
-  //       ? "four"
-  //       : rating >= 3
-  //         ? "three"
-  //         : rating >= 2
-  //           ? "two"
-  //           : rating >= 1 && "one",
-  // );
+  const ratingAverage = calcRatingAverage();
+
+  useEffect(() => {
+    fetchReviews();
+  }, []);
 
   return (
     <>
-      <div className="flex flex-row gap-[0.1rem]">
-        {[...Array(5)].map((_, i) => {
-          return <IoMdStarOutline key={i} size={20} />;
-        })}
-      </div>
-      <p>{rating}</p>
-      {reviewsData.length > 0 ? <p>{reviewsData[0].rating}</p> : <></>}
+      <StarRating rating={ratingAverage} />
+      <p>{ratingAverage}</p>
     </>
   );
 };
