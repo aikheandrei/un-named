@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { RatingModal } from "./rating-modal";
 import { buttonVariants } from "../ui/button";
 import { RouteLinks } from "./utils/route-links";
-import { Rating } from "../ui/rating";
+import { AverageRating } from "./utils/average-rating";
 
 export const Header = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -41,7 +41,7 @@ export const Header = () => {
           >
             Admin
           </Link>
-          <Rating />
+          <AverageRating />
         </div>
 
         <div className="absolute flex h-full w-full items-center justify-center gap-2 text-sm">
