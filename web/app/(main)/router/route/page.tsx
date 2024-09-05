@@ -12,31 +12,6 @@ const RoutePage = async () => {
     `${process.env.WEBSITE_URL}/api/users`,
   ).then((res) => res.json());
 
-  const calcRatingAverage = () => {
-    if (!reviewsData.length) return 0;
-
-    let sum = 0;
-    reviewsData.forEach((reviews) => {
-      sum += reviews.rating ?? 0;
-    });
-
-    return Math.round((sum / reviewsData.length) * 10) / 10;
-  };
-
-  const rating = calcRatingAverage();
-  console.log(rating);
-  console.log(
-    rating >= 5
-      ? "five"
-      : rating >= 4
-        ? "four"
-        : rating >= 3
-          ? "three"
-          : rating >= 2
-            ? "two"
-            : rating >= 1 && "one",
-  );
-
   return (
     <section>
       <div className="mx-auto w-[40rem] border-x-2 pt-14">
