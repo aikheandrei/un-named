@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
-import { Check, Star } from "lucide-react";
-import { Textarea } from "../ui/textarea";
+
+import { Button } from "../../ui/button";
+import { Textarea } from "../../ui/textarea";
+import { Check } from "lucide-react";
+import { IoMdStarOutline } from "react-icons/io";
 
 interface RatingFormProps {
   toggleModal: () => void;
@@ -74,15 +76,13 @@ export const RatingForm: React.FC<RatingFormProps> = ({ toggleModal }) => {
                 onMouseEnter={() => setHover(index)}
                 onMouseLeave={() => setHover(rating)}
               >
-                <Star
+                <IoMdStarOutline
                   className={`size-7 ${
                     index <= (hover || rating)
                       ? "text-yellow-500"
                       : "text-gray-300"
                   }`}
-                  fill={
-                    index <= (hover || rating) ? "currentColor" : "transparent"
-                  }
+                  fill={index <= (hover || rating) ? "currentColor" : "gray"}
                 />
               </button>
             );

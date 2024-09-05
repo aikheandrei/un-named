@@ -180,6 +180,7 @@ jje/
     - [ ]
   - [ ]
   - [ ] Skeleton loader
+  - [ ] Props on types
 
 - MISCS
 
@@ -192,6 +193,7 @@ jje/
   - [ ] Sorry na malala
   - [ ] Fix wrapping
   - [ ] Organize imports
+  - [ ]
 
 - README
 
