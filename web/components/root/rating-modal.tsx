@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-import { RatingForm } from "../router/rating-form";
-import Backdrop from "../router/ui/backdrop";
+import { RatingForm } from "./rating-form";
+import Backdrop from "./ui/backdrop";
 import { Button } from "../ui/button";
 import { createPortal } from "react-dom";
 
