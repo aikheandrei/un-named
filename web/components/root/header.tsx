@@ -11,7 +11,7 @@ export const Header = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   const checkUserSignIn = async () => {
-    const session = await fetch(`/api/auth`);
+    const session = await fetch(`/api/auth`).then((res) => res.json());
     if (session) {
       setIsSignedIn(true);
     } else {

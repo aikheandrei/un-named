@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { RatingForm } from "../router/rating-form";
 import Backdrop from "../router/ui/backdrop";
@@ -13,6 +13,13 @@ interface RatingModalProps {
 
 export const RatingModal = ({ children }: RatingModalProps) => {
   const [modal, toggleModal] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return <></>;
 
   const ratingModal = document.getElementById("rating-modal") || document.body;
 
