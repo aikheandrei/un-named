@@ -14,7 +14,7 @@ interface RatingModalProps {
 export const RatingModal = ({ children }: RatingModalProps) => {
   const [modal, toggleModal] = useState(false);
 
-  const ratingModal = document.querySelector("#rating-modal") || document.body;
+  const ratingModal = document.getElementById("rating-modal") || document.body;
 
   return (
     <>
