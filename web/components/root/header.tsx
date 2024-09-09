@@ -4,15 +4,28 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
-import { RatingForm } from "../router/rating-form";
 import { Button, buttonVariants } from "../ui/button";
-import Backdrop from "../router/ui/backdrop";
 
 import { RouteLinks } from "./utils/route-links";
+
+import { RatingModal } from "./rating-modal";
 
 export const Header = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [modal, toggleModal] = useState(false);
+  let ratings = [];
+
+  const fetchReviews = async () => {
+    // const reviewsData: reviewProps[] = await fetch(
+    //   `${process.env.WEBSITE_URL}/api/reviews`,
+    // ).then((res) => res.json());
+    const session = await fetch(`/api/reviews`).then((res) => res.json());
+
+    if (session) {
+      // ratings = reviewsData;
+      console.log(session);
+    }
+  };
 
   const checkUserSignIn = async () => {
     const session = await fetch(`/api/auth`).then((res) => res.json());
@@ -25,6 +38,7 @@ export const Header = () => {
 
   useEffect(() => {
     checkUserSignIn();
+    fetchReviews();
   });
 
   const inSignInPage = usePathname() === "/router/overview";
@@ -41,13 +55,7 @@ export const Header = () => {
               {isSignedIn ? "Account" : "Sign in"}
             </Link>
           )}
-          <Button
-            onClick={() => toggleModal(!modal)}
-            className="w-24"
-            variant={"outline"}
-          >
-            Rate!
-          </Button>
+          <RatingModal>Rate!</RatingModal>
           <Link
             className={`${buttonVariants({ variant: "outline" })} w-24`}
             href={"/router/admin-dashboard"}
@@ -61,11 +69,8 @@ export const Header = () => {
         </div>
       </nav>
 
-      {modal && (
-        <Backdrop onClick={() => toggleModal(!modal)}>
-          <RatingForm toggleModal={() => toggleModal(!modal)} />
-        </Backdrop>
-      )}
+      {/* Root modal portal from '<RatingModal />' */}
+      <div id="rating-modal"></div>
     </header>
   );
 };
