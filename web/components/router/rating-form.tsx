@@ -34,7 +34,7 @@ export const RatingForm: React.FC<RatingFormProps> = ({ toggleModal }) => {
 
   return (
     <div
-      className="rounded-md bg-card px-4 py-8 font-geistsans"
+      className="rounded-md bg-card px-4 pb-6 pt-3 font-geistsans"
       onClick={(e) => e.stopPropagation()}
     >
       <form
@@ -62,8 +62,6 @@ export const RatingForm: React.FC<RatingFormProps> = ({ toggleModal }) => {
           router.refresh();
         }}
       >
-        <h1 className="text-2xl font-bold leading-6">jje</h1>
-        <p>Tell others what you think</p>
         <div className="my-2 flex justify-between">
           {[...Array(5)].map((star, index) => {
             index += 1;
