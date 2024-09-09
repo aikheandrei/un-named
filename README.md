@@ -159,8 +159,8 @@ jje/
     - [x] Update comment to review (e.g schema, components, routes)
     - [x] Rating system
     - [x] Link Rating with user
-    - [x] Calc & display percentage of rating
-    - [ ] Average rating to frontend & user ratings + reviews
+    - [x] Calc display percentage of average rating
+    - [ ] display average rating & user ratings + reviews
     - [ ] Review date
   - [ ] Notification
   - [ ] Testimonials
