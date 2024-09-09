@@ -8,8 +8,6 @@ import { RatingForm } from "../router/rating-form";
 import { Button, buttonVariants } from "../ui/button";
 import Backdrop from "../router/ui/backdrop";
 
-import { Star } from "lucide-react";
-
 import { RouteLinks } from "./utils/route-links";
 
 export const Header = () => {
@@ -50,13 +48,12 @@ export const Header = () => {
           >
             Rate!
           </Button>
-          <Button
-            onClick={() => toggleModal(!modal)}
-            className="w-24"
-            variant={"outline"}
+          <Link
+            className={`${buttonVariants({ variant: "outline" })} w-24`}
+            href={"/router/admin-dashboard"}
           >
             Admin
-          </Button>
+          </Link>
         </div>
 
         <div className="absolute flex h-full w-full items-center justify-center gap-2 text-sm">

@@ -160,7 +160,7 @@ jje/
     - [x] Rating system
     - [x] Link Rating with user
     - [x] Calc & display percentage of rating
-    - [ ] Bring average rating to frontend & user ratings + reviews
+    - [ ] Average rating to frontend & user ratings + reviews
     - [ ] Review date
   - [ ] Notification
   - [ ] Testimonials
@@ -179,6 +179,7 @@ jje/
     - [ ] route
     - [ ]
   - [ ]
+  - [ ] Skeleton loader
 
 - MISCS
 
@@ -190,6 +191,7 @@ jje/
   - [ ] Github student developer pack
   - [ ] Sorry na malala
   - [ ] Fix wrapping
+  - [ ] Organize imports
 
 - README
 
