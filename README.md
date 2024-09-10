@@ -157,10 +157,11 @@ jje/
     - [x] Link comment with user
     - [x] Get/Sort by user
     - [x] Update comment to review (e.g schema, components, routes)
+    - [x] Rating system
+    - [x] Link Rating with user
+    - [x] Calc & display percentage of rating
+    - [ ] Bring average rating to frontend & user ratings + reviews
     - [ ] Review date
-    - [ ] Rating system
-    - [ ] Link Rating with user
-    - [ ] Calc & display percentage of rating
   - [ ] Notification
   - [ ] Testimonials
   - [ ] Visitors count
