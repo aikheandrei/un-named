@@ -23,7 +23,19 @@ const RoutePage = async () => {
     return Math.round((sum / reviewsData.length) * 10) / 10;
   };
 
-  console.log(calcRatingAverage());
+  const rating = calcRatingAverage();
+  console.log(rating);
+  console.log(
+    rating >= 5
+      ? "five"
+      : rating >= 4
+        ? "four"
+        : rating >= 3
+          ? "three"
+          : rating >= 2
+            ? "two"
+            : rating >= 1 && "one",
+  );
 
   return (
     <section>
