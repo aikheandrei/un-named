@@ -156,7 +156,7 @@ jje/
     - [x] Prevent if not sign in (check auth/session)
     - [x] Link comment with user
     - [x] Get/Sort by user
-    - [ ] Update comment to review (e.g schema, components, routes)
+    - [x] Update comment to review (e.g schema, components, routes)
     - [ ] Review date
     - [ ] Rating system
     - [ ] Link Rating with user
