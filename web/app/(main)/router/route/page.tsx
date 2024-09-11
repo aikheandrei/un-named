@@ -12,7 +12,18 @@ const RoutePage = async () => {
     `${process.env.WEBSITE_URL}/api/users`,
   ).then((res) => res.json());
 
-  // console.log(usersData);
+  const calcRatingAverage = () => {
+    if (!reviewsData.length) return 0;
+
+    let sum = 0;
+    reviewsData.forEach((reviews) => {
+      sum += reviews.rating ?? 0;
+    });
+
+    return Math.round((sum / reviewsData.length) * 10) / 10;
+  };
+
+  console.log(calcRatingAverage());
 
   return (
     <section>
