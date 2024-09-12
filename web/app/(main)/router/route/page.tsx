@@ -1,32 +1,33 @@
-import { Comment } from "@/components/router/comment";
-import { CommentProps, UserProps } from "@/types/props";
+import { UserReview } from "@/components/router/user-review";
+import { reviewProps, UserProps } from "@/types/props";
 
 export const runtime = "edge";
 
 const RoutePage = async () => {
-  const commentData: CommentProps[] = await fetch(
-    `${process.env.WEBSITE_URL}/api/comments`,
+  const reviewsData: reviewProps[] = await fetch(
+    `${process.env.WEBSITE_URL}/api/reviews`,
   ).then((res) => res.json());
 
-  const userData: UserProps[] = await fetch(
+  const usersData: UserProps[] = await fetch(
     `${process.env.WEBSITE_URL}/api/users`,
   ).then((res) => res.json());
 
-  console.log(userData);
+  // console.log(usersData);
 
   return (
     <section>
       <div className="mx-auto w-[40rem] border-x-2 pt-14">
-        {commentData.map(({ id, content, userId }) => {
-          const user = userData.find((user) => user.id === userId);
+        {reviewsData.map(({ id, userId, review, rating }) => {
+          const user = usersData.find((user) => user.id === userId);
 
           return (
-            <Comment
+            <UserReview
               key={id}
               img={user?.image}
               userName={user?.name}
               userEmail={user?.email}
-              content={content}
+              review={review}
+              rating={rating}
             />
           );
         })}
