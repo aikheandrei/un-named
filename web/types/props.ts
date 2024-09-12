@@ -1,10 +1,11 @@
-export interface CommentProps {
+export interface reviewProps {
   img?: string;
   id?: number;
   userName?: string;
   userId?: string;
   userEmail?: string;
-  content?: string;
+  review?: string;
+  rating?: number;
 }
 
 export interface UserProps {

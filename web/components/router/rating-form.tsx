@@ -15,6 +15,8 @@ export const RatingForm: React.FC<RatingFormProps> = ({ toggleModal }) => {
     user: any;
     userId: string;
   } | null>(null);
+  const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
   const [isSignedIn, setIsSignedIn] = useState<boolean>();
 
   const getSession = async () => {
@@ -39,16 +41,17 @@ export const RatingForm: React.FC<RatingFormProps> = ({ toggleModal }) => {
         onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
           const formData = new FormData(e.currentTarget);
-          const content = formData.get("content") as string;
+          const review = formData.get("review") as string;
 
           if (isSignedIn) {
-            await fetch(`/api/comments`, {
+            await fetch(`/api/reviews`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                content,
+                review,
+                rating,
                 userId: userInfo?.userId,
               }),
             });
@@ -62,13 +65,32 @@ export const RatingForm: React.FC<RatingFormProps> = ({ toggleModal }) => {
         <h1 className="text-2xl font-bold leading-6">jje</h1>
         <p>Tell others what you think</p>
         <div className="my-2 flex justify-between">
-          {Array.from({ length: 5 }, (_, i) => (
-            <button key={i}>
-              <Star className="my-2 size-7 opacity-40" />
-            </button>
-          ))}
+          {[...Array(5)].map((star, index) => {
+            index += 1;
+            return (
+              <button
+                type="button"
+                key={index}
+                className={`cursor-pointer border-none bg-transparent`}
+                onClick={() => setRating(index)}
+                onMouseEnter={() => setHover(index)}
+                onMouseLeave={() => setHover(rating)}
+              >
+                <Star
+                  className={`size-7 ${
+                    index <= (hover || rating)
+                      ? "text-yellow-500"
+                      : "text-gray-300"
+                  }`}
+                  fill={
+                    index <= (hover || rating) ? "currentColor" : "transparent"
+                  }
+                />
+              </button>
+            );
+          })}
         </div>
-        <Textarea name="content" placeholder="write a review..." />
+        <Textarea name="review" placeholder="write a review..." />
         <Button
           className="mt-3 flex w-full items-center gap-1 text-center"
           type="submit"

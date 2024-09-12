@@ -96,9 +96,10 @@ export const authenticators = mysqlTable(
   }),
 );
 
-export const comments = mysqlTable("comments_table", {
-  id: serial().primaryKey(),
-  content: text("content").notNull(),
+export const reviews = mysqlTable("reviews_table", {
+  id: serial("id").primaryKey(),
+  review: text("review").notNull(),
+  rating: int("rating").notNull(),
   userId: varchar("userId", { length: 255 })
     .notNull()
     .references(() => users.id, { onDelete: "cascade" })
