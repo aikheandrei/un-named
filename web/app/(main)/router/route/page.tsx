@@ -2,17 +2,23 @@
 
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
+import React from "react";
 import { useEffect, useState } from "react";
 
 export const runtime = "edge";
 
 const RoutePage = () => {
-  const [userInfo, setUserInfo] = useState<{ user: any } | null>(null);
+  const [userInfo, setUserInfo] = useState<{
+    user: any;
+    userId: string;
+  } | null>(null);
   const [isSignedIn, setIsSignedIn] = useState<boolean>();
-  const [comments, setComments] = useState<{ id: number; content: string }[]>(
-    [],
-  );
+  const [comments, setComments] = useState<
+    { id: number; content: string; userId: string }[]
+  >([]);
+  const [users, setUsers] = useState<
+    { id: string; name: string; image: string }[]
+  >([]);
 
   const getSession = async () => {
     const session = await fetch(`/api/auth`).then((res) => res.json());
@@ -28,15 +34,24 @@ const RoutePage = () => {
     setComments(comments);
   };
 
+  const fetchUsers = async () => {
+    const users = await fetch(`/api/users`).then((res) => res.json());
+    setUsers(users);
+
+    console.log(users);
+  };
+
   useEffect(() => {
     getSession();
     fetchComments();
+    fetchUsers();
   }, []);
 
   return (
     <section className="grid h-[150svh] items-center justify-center">
       <div>
         <p>{userInfo?.user.name}</p>
+        <p>{userInfo?.userId}</p>
         <img src={userInfo?.user.image} alt="User Avatar" />
 
         <form
@@ -47,15 +62,16 @@ const RoutePage = () => {
             const content = formData.get("content") as string;
 
             if (isSignedIn) {
-              const req = await fetch(`/api/comments`, {
+              await fetch(`/api/comments`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ content }),
+                body: JSON.stringify({
+                  content,
+                  userId: userInfo?.userId,
+                }),
               });
-
-              console.log(req.json);
             } else {
               alert("sign in first");
             }
@@ -72,11 +88,19 @@ const RoutePage = () => {
           </Button>
         </form>
 
-        {comments.map(({ id, content }) => (
-          <p key={id}>
-            {id} {content}
-          </p>
-        ))}
+        {comments.map(({ id, content, userId }) => {
+          const user = users.find((user) => user.id === userId);
+          console.log(user?.image);
+
+          return (
+            <React.Fragment key={id}>
+              <img src={user?.image} alt="User Profile" />
+              <p>
+                {id} {user?.name} {content} {userId}
+              </p>
+            </React.Fragment>
+          );
+        })}
       </div>
     </section>
   );

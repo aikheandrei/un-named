@@ -10,11 +10,6 @@ import {
 } from "drizzle-orm/mysql-core";
 import { AdapterAccountType } from "next-auth/adapters";
 
-export const comments = mysqlTable("comments_table", {
-  id: serial().primaryKey(),
-  content: text("content").notNull(),
-});
-
 export const users = mysqlTable("users_table", {
   id: varchar("id", { length: 255 })
     .primaryKey()
@@ -100,3 +95,12 @@ export const authenticators = mysqlTable(
     }),
   }),
 );
+
+export const comments = mysqlTable("comments_table", {
+  id: serial().primaryKey(),
+  content: text("content").notNull(),
+  userId: varchar("userId", { length: 255 })
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" })
+    .default(""),
+});

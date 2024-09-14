@@ -24,10 +24,11 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const { content } = await request.json();
+    const { content, userId } = await request.json();
 
     const data = await database.insert(commentSchema).values({
       content,
+      userId,
     });
 
     const comment = await database
