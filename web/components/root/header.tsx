@@ -13,10 +13,8 @@ export const Header = () => {
     const session = await fetch(`/api/auth`).then((res) => res.json());
     if (session) {
       setIsSignedIn(true);
-      console.log(isSignedIn);
     } else {
       setIsSignedIn(false);
-      console.log(isSignedIn);
     }
   };
 

@@ -157,7 +157,7 @@ jje/
   - [ ] Commenting
     - [x] Adding
     - [x] Prevent if not sign in (check auth/session)
-    - [ ] Link comment with user
+    - [x] Link comment with user
     - [ ] Get/Sort by user
     - [ ] Info (user, date)
   - [ ] Notification
