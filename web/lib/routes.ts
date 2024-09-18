@@ -4,11 +4,11 @@ const Routes = [
     Text: "root",
   },
   {
-    Link: "/drizzle",
-    Text: "drizzle",
+    Link: "/router",
+    Text: "router",
   },
   {
-    Link: "/route",
+    Link: "/router/route",
     Text: "route",
   },
 ];
