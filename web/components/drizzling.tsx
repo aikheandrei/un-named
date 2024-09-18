@@ -27,7 +27,7 @@ export const Drizzling = () => {
       </ol>
 
       <Link
-        href="/drizzle"
+        href="/router"
         // className="flex h-12 max-w-fit items-center justify-center rounded-full bg-foreground px-[1.5rem] text-base text-background transition-colors hover:bg-[#ccc]"
         className={buttonVariants({ variant: "default" })}
       >

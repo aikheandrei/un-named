@@ -34,7 +34,7 @@ const RoutePage = () => {
   }, []);
 
   return (
-    <section className="grid h-[200svh] items-center justify-center">
+    <section className="grid h-[150svh] items-center justify-center">
       <div>
         <p>{userInfo?.user.name}</p>
         <img src={userInfo?.user.image} alt="User Avatar" />
