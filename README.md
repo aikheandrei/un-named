@@ -147,7 +147,8 @@ jje/
     - [x] Sign-in (log-in)
     - [x] Sign-out (log-out)
     - [x] Session management
-    - [ ] Redirect to sign-in page & back
+    - [x] Redirect to sign-in page & back
+    - [ ] Seperate sign in/out page (utilize client pages)
     - [ ] Account deletion
     - [ ] Sign/log-in using email
   - [ ] Rating
@@ -169,6 +170,12 @@ jje/
   - [ ] File sharing/download
   - [ ] JJE email/gmail
     - [ ] Link google gloud & facebook app provider
+  - [ ]
+  - [ ] Update pages with export const runtime = "edge";
+    - [ ] root
+    - [ ] drizzle
+    - [ ] route
+    - [ ]
   - [ ]
 
 - MISCS
@@ -199,6 +206,8 @@ jje/
   - [ ] Back-end linking branch for deployment
   - [ ] New branch for jje front-end
   - [ ]
+  - [ ] Lucia for another time (new blog project?)
+  - [ ] Motion-hell
 
 - GOAL
 

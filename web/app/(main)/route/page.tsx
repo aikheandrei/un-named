@@ -3,7 +3,6 @@
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export const runtime = "edge";
@@ -35,16 +34,11 @@ const RoutePage = () => {
   }, []);
 
   return (
-    <section className="grid h-[100svh] items-center justify-center">
+    <section className="grid h-[200svh] items-center justify-center">
       <div>
-        <Link
-          className={`${buttonVariants({ variant: "default" })} mb-10`}
-          href="/route/overview"
-        >
-          {userInfo?.user ? "Sign out" : "Sign in"}
-        </Link>
         <p>{userInfo?.user.name}</p>
         <img src={userInfo?.user.image} alt="User Avatar" />
+
         <form
           className="mb-10 mt-10 space-y-2"
           onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
@@ -77,6 +71,7 @@ const RoutePage = () => {
             Add Comment
           </Button>
         </form>
+
         {comments.map(({ id, content }) => (
           <p key={id}>
             {id} {content}
