@@ -1,12 +1,12 @@
 import { auth, signIn, signOut } from "@/app/api/auth/auth";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
 export const SignIn = async () => {
   const session = await auth();
 
-  if (session?.user) {
-    redirect("/route");
-  }
+  // if (session?.user) {
+  //   redirect("/route");
+  // }
 
   return (
     <div>
