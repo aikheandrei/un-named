@@ -15,6 +15,7 @@ const RoutePage = () => {
     [],
   );
   const [isSignedIn, setIsSignedIn] = useState<boolean>();
+<<<<<<< HEAD
 
   const getSession = async () => {
     const session = await fetch(`/api/auth`).then((res) => res.json());
@@ -28,6 +29,18 @@ const RoutePage = () => {
   const fetchComments = async () => {
     const comments = await fetch(`/api/comments`).then((res) => res.json());
     setComments(comments);
+=======
+
+  const fetchComments = async () => {
+    const res = await fetch(`/api/comments`);
+    setComments(await res.json());
+  };
+
+  const checkSignedInStatus = async () => {
+    const res = await fetch(`/api/auth`);
+    const status = await res.json();
+    setIsSignedIn(status.signedIn);
+>>>>>>> ce3aa59 (session check if auth + route handler for sessions)
   };
 
   useEffect(() => {
