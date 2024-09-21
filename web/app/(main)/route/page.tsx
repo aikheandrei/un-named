@@ -14,6 +14,7 @@ const RoutePage = () => {
   const [comments, setComments] = useState<{ id: number; content: string }[]>(
     [],
   );
+  const [isSignedIn, setIsSignedIn] = useState<boolean>();
 
   const getSession = async () => {
     const session = await fetch(`/api/auth`).then((res) => res.json());
@@ -32,6 +33,7 @@ const RoutePage = () => {
   useEffect(() => {
     getSession();
     fetchComments();
+    checkSignedInStatus();
   }, []);
 
   return (
