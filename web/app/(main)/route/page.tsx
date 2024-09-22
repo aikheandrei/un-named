@@ -14,6 +14,7 @@ const RoutePage = () => {
   const [comments, setComments] = useState<{ id: number; content: string }[]>(
     [],
   );
+<<<<<<< HEAD
   const [isSignedIn, setIsSignedIn] = useState<boolean>();
 <<<<<<< HEAD
 
@@ -30,23 +31,34 @@ const RoutePage = () => {
     const comments = await fetch(`/api/comments`).then((res) => res.json());
     setComments(comments);
 =======
+=======
+>>>>>>> be02b5e (return user session instead of boolean in auth route for accessing user data)
 
-  const fetchComments = async () => {
-    const res = await fetch(`/api/comments`);
-    setComments(await res.json());
+  const getSession = async () => {
+    const session = await fetch(`/api/auth`).then((res) => res.json());
+    setUserInfo(session);
+
+    if (session) {
+      setIsSignedIn(true);
+    }
   };
 
+<<<<<<< HEAD
   const checkSignedInStatus = async () => {
     const res = await fetch(`/api/auth`);
     const status = await res.json();
     setIsSignedIn(status.signedIn);
 >>>>>>> ce3aa59 (session check if auth + route handler for sessions)
+=======
+  const fetchComments = async () => {
+    const comments = await fetch(`/api/comments`).then((res) => res.json());
+    setComments(comments);
+>>>>>>> be02b5e (return user session instead of boolean in auth route for accessing user data)
   };
 
   useEffect(() => {
     getSession();
     fetchComments();
-    checkSignedInStatus();
   }, []);
 
   return (
