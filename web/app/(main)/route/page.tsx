@@ -9,25 +9,29 @@ import { useEffect, useState } from "react";
 export const runtime = "edge";
 
 const RoutePage = () => {
+  const [userInfo, setUserInfo] = useState<{ user: any } | null>(null);
+  const [isSignedIn, setIsSignedIn] = useState<boolean>();
   const [comments, setComments] = useState<{ id: number; content: string }[]>(
     [],
   );
-  const [isSignedIn, setIsSignedIn] = useState<boolean>();
 
-  const fetchComments = async () => {
-    const res = await fetch(`/api/comments`);
-    setComments(await res.json());
+  const getSession = async () => {
+    const session = await fetch(`/api/auth`).then((res) => res.json());
+    setUserInfo(session);
+
+    if (session) {
+      setIsSignedIn(true);
+    }
   };
 
-  const checkSignedInStatus = async () => {
-    const res = await fetch(`/api/auth`);
-    const status = await res.json();
-    setIsSignedIn(status.signedIn);
+  const fetchComments = async () => {
+    const comments = await fetch(`/api/comments`).then((res) => res.json());
+    setComments(comments);
   };
 
   useEffect(() => {
+    getSession();
     fetchComments();
-    checkSignedInStatus();
   }, []);
 
   return (
@@ -37,10 +41,12 @@ const RoutePage = () => {
           className={`${buttonVariants({ variant: "default" })} mb-10`}
           href="/route/overview"
         >
-          Sign in
+          {userInfo?.user ? "Sign out" : "Sign in"}
         </Link>
+        <p>{userInfo?.user.name}</p>
+        <img src={userInfo?.user.image} alt="User Avatar" />
         <form
-          className="mb-10 space-y-2"
+          className="mb-10 mt-10 space-y-2"
           onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
             const formData = new FormData(e.currentTarget);
