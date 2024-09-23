@@ -3,6 +3,7 @@
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export const runtime = "edge";
@@ -11,16 +12,22 @@ const RoutePage = () => {
   const [comments, setComments] = useState<{ id: number; content: string }[]>(
     [],
   );
+  const [isSignedIn, setIsSignedIn] = useState<boolean>();
 
   const fetchComments = async () => {
     const res = await fetch(`/api/comments`);
     setComments(await res.json());
+  };
 
-    console.log(comments);
+  const checkSignedInStatus = async () => {
+    const res = await fetch(`/api/auth`);
+    const status = await res.json();
+    setIsSignedIn(status.signedIn);
   };
 
   useEffect(() => {
     fetchComments();
+    checkSignedInStatus();
   }, []);
 
   return (
@@ -39,15 +46,19 @@ const RoutePage = () => {
             const formData = new FormData(e.currentTarget);
             const content = formData.get("content") as string;
 
-            const req = await fetch(`/api/comments`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ content }),
-            });
+            if (isSignedIn) {
+              const req = await fetch(`/api/comments`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ content }),
+              });
 
-            console.log(req.json);
+              console.log(req.json);
+            } else {
+              alert("sign in first");
+            }
 
             fetchComments();
           }}
