@@ -12,6 +12,7 @@ import { AdapterAccountType } from "next-auth/adapters";
 
 export const comments = mysqlTable("comments_table", {
   id: serial().primaryKey(),
+  content: text("content").notNull(),
 });
 
 export const users = mysqlTable("users_table", {
