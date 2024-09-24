@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { database } from "@/db/index";
 import { comments as commentSchema } from "@/db/schema";
+import { eq } from "drizzle-orm";
 
 const handleError = (error: unknown) => {
   NextResponse.json(
@@ -23,9 +24,18 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const data = await database.insert(commentSchema).values({});
+    const { content } = await request.json();
 
-    console.log(data);
+    const data = await database.insert(commentSchema).values({
+      content,
+    });
+
+    const comment = await database
+      .select({ id: commentSchema.id, content: commentSchema.content })
+      .from(commentSchema)
+      .where(eq(commentSchema.id, data[0].insertId));
+
+    console.log(comment);
     return NextResponse.json(data);
   } catch (error) {
     console.error("Error during HTTP POST request:", error);

@@ -152,6 +152,10 @@ jje/
     - [ ] Sign/log-in using email
   - [ ] Rating
   - [ ] Commenting
+    - [x] Adding
+    - [ ] Link with user
+    - [ ] Get/Sort by user
+    - [ ] Info (user, date)
   - [ ] Notification
   - [ ] Testimonials
   - [ ] Visitors count
