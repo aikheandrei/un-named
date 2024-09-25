@@ -1,5 +1,6 @@
 "use client";
 
+import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -22,7 +23,12 @@ const RoutePage = () => {
   return (
     <section className="grid h-[100svh] items-center justify-center">
       <div>
-        <Link href="/route/overview">Sign in</Link>
+        <Link
+          className={buttonVariants({ variant: "default" })}
+          href="/route/overview"
+        >
+          Sign in
+        </Link>
         <form
           onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
@@ -37,7 +43,12 @@ const RoutePage = () => {
           }}
         >
           <input name="comment" type="text" placeholder="comment" />
-          <button type="submit">comment</button>
+          <Button
+            className={buttonVariants({ variant: "outline" })}
+            type="submit"
+          >
+            comment
+          </Button>
         </form>
         {comments.map(({ id }) => (
           <p key={id}>{id}</p>

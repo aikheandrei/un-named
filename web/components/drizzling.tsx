@@ -1,17 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Button, buttonVariants } from "./ui/button";
 
 export const Drizzling = () => {
   return (
     <div className="font-geistsans">
-      <h1 className="mb-2 flex gap-2 font-geistmono text-[2rem] font-bold">
+      <h1 className="mb-2 flex gap-2 font-geistmono text-[1.4rem] font-bold">
         Drizzling
         <Image
           aria-hidden
           src="/window.svg"
           alt="Window icon"
-          width={25}
-          height={25}
+          width={20}
+          height={20}
         />
       </h1>
 
@@ -27,7 +28,8 @@ export const Drizzling = () => {
 
       <Link
         href="/drizzle"
-        className="flex h-12 max-w-fit items-center justify-center rounded-full bg-foreground px-[1.5rem] text-base text-background transition-colors hover:bg-[#ccc]"
+        // className="flex h-12 max-w-fit items-center justify-center rounded-full bg-foreground px-[1.5rem] text-base text-background transition-colors hover:bg-[#ccc]"
+        className={buttonVariants({ variant: "default" })}
       >
         Checkout router →
       </Link>
