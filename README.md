@@ -35,8 +35,9 @@ Adobe Photoshop </br>
     - [ ] Motion
     - [ ] Lenis scroll
     - [ ] R3F
-    - [ ] Next Auth
-    - [ ] drizzle
+    - [x] Next Auth
+    - [x] drizzle
+    - [ ] Shadcn
   - [ ] Deploy on Cloudflare
     - [ ] Modify pages to run on edge
     - [x] @cloudflare/next-on-pages package
@@ -135,7 +136,7 @@ jje/
     - [x] Db push
   - [x] Docker/docker-compose
   - [-] Reverting to PostgreSQL (no free mySQL managed and vps database & no cheap local machine)
-  - [ ] HTTP req routes handlers (crud)
+  - [ ] HTTP req routes handlers (RESTful api)
     - [ ] where to put it?
   - [ ] Client/server management
   - [ ] Avien for mysql managed database
@@ -148,6 +149,7 @@ jje/
     - [x] Session management
     - [ ] Redirect to sign-in page & back
     - [ ] Account deletion
+    - [ ] Sign/log-in using email
   - [ ] Rating
   - [ ] Commenting
   - [ ] Notification
