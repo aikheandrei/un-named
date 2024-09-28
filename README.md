@@ -88,13 +88,17 @@ jje/
 - FRONT-END UI/UX (Figma/Photoshop)
 
   - [ ] (not to be prioritize rn as we need to focus more on the backend)
-  - [ ] 404 page not found error route
+  - [ ] Link Back-end & new branch (initial)
+    - [ ] Header
+    - [ ] Root
+  - [ ] Color palette
   - [ ] Fonts
     - [ ] Helvetica
     - [ ] Garamond
     - [ ] Century
     - [ ] Badoni
     - [ ] Futura
+  - [ ] 404 page not found error route
 
 - BASIC
 
@@ -116,9 +120,9 @@ jje/
 
 - BACK-END
 
-  - [ ] (drizzling still)
-  - [ ] (but i'll kill it trust me)
-  - [ ] Drizzle (initial setup)
+  - [x] (drizzling still)
+  - [x] (but i'll kill it trust me)
+  - [x] Drizzle (initial setup)
     - [x] Packages
     - [x] Docker compose setup
     - [x] Database connection db/index.ts
@@ -131,27 +135,32 @@ jje/
     - [x] Db push
   - [x] Docker/docker-compose
   - [-] Reverting to PostgreSQL (no free mySQL managed and vps database & no cheap local machine)
-  - [ ] HTTP req routes (crud)
-    - [ ] where to put it??
-  - [ ] Next auth (auth.js)
-    - [x] Facebook provider
-    - [ ] Google Provider
-    - [ ] Sign-in (log-in)
-    - [ ] Sign-out (log-out)
+  - [ ] HTTP req routes handlers (crud)
+    - [ ] where to put it?
+  - [ ] Client/server management
   - [ ] Avien for mysql managed database
   - [ ]
-  - [ ] Authentication/sign-in/login
+  - [x] Authentication/sign-in/login nextauth (auth.js)
+    - [x] Facebook provider
+    - [x] Google Provider
+    - [x] Sign-in (log-in)
+    - [x] Sign-out (log-out)
+    - [x] Session management
     - [ ] Redirect to sign-in page & back
+    - [ ] Account deletion
   - [ ] Rating
   - [ ] Commenting
   - [ ] Notification
-  - [ ] Contact/Emailing
-  - [ ] Admin page
-    - [ ] Manage testimonials/comments
   - [ ] Testimonials
   - [ ] Visitors count
+  - [ ] Admin page
+    - [ ] Manage testimonials/comments
+  - [ ] Contact/Emailing
   - [ ]
   - [ ] File sharing/download
+  - [ ] JJE email/gmail
+    - [ ] Link google gloud & facebook app provider
+  - [ ]
 
 - MISCS
 
@@ -178,13 +187,14 @@ jje/
     - [x] Branch off main
     - [x] Check pull requests on main repo
     - [x] Merge and rebase
-  - [ ] git add /web/.env.local
+  - [ ] Back-end linking branch for deployment
   - [ ] New branch for jje front-end
   - [ ]
 
 - GOAL
 
   - Ibalik ang masakit na nakaraan
+  - Back-end
 
 #### Not-to-do
 
