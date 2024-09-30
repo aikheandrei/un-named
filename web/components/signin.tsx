@@ -13,7 +13,7 @@ export const SignIn = async () => {
               await signOut();
             }}
           >
-            <button type="submit">Sign out with Facebook</button>
+            <button type="submit">Sign out</button>
           </form>
           {session.user && (
             <>
@@ -25,14 +25,24 @@ export const SignIn = async () => {
           )}
         </>
       ) : (
-        <form
-          action={async () => {
-            "use server";
-            await signIn("facebook");
-          }}
-        >
-          <button type="submit">Sign in with Facebook</button>
-        </form>
+        <>
+          <form
+            action={async () => {
+              "use server";
+              await signIn("facebook");
+            }}
+          >
+            <button type="submit">Sign in with Facebook</button>
+          </form>
+          <form
+            action={async () => {
+              "use server";
+              await signIn("google");
+            }}
+          >
+            <button type="submit">Sign in with google</button>
+          </form>
+        </>
       )}
     </div>
   );
