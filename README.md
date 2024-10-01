@@ -172,8 +172,7 @@ jje/
 
 - GIT
 
-  - [ ] Issues using github cli
-    - [ ]
+  - [ ] Issues (github cli)
   - [ ] Code review
   - [x] Fork initial
     - [x] Branch off main
