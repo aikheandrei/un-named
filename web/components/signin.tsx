@@ -1,16 +1,39 @@
-import { signIn } from "@/app/api/auth/auth";
+import { auth, signIn, signOut } from "@/app/api/auth/auth";
 
 export const SignIn = async () => {
+  const session = await auth();
+
   return (
-    <>
-      <form
-        action={async () => {
-          "use server";
-          await signIn("facebook");
-        }}
-      >
-        <button type="submit">Signin with Facebook</button>
-      </form>
-    </>
+    <div>
+      {session ? (
+        <>
+          <form
+            action={async () => {
+              "use server";
+              await signOut();
+            }}
+          >
+            <button type="submit">Sign out with Facebook</button>
+          </form>
+          {session.user && (
+            <>
+              {session.user.image && (
+                <img src={session.user.image} alt="User Avatar" />
+              )}
+              <p>{session.user.name}</p>
+            </>
+          )}
+        </>
+      ) : (
+        <form
+          action={async () => {
+            "use server";
+            await signIn("facebook");
+          }}
+        >
+          <button type="submit">Sign in with Facebook</button>
+        </form>
+      )}
+    </div>
   );
 };
