@@ -1,10 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export const runtime = "edge";
 
-const DrizzlePage = () => {
+const RoutePage = () => {
   const [comments, setComments] = useState<{ id: number }[]>([]);
 
   const fetchComments = async () => {
@@ -21,6 +22,7 @@ const DrizzlePage = () => {
   return (
     <section className="grid h-[100svh] items-center justify-center">
       <div>
+        <Link href="/route/overview">Sign in</Link>
         <form
           onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
@@ -45,4 +47,4 @@ const DrizzlePage = () => {
   );
 };
 
-export default DrizzlePage;
+export default RoutePage;
