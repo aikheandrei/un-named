@@ -134,9 +134,14 @@ jje/
   - [ ] HTTP req routes (crud)
     - [ ] where to put it??
   - [ ] Next auth (auth.js)
+    - [x] Facebook provider
+    - [ ] Google Provider
+    - [ ] Sign-in (log-in)
+    - [ ] Sign-out (log-out)
   - [ ] Avien for mysql managed database
   - [ ]
-  - [ ] Authentication/Login
+  - [ ] Authentication/sign-in/login
+    - [ ] Redirect to sign-in page & back
   - [ ] Rating
   - [ ] Commenting
   - [ ] Notification
