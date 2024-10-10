@@ -2,19 +2,33 @@ import { NextResponse } from "next/server";
 import { database } from "@/db/index";
 import { comments as commentSchema } from "@/db/schema";
 
+const handleError = (error: unknown) => {
+  NextResponse.json(
+    { error: error instanceof Error ? error.message : "Unknown error" },
+    { status: 500 },
+  );
+};
+
+export async function GET() {
+  try {
+    const data = await database.select().from(commentSchema);
+
+    console.log(data);
+    return NextResponse.json(data);
+  } catch (error) {
+    console.error("Error during HTTP GET request:", error);
+    return handleError(error);
+  }
+}
+
 export async function POST(request: Request) {
   try {
-    await database.insert(commentSchema).values({});
+    const data = await database.insert(commentSchema).values({});
 
-    return NextResponse.json(
-      { message: "Comment added successfully!" },
-      { status: 200 },
-    );
+    console.log(data);
+    return NextResponse.json(data);
   } catch (error) {
-    console.error("Error during POST request:", error);
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Unknown error" },
-      { status: 500 },
-    );
+    console.error("Error during HTTP POST request:", error);
+    return handleError(error);
   }
 }
