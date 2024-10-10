@@ -16,12 +16,10 @@ Avien (managed database) </br>
 Git (version control) </br>
 Cloudflare (hosting/deployment) </br>
 
-### Tools:
-
-NeoCOde </br>
+Neovim </br>
+Docker Desktop </br>
 Figma </br>
 Adobe Photoshop </br>
-My disabilities </br>
 
 #### To-do:
 
@@ -133,6 +131,9 @@ jje/
     - [x] Db push
   - [x] Docker/docker-compose
   - [-] Reverting to PostgreSQL (no free mySQL managed and vps database & no cheap local machine)
+  - [ ] HTTP req routes (crud)
+    - [ ] where to put it??
+  - [ ] Next auth (auth.js)
   - [ ] Avien for mysql managed database
   - [ ]
   - [ ] Authentication/Login
