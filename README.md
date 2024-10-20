@@ -18,7 +18,7 @@ Cloudflare (hosting/deployment) </br>
 
 ### Tools:
 
-VsCode </br>
+NeoCOde </br>
 Figma </br>
 Adobe Photoshop </br>
 My disabilities </br>
@@ -131,7 +131,7 @@ jje/
     - [x] Drizzle studio
     - [x] .env
     - [x] Db push
-  - [ ] Docker/docker-compose (holyshit)
+  - [x] Docker/docker-compose
   - [-] Reverting to PostgreSQL (no free mySQL managed and vps database & no cheap local machine)
   - [ ] Avien for mysql managed database
   - [ ]
