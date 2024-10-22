@@ -130,7 +130,7 @@ jje/
     - [x] Drizzle kit
     - [x] Drizzle studio
     - [x] .env
-    - [ ] Db push
+    - [x] Db push
   - [ ] Docker/docker-compose (holyshit)
   - [-] Reverting to PostgreSQL (no free mySQL managed and vps database & no cheap local machine)
   - [ ] Avien for mysql managed database
