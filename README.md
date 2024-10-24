@@ -127,8 +127,8 @@ jje/
     - [x] env.ts (typesafe url's)
     - [x] Schema
     - [x] drizzle.config.ts
-    - [ ] Drizzle kit
-    - [ ] Drizzle studio
+    - [x] Drizzle kit
+    - [x] Drizzle studio
     - [x] .env
     - [ ] Db push
   - [ ] Docker/docker-compose (holyshit)
