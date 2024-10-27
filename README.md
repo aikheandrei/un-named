@@ -126,7 +126,7 @@ jje/
     - [x] Database connection db/index.ts
     - [x] env.ts (typesafe url's)
     - [x] Schema
-    - [ ] drizzle.config.ts
+    - [x] drizzle.config.ts
     - [ ] Drizzle kit
     - [ ] Drizzle studio
     - [x] .env
