@@ -12,11 +12,11 @@ let connection: ReturnType<typeof mysql.createConnection>;
 
 if (env.NODE_ENV === "production") {
   connection = mysql.createConnection(env.DATABASE_URL);
-  database = drizzle(connection, { schema });
+  database = drizzle(connection);
 } else {
   if (!global.database) {
     connection = mysql.createConnection(env.DATABASE_URL);
-    global.database = drizzle(connection, { schema });
+    global.database = drizzle(connection);
   }
   database = global.database;
 }
