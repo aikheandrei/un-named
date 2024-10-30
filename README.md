@@ -8,10 +8,10 @@ Typescript (main language) </br>
 Tailwind & Sass (styling) </br>
 Motion & Lenis Scroll (animations) </br>
 React Three fiber (3d rendering) </br>
-Drizzle ORM </br>
+Drizzle (ORM) </br>
 Docker (docker compose) </br>
-Next Auth </br>
-MySQL </br>
+Next Auth (Auth.js) </br>
+MySQL (RDBMS) </br>
 Avien (managed database) </br>
 Git (version control) </br>
 Cloudflare (hosting/deployment) </br>
@@ -34,9 +34,9 @@ My disabilities </br>
   - [ ] Install Packages/dependencies
     - [x] Tailwind prettier (auto class sort)
     - [-] Sass (unsupported on next v15)
-    - [ ] Motion (animation)
+    - [ ] Motion
     - [ ] Lenis scroll
-    - [ ] R3F (3d rendering)
+    - [ ] R3F
     - [ ] Next Auth
     - [ ] drizzle
   - [ ] Deploy on Cloudflare
