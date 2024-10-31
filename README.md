@@ -116,8 +116,6 @@ jje/
     - [ ] Colors
     - [ ]
 
-test-change
-
 - BACK-END
 
   - [ ] (drizzling still)
@@ -126,8 +124,8 @@ test-change
     - [x] Packages
     - [x] Docker compose setup
     - [x] Database connection db/index.ts
-    - [ ] env.ts (typesafe url's)
-    - [ ] Schema
+    - [x] env.ts (typesafe url's)
+    - [x] Schema
     - [ ] drizzle.config.ts
     - [ ] Drizzle kit
     - [ ] Drizzle studio
