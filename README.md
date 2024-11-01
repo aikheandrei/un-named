@@ -125,13 +125,13 @@ test-change
   - [ ] Drizzle (initial setup)
     - [x] Packages
     - [x] Docker compose setup
-    - [ ] Database connection db/index.ts
-    - [ ] Env.ts (typesafe url's)
+    - [x] Database connection db/index.ts
+    - [ ] env.ts (typesafe url's)
     - [ ] Schema
     - [ ] drizzle.config.ts
     - [ ] Drizzle kit
     - [ ] Drizzle studio
-    - [ ] .env
+    - [x] .env
     - [ ] Db push
   - [ ] Docker/docker-compose (holyshit)
   - [-] Reverting to PostgreSQL (no free mySQL managed and vps database & no cheap local machine)
