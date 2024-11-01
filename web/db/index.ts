@@ -1,4 +1,4 @@
-import { env } from "@/env";
+import { env } from "./env";
 import * as schema from "./schema";
 import { MySql2Database, drizzle } from "drizzle-orm/mysql2";
 import mysql from "mysql2";
