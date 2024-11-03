@@ -121,9 +121,9 @@ jje/
   - [ ] (drizzling still)
   - [ ] (but i'll kill it trust me)
   - [ ] Drizzle (initial setup)
-    - [ ] Packages
+    - [x] Packages
     - [x] Docker compose setup
-    - [ ] Database connection index/database.ts
+    - [ ] Database connection db/index.ts
     - [ ] Env.ts (typesafe url's)
     - [ ] Schema
     - [ ] drizzle.config.ts
@@ -172,6 +172,7 @@ jje/
     - [x] Branch off main
     - [x] Check pull requests on main repo
     - [x] Merge and rebase
+  - [ ] git add /web/.env.local
   - [ ] New branch for jje front-end
   - [ ]
 
