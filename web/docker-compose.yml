@@ -1,0 +1,17 @@
+services:
+  jje-db:
+    image: mysql
+    restart: always
+    container_name: jje_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_USER: aikhe
+      MYSQL_PASSWORD: woainilumi34
+      MYSQL_DATABASE: aikhe_db
+    volumes:
+      - mysql:/data/mysql
+    ports:
+      - "3307:3306"
+
+volumes:
+  mysql:

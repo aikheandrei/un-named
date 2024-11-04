@@ -42,7 +42,10 @@ My disabilities </br>
   - [ ] Deploy on Cloudflare
     - [ ] Modify pages to run on edge
     - [x] @cloudflare/next-on-pages package
+    - [x] nodejs_compat
+    - [x] node version variable
     - [ ] Custom domain
+  - [ ] Project title & description
   - [ ]
 
 - APP STRUCTURE
@@ -119,11 +122,13 @@ jje/
   - [ ] (but i'll kill it trust me)
   - [ ] Drizzle (initial setup)
     - [ ] Packages
-    - [ ] Docker compose setup
+    - [x] Docker compose setup
     - [ ] Database connection index/database.ts
     - [ ] Env.ts (typesafe url's)
     - [ ] Schema
-    - [ ] Drizzle config
+    - [ ] drizzle.config.ts
+    - [ ] Drizzle kit
+    - [ ] Drizzle studio
     - [ ] .env
     - [ ] Db push
   - [ ] Docker/docker-compose (holyshit)
