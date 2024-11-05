@@ -14,7 +14,7 @@ Next Auth </br>
 MySQL </br>
 Avien (managed database) </br>
 Git (version control) </br>
-Vercel (hosting/deployment) </br>
+Cloudflare (hosting/deployment) </br>
 
 ### Tools:
 
@@ -30,6 +30,7 @@ My disabilities </br>
   - [x] New nextjs app (latest version)
   - [x] App/project structure (app router)
   - [x] Remove unecessary/unused components/styling
+  - [ ] Bun????
   - [ ] Install Packages/dependencies
     - [x] Tailwind prettier (auto class sort)
     - [-] Sass (unsupported on next v15)
@@ -38,7 +39,9 @@ My disabilities </br>
     - [ ] R3F (3d rendering)
     - [ ] Next Auth
     - [ ] drizzle
-  - [ ] Deploy on Vercel
+  - [ ] Deploy on Cloudflare
+    - [ ] Modify pages to run on edge
+    - [x] @cloudflare/next-on-pages package
     - [ ] Custom domain
   - [ ]
 
@@ -170,3 +173,7 @@ jje/
 - GOAL
 
   - Ibalik ang masakit na nakaraan
+
+#### Not-to-do
+
+- BE INCONSISTENT
