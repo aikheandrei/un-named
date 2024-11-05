@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+export const runtime = "edge";
+
 const DrizzlePage = () => {
   return (
     <section className="grid h-[100svh] items-center justify-center">
