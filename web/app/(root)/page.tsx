@@ -1,7 +1,11 @@
 import Root from "@/layouts/root";
 
 const RootPage = () => {
-  return <Root />;
+  return (
+    <main>
+      <Root />
+    </main>
+  );
 };
 
 export default RootPage;

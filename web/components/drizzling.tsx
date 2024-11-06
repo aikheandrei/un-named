@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 export const Drizzling = () => {
@@ -24,12 +25,12 @@ export const Drizzling = () => {
         </li>
       </ol>
 
-      <a
-        href=""
+      <Link
+        href="/drizzle"
         className="flex h-12 max-w-fit items-center justify-center rounded-full bg-foreground px-[1.5rem] text-base text-background transition-colors hover:bg-[#ccc]"
       >
         Checkout router →
-      </a>
+      </Link>
     </div>
   );
 };
