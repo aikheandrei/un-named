@@ -83,6 +83,11 @@ jje/
 - FRONT-END UI/UX (Figma/Photoshop)
 
   - [ ] (not to be prioritize rn as we need to focus more on the backend)
+  - [ ] 404 page not found error route
+
+- BASIC
+
+  - [x] next link/routing initial
 
 - STYLING
 
