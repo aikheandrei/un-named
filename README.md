@@ -88,10 +88,11 @@ jje/
 
   - [-] Implement sass (unsupported on next v15)
   - [ ] Additional styles
-    - [ ] Utils
+    - [x] Utils
     - [ ] Fonts
     - [-] \_Variables
-  - [ ] Tailwind method
+  - [x] Tailwind method
+    - [x] Post-css import plugin (imports)
   - [ ] Tailwind config setup
     - [ ] Fonts/typography
     - [ ] Colors
@@ -129,7 +130,7 @@ jje/
 - GIT
 
   - [ ] Issues using github cli
-  - [ ] Fork initial
+  - [x] Fork initial
     - [x] Branch off main
     - [x] Check pull requests on main repo
     - [x] Merge and rebase
