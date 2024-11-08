@@ -31,12 +31,14 @@ My disabilities </br>
   - [x] Remove unecessary/unused components/styling
   - [ ] Install Packages/dependencies
     - [x] Tailwind prettier (auto class sort)
-    - [ ] Sass
+    - [-] Sass (unsupported on next v15)
     - [ ] Motion (animation)
     - [ ] Lenis scroll
     - [ ] R3F (3d rendering)
     - [ ] Next Auth
     - [ ] drizzle
+  - [ ] Deploy on Vercel
+    - [ ] Custom domain
   - [ ]
 
 - APP STRUCTURE
@@ -84,13 +86,16 @@ jje/
 
 - STYLING
 
-  - [ ] Implement sass
+  - [-] Implement sass (unsupported on next v15)
   - [ ] Additional styles
     - [ ] Utils
     - [ ] Fonts
-    - [ ] \_Variables
+    - [-] \_Variables
   - [ ] Tailwind method
   - [ ] Tailwind config setup
+    - [ ] Fonts/typography
+    - [ ] Colors
+    - [ ]
 
 - BACK-END
 

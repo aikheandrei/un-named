@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export const Test = () => {
+export const Drizzling = () => {
   return (
     <div className="font-geistsans">
       <h1 className="mb-2 flex gap-2 font-geistmono text-[2rem] font-bold">
