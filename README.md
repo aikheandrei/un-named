@@ -28,11 +28,10 @@ My disabilities </br>
 
   - [x] New nextjs app (latest version)
   - [x] App/project structure (app router)
-  - [x] Prettier/formatting (vscode & source code)
-  - [x] Vscode intellisense priority
-  - [ ] Remove unecessary/unused components/styling
+  - [x] Remove unecessary/unused components/styling
   - [ ] Install Packages/dependencies
     - [x] Tailwind prettier (auto class sort)
+    - [ ] Sass
     - [ ] Motion (animation)
     - [ ] Lenis scroll
     - [ ] R3F (3d rendering)
@@ -85,6 +84,7 @@ jje/
 
 - STYLING
 
+  - [ ] Implement sass
   - [ ] Additional styles
     - [ ] Utils
     - [ ] Fonts
@@ -108,6 +108,9 @@ jje/
 
 - MISCS
 
+  - [x] Prettier/formatting (vscode & source code)
+  - [x] Vscode intellisense priority
+  - [ ] Powershell autosuggestion
   - [ ] Seperate folders (design and web)
   - [ ] Sorry na malala
 

@@ -1,5 +1,7 @@
 import Root from "@/layouts/root";
 
-export default function Home() {
+const RootPage = () => {
   return <Root />;
-}
+};
+
+export default RootPage;
