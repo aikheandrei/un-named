@@ -3,7 +3,7 @@
 ### Tech Stack:
 
 Nextjs (build tool) </br>
-React  (component base) </br>
+React (component base) </br>
 Typescript (main language) </br>
 Tailwind & Sass (styling) </br>
 Motion & Lenis Scroll (animations) </br>
@@ -28,9 +28,11 @@ My disabilities </br>
 
   - [x] New nextjs app (latest version)
   - [x] App/project structure (app router)
-  - [ ] Prettier (vscode & source code)
+  - [x] Prettier/formatting (vscode & source code)
+  - [x] Vscode intellisense priority
   - [ ] Remove unecessary/unused components/styling
   - [ ] Install Packages/dependencies
+    - [x] Tailwind prettier (auto class sort)
     - [ ] Motion (animation)
     - [ ] Lenis scroll
     - [ ] R3F (3d rendering)
