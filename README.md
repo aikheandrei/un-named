@@ -28,6 +28,7 @@ My disabilities </br>
 
   - [x] New nextjs app (latest version)
   - [x] App/project structure (app router)
+  - [ ] Prettier (vscode & source code)
   - [ ] Remove unecessary/unused components/styling
   - [ ] Install Packages/dependencies
     - [ ] Motion (animation)
@@ -38,7 +39,7 @@ My disabilities </br>
   - [ ]
 
 - APP STRUCTURE
-- [ ] Improvise app router
+- [x] Improvise app router
 
 ```
 jje/
@@ -54,6 +55,8 @@ jje/
 │  │  └──example.tsx
 │  ├──fonts/
 │  │  └──font.ttf
+│  ├──layouts/
+│  │  └──Root.tsx
 │  ├──lib/
 │  ├──node_modules/
 │  ├──public/
