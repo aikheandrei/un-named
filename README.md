@@ -26,9 +26,9 @@ My disabilities </br>
 
 - NEXTJS
 
-  - [ ] New nextjs app (latest version)
-  - [ ] Remove unecessary/unused components/styling
+  - [x] New nextjs app (latest version)
   - [ ] App/project structure (app router)
+  - [ ] Remove unecessary/unused components/styling
   - [ ] Install Packages/dependencies
     - [ ] Motion (animation)
     - [ ] Lenis scroll
@@ -38,8 +38,10 @@ My disabilities </br>
   - [ ]
 
 - APP STRUCTURE
+- [ ] Improvise app router
 
-  - [ ] Improvise app router
+```
+```
 
 - FRONT-END UI/UX (Figma/Photoshop)
 
