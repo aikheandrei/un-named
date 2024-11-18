@@ -71,7 +71,6 @@ naboang si aikhe ayos muna pero sori na
 
 - MISCS
 
-  - [ ] Issues using github cli
   - [ ] Seperate folders (design and web)
   - [ ] Sorry na malala
 
@@ -81,7 +80,13 @@ naboang si aikhe ayos muna pero sori na
   - [ ] Tech Stack
   - [ ] Todo shit
 
+- GIT
+
+  - [ ] Issues using github cli
+  - [ ] Branch off main
+  - [ ] Check pull requests on main repo
+  - [ ] Merge and rebase
+
 - GOAL
 
-  - [ ]
-  - [ ] Ibalik ang masakit na nakaraan
+  - Ibalik ang masakit na nakaraan
