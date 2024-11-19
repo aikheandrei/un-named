@@ -22,12 +22,11 @@ Figma </br>
 Adobe Photoshop </br>
 My disabilities </br>
 
-naboang si aikhe ayos muna pero sori na
-
 #### To-do:
 
 - NEXTJS
 
+  - [ ] New nextjs app (latest version)
   - [ ] Remove unecessary/unused components/styling
   - [ ] App/project structure (app router)
   - [ ] Install Packages/dependencies
@@ -77,15 +76,18 @@ naboang si aikhe ayos muna pero sori na
 - README
 
   - [ ] Initial
-  - [ ] Tech Stack
-  - [ ] Todo shit
+    - [ ] Tech Stack
+    - [ ] Todo shit
+  - [ ]
 
 - GIT
 
   - [ ] Issues using github cli
-  - [ ] Branch off main
-  - [ ] Check pull requests on main repo
-  - [ ] Merge and rebase
+  - [ ] Fork initial
+    - [x] Branch off main
+    - [x] Check pull requests on main repo
+    - [x] Merge and rebase
+  - [ ]
 
 - GOAL
 
