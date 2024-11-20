@@ -27,7 +27,7 @@ My disabilities </br>
 - NEXTJS
 
   - [x] New nextjs app (latest version)
-  - [ ] App/project structure (app router)
+  - [x] App/project structure (app router)
   - [ ] Remove unecessary/unused components/styling
   - [ ] Install Packages/dependencies
     - [ ] Motion (animation)
@@ -41,6 +41,37 @@ My disabilities </br>
 - [ ] Improvise app router
 
 ```
+jje/
+├──design/
+│  └──design.png
+├──web/
+│  ├──.next/
+│  ├──app/
+│  │  ├──(main)/
+│  │  ├──(root)/
+│  │  └──layout.tsx
+│  ├──components/
+│  │  └──example.tsx
+│  ├──fonts/
+│  │  └──font.ttf
+│  ├──lib/
+│  ├──node_modules/
+│  ├──public/
+│  │  └──image.png
+│  ├──styles/
+│  │  └──globals.css
+│  ├──types/
+│  │  └──data.ts
+│  ├──.eslintrc.json
+│  ├──.gitignore
+│  ├──next.env.d.ts
+│  ├──next.config.ts
+│  ├──package-lock.json
+│  ├──package.json
+│  ├──postcss.config.mjs
+│  ├──tailwind.config.ts
+│  └──tsconfig.json
+└──README.md
 ```
 
 - FRONT-END UI/UX (Figma/Photoshop)
