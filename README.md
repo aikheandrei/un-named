@@ -9,11 +9,12 @@ Tailwind & Sass (styling) </br>
 Motion & Lenis Scroll (animations) </br>
 React Three fiber (3d rendering) </br>
 Drizzle ORM </br>
+Docker (docker compose) </br>
 Next Auth </br>
 MySQL </br>
-Supabase </br>
+Avien (managed database) </br>
 Git (version control) </br>
-Vercel (deployment) </br>
+Vercel (hosting/deployment) </br>
 
 ### Tools:
 
@@ -84,6 +85,12 @@ jje/
 
   - [ ] (not to be prioritize rn as we need to focus more on the backend)
   - [ ] 404 page not found error route
+  - [ ] Fonts
+    - [ ] Helvetica
+    - [ ] Garamond
+    - [ ] Century
+    - [ ] Badoni
+    - [ ] Futura
 
 - BASIC
 
@@ -107,13 +114,28 @@ jje/
 
   - [ ] (drizzling still)
   - [ ] (but i'll kill it trust me)
+  - [ ] Drizzle (initial setup)
+    - [ ] Packages
+    - [ ] Docker compose setup
+    - [ ] Database connection index/database.ts
+    - [ ] Env.ts (typesafe url's)
+    - [ ] Schema
+    - [ ] Drizzle config
+    - [ ] .env
+    - [ ] Db push
+  - [ ] Docker/docker-compose (holyshit)
+  - [-] Reverting to PostgreSQL (no free mySQL managed and vps database & no cheap local machine)
+  - [ ] Avien for mysql managed database
   - [ ]
   - [ ] Authentication/Login
   - [ ] Rating
   - [ ] Commenting
-  - [ ] Testimonials
-  - [ ] Admin page
+  - [ ] Notification
   - [ ] Contact/Emailing
+  - [ ] Admin page
+    - [ ] Manage testimonials/comments
+  - [ ] Testimonials
+  - [ ] Visitors count
   - [ ]
   - [ ] File sharing/download
 
@@ -122,7 +144,9 @@ jje/
   - [x] Prettier/formatting (vscode & source code)
   - [x] Vscode intellisense priority
   - [ ] Powershell autosuggestion
-  - [ ] Seperate folders (design and web)
+  - [x] Seperate folders (design and web)
+  - [ ] Experiment with mySQL
+  - [ ] Github student developer pack
   - [ ] Sorry na malala
 
 - README
@@ -135,10 +159,12 @@ jje/
 - GIT
 
   - [ ] Issues using github cli
+  - [ ] Code review
   - [x] Fork initial
     - [x] Branch off main
     - [x] Check pull requests on main repo
     - [x] Merge and rebase
+  - [ ] New branch for jje front-end
   - [ ]
 
 - GOAL
