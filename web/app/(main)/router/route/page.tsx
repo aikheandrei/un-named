@@ -12,6 +12,8 @@ const RoutePage = async () => {
     `${process.env.WEBSITE_URL}/api/users`,
   ).then((res) => res.json());
 
+  console.log(userData);
+
   return (
     <section>
       <div className="mx-auto w-[40rem] border-x-2 pt-14">
@@ -23,7 +25,7 @@ const RoutePage = async () => {
               key={id}
               img={user?.image}
               userName={user?.name}
-              userId={user?.id}
+              userEmail={user?.email}
               content={content}
             />
           );
