@@ -34,31 +34,29 @@ export const Header = () => {
   return (
     <header>
       <nav className="fixed left-[50%] h-14 w-[40rem] -translate-x-1/2 gap-2 whitespace-nowrap border border-t-0 font-geistsans backdrop-blur-md">
-        <div className="absolute right-[100%] space-y-2 pr-8 pt-4">
-          <div className="flex flex-col gap-2">
-            {!inSignInPage && (
-              <Link
-                className={`${buttonVariants({ variant: "default" })} w-24`}
-                href={"/router/overview"}
-              >
-                {isSignedIn ? "Account" : "Sign in"}
-              </Link>
-            )}
-            <Button
-              onClick={() => toggleModal(!modal)}
-              className="w-24"
-              variant={"outline"}
+        <div className="absolute right-[100%] flex flex-col gap-2 pr-8 pt-4">
+          {!inSignInPage && (
+            <Link
+              className={`${buttonVariants({ variant: "default" })} w-24`}
+              href={"/router/overview"}
             >
-              Rate!
-            </Button>
-            <Button
-              onClick={() => toggleModal(!modal)}
-              className="w-24"
-              variant={"outline"}
-            >
-              Admin
-            </Button>
-          </div>
+              {isSignedIn ? "Account" : "Sign in"}
+            </Link>
+          )}
+          <Button
+            onClick={() => toggleModal(!modal)}
+            className="w-24"
+            variant={"outline"}
+          >
+            Rate!
+          </Button>
+          <Button
+            onClick={() => toggleModal(!modal)}
+            className="w-24"
+            variant={"outline"}
+          >
+            Admin
+          </Button>
         </div>
 
         <div className="absolute flex h-full w-full items-center justify-center gap-2 text-sm">

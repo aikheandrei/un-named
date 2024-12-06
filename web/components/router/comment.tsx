@@ -3,7 +3,7 @@ import { CommentProps } from "@/types/props";
 export const Comment: React.FC<CommentProps> = ({
   img,
   userName,
-  userId,
+  userEmail,
   content,
 }) => {
   return (
@@ -16,7 +16,7 @@ export const Comment: React.FC<CommentProps> = ({
       <div className="mt-[.05rem] font-geistsans">
         <a className="flex gap-2">
           <span className="font-semibold">{userName}</span>
-          <span className="text-neutral-500">{userId}</span>
+          <span className="text-neutral-500">{userEmail}</span>
         </a>
         <p className="mt-[.08rem] leading-5">{content}</p>
       </div>

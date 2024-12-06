@@ -151,12 +151,13 @@ jje/
     - [ ] Seperate sign in/out page (utilize client pages)
     - [ ] Account deletion
     - [ ] Sign/log-in using email
-  - [ ] Commenting & rating
+  - [ ] Commenting/review & rating
     - [x] Adding
     - [x] Prevent if not sign in (check auth/session)
     - [x] Link comment with user
-    - [ ] Get/Sort by user
-    - [ ] Info (user, date)
+    - [x] Get/Sort by user
+    - [ ] Update comment to review (e.g schema, components, routes)
+    - [ ] Review date
     - [ ] Rating system
     - [ ] Link Rating with user
     - [ ] Calc & display percentage of rating
