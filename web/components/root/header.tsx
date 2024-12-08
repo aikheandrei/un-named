@@ -1,17 +1,22 @@
 "use client";
 
-import { Button, buttonVariants } from "../ui/button";
 import Link from "next/link";
-import { RouteLinks } from "./utils/route-links";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import Backdrop from "../router/ui/backdrop";
+import { usePathname, useRouter } from "next/navigation";
+
 import { RatingForm } from "../router/rating-form";
+import { Button, buttonVariants } from "../ui/button";
+import Backdrop from "../router/ui/backdrop";
+
 import { Star } from "lucide-react";
 
+import { RouteLinks } from "./utils/route-links";
+
 export const Header = () => {
+  const router = useRouter();
+
   const [isSignedIn, setIsSignedIn] = useState(false);
-  const [isRating, setIsRating] = useState(false);
+  const [modal, toggleModal] = useState(false);
 
   const checkUserSignIn = async () => {
     const session = await fetch(`/api/auth`).then((res) => res.json());
@@ -28,6 +33,11 @@ export const Header = () => {
 
   const inSignInPage = usePathname() === "/router/overview";
 
+  const handleClick = () => {
+    router.refresh();
+    console.log("refresh");
+  };
+
   return (
     <header>
       <nav className="fixed left-[50%] h-14 w-[40rem] -translate-x-1/2 gap-2 whitespace-nowrap border border-t-0 font-geistsans text-sm backdrop-blur">
@@ -35,7 +45,7 @@ export const Header = () => {
           <h1 className="text-2xl font-bold leading-6">jje</h1>
           <div className="flex gap-[.1rem]">
             {Array.from({ length: 5 }, (_, i) => (
-              <Star className="size-[1.125rem]" />
+              <Star key={i} className="size-[1.125rem]" />
             ))}
           </div>
           <div className="flex flex-col gap-2">
@@ -48,11 +58,18 @@ export const Header = () => {
               </Link>
             )}
             <Button
-              onClick={() => setIsRating(!isRating)}
+              onClick={() => toggleModal(!modal)}
               className="w-24"
               variant={"outline"}
             >
               Rate!
+            </Button>
+            <Button
+              onClick={() => handleClick()}
+              className="w-24"
+              variant={"outline"}
+            >
+              Refresh
             </Button>
           </div>
         </div>
@@ -62,9 +79,9 @@ export const Header = () => {
         </div>
       </nav>
 
-      {isRating && (
-        <Backdrop onClick={() => setIsRating(!isRating)}>
-          <RatingForm />
+      {modal && (
+        <Backdrop onClick={() => toggleModal(!modal)}>
+          <RatingForm toggleModal={() => toggleModal(!modal)} />
         </Backdrop>
       )}
     </header>
