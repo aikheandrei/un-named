@@ -1,43 +1,22 @@
-"use client";
-
 import { Comment } from "@/components/router/comment";
-import { RatingForm } from "@/components/router/rating-form";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import React from "react";
-import { useEffect, useState } from "react";
+import { CommentProps, UserProps } from "@/types/props";
 
 export const runtime = "edge";
 
-const RoutePage = () => {
-  const [comments, setComments] = useState<
-    { id: number; content: string; userId: string }[]
-  >([]);
-  const [users, setUsers] = useState<
-    { id: string; name: string; image: string }[]
-  >([]);
+const RoutePage = async () => {
+  const commentData: CommentProps[] = await fetch(
+    `${process.env.WEBSITE_URL}/api/comments`,
+  ).then((res) => res.json());
 
-  const fetchComments = async () => {
-    const comments = await fetch(`/api/comments`).then((res) => res.json());
-    setComments(comments);
-  };
-
-  const fetchUsers = async () => {
-    const users = await fetch(`/api/users`).then((res) => res.json());
-    setUsers(users);
-  };
-
-  useEffect(() => {
-    fetchComments();
-    fetchUsers();
-  }, []);
+  const userData: UserProps[] = await fetch(
+    `${process.env.WEBSITE_URL}/api/users`,
+  ).then((res) => res.json());
 
   return (
     <section>
       <div className="mx-auto w-[40rem] border-x-2 pt-14">
-        {comments.map(({ id, content, userId }) => {
-          const user = users.find((user) => user.id === userId);
-          console.log(user?.image);
+        {commentData.map(({ id, content, userId }) => {
+          const user = userData.find((user) => user.id === userId);
 
           return (
             <Comment

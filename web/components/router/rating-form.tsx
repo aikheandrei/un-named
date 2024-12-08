@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import { Input } from "../ui/input";
 import { useRouter } from "next/navigation";
 import { Check, Star } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 
-export const RatingForm = () => {
+interface RatingFormProps {
+  toggleModal: () => void;
+}
+
+export const RatingForm: React.FC<RatingFormProps> = ({ toggleModal }) => {
   const router = useRouter();
 
   const [userInfo, setUserInfo] = useState<{
@@ -49,11 +52,11 @@ export const RatingForm = () => {
                 userId: userInfo?.userId,
               }),
             });
-
-            router.refresh();
+            toggleModal?.();
           } else {
             alert("sign in first");
           }
+          router.refresh();
         }}
       >
         <h1 className="text-2xl font-bold leading-6">jje</h1>

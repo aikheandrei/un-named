@@ -18,7 +18,7 @@ export const Comment: React.FC<CommentProps> = ({
           <span className="font-semibold">{userName}</span>
           <span className="opacity-50">{userId}</span>
         </a>
-        <p className="leading-5">{content}</p>
+        <p className="mt-[.08rem] leading-5">{content}</p>
       </div>
     </div>
   );
