@@ -1,8 +1,13 @@
-import { useState } from "react";
-import { Button, buttonVariants } from "../ui/button";
+import { useEffect, useState } from "react";
+import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import { useRouter } from "next/navigation";
+import { Check, Star } from "lucide-react";
+import { Textarea } from "../ui/textarea";
 
 export const RatingForm = () => {
+  const router = useRouter();
+
   const [userInfo, setUserInfo] = useState<{
     user: any;
     userId: string;
@@ -18,10 +23,16 @@ export const RatingForm = () => {
     }
   };
 
+  useEffect(() => {
+    getSession();
+  }, []);
+
   return (
-    <div>
+    <div
+      className="rounded-md bg-card px-4 py-8 font-geistsans"
+      onClick={(e) => e.stopPropagation()}
+    >
       <form
-        className="mb-10 space-y-2"
         onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
           const formData = new FormData(e.currentTarget);
@@ -38,14 +49,29 @@ export const RatingForm = () => {
                 userId: userInfo?.userId,
               }),
             });
+
+            router.refresh();
           } else {
             alert("sign in first");
           }
         }}
       >
-        <Input name="content" type="text" placeholder="comment" />
-        <Button variant={"outline"} type="submit">
-          Add Comment
+        <h1 className="text-2xl font-bold leading-6">jje</h1>
+        <p>Tell others what you think</p>
+        <div className="my-2 flex justify-between">
+          {Array.from({ length: 5 }, (_, i) => (
+            <button key={i}>
+              <Star className="my-2 size-7 opacity-40" />
+            </button>
+          ))}
+        </div>
+        <Textarea name="content" placeholder="write a review..." />
+        <Button
+          className="mt-3 flex w-full items-center gap-1 text-center"
+          type="submit"
+        >
+          Rate
+          <Check className="border-2 border-white/0" />
         </Button>
       </form>
     </div>

@@ -151,15 +151,13 @@ jje/
     - [ ] Seperate sign in/out page (utilize client pages)
     - [ ] Account deletion
     - [ ] Sign/log-in using email
-  - [ ] Rating
-    - [ ] Link with user
   - [ ] Commenting & rating
     - [x] Adding
     - [x] Prevent if not sign in (check auth/session)
     - [x] Link comment with user
     - [ ] Get/Sort by user
     - [ ] Info (user, date)
-    - [ ] Rating
+    - [ ] Rating system
     - [ ] Link Rating with user
     - [ ] Calc & display percentage of rating
   - [ ] Notification
