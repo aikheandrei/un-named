@@ -1,6 +1,7 @@
 "use client";
 
 import { Comment } from "@/components/router/comment";
+import { RatingForm } from "@/components/router/rating-form";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import React from "react";
@@ -34,10 +35,6 @@ const RoutePage = () => {
   return (
     <section>
       <div className="mx-auto w-[40rem] border-x-2 pt-14">
-        {/* <p>{userInfo?.user.name}</p>
-        <p>{userInfo?.userId}</p>
-        <img src={userInfo?.user.image} alt="User Avatar" /> */}
-
         {comments.map(({ id, content, userId }) => {
           const user = users.find((user) => user.id === userId);
           console.log(user?.image);
