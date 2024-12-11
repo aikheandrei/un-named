@@ -20,7 +20,7 @@ export const Header = () => {
 
   useEffect(() => {
     checkUserSignIn();
-  }, []);
+  });
 
   const inSignInPage = usePathname() === "/router/overview";
 
