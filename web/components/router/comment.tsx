@@ -7,7 +7,7 @@ export const Comment: React.FC<CommentProps> = ({
   content,
 }) => {
   return (
-    <div className="flex gap-2 border-t-2 px-8 py-4">
+    <div className="flex gap-2 border-b-2 px-8 py-4">
       <img
         className="size-12 rounded-full border-[3px]"
         src={img}

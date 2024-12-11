@@ -1,5 +1,5 @@
 import { auth, signIn, signOut } from "@/app/api/auth/auth";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 export const SignIn = async () => {
   const session = await auth();
