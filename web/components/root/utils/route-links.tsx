@@ -6,7 +6,7 @@ export const RouteLinks = () => {
     <>
       {Routes.map((routes, i) => {
         return (
-          <Link href={routes.Link} key={i}>
+          <Link className="font-geistmono" href={routes.Link} key={i}>
             {routes.Text}
           </Link>
         );

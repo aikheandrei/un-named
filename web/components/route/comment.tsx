@@ -13,7 +13,7 @@ export const Comment: React.FC<CommentProps> = ({
         src={img}
         alt="User Profile"
       />
-      <div className="mt-[.1rem] font-geistsans">
+      <div className="mt-[.05rem] font-geistsans">
         <a className="flex gap-2">
           <span className="font-semibold">{userName}</span>
           <span className="opacity-50">{userId}</span>

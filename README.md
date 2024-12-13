@@ -153,13 +153,15 @@ jje/
     - [ ] Sign/log-in using email
   - [ ] Rating
     - [ ] Link with user
-    - [ ] Calc & display percentage
-  - [ ] Commenting
+  - [ ] Commenting & rating
     - [x] Adding
     - [x] Prevent if not sign in (check auth/session)
     - [x] Link comment with user
     - [ ] Get/Sort by user
     - [ ] Info (user, date)
+    - [ ] Rating
+    - [ ] Link Rating with user
+    - [ ] Calc & display percentage of rating
   - [ ] Notification
   - [ ] Testimonials
   - [ ] Visitors count
@@ -187,6 +189,7 @@ jje/
   - [ ] Experiment with mySQL
   - [ ] Github student developer pack
   - [ ] Sorry na malala
+  - [ ] Fix wrapping
 
 - README
 
