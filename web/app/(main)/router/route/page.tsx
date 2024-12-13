@@ -49,9 +49,9 @@ const RoutePage = () => {
   return (
     <section>
       <div className="mx-auto w-[40rem] border-x-2 border-b-2 pt-24">
-        {/* <p>{userInfo?.user.name}</p>
+        <p>{userInfo?.user.name}</p>
         <p>{userInfo?.userId}</p>
-        <img src={userInfo?.user.image} alt="User Avatar" /> */}
+        <img src={userInfo?.user.image} alt="User Avatar" />
 
         <form
           className="mb-10 space-y-2"

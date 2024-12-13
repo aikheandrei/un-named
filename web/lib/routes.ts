@@ -9,7 +9,7 @@ const Routes = [
   },
   {
     Link: "/router/route",
-    Text: "route",
+    Text: "route✨",
   },
 ];
 
