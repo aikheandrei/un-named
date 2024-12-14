@@ -14,7 +14,7 @@ export async function GET() {
   try {
     const data = await database.select().from(commentSchema);
 
-    console.log(data);
+    // console.log(data);
     return NextResponse.json(data);
   } catch (error) {
     console.error("Error during HTTP GET request:", error);
