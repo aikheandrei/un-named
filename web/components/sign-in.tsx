@@ -1,53 +1,57 @@
 import { auth, signIn, signOut } from "@/app/api/auth/auth";
-// import { redirect } from "next/navigation";
+import { Button } from "./ui/button";
 
 export const SignIn = async () => {
   const session = await auth();
 
-  // if (session?.user) {
-  //   redirect("/route");
-  // }
-
   return (
     <div>
       {session ? (
-        <>
+        <div className="flex flex-col items-center justify-center gap-2">
+          {session.user && (
+            <div className="flex items-center justify-center gap-2">
+              {session.user.image && (
+                <img
+                  className="size-14 rounded-full"
+                  src={session.user.image}
+                  alt="User Avatar"
+                />
+              )}
+              <p className="text-lg">{session.user.name}</p>
+            </div>
+          )}
           <form
             action={async () => {
               "use server";
               await signOut();
             }}
           >
-            <button type="submit">Sign out</button>
+            <Button type="submit">Sign out</Button>
           </form>
-          {session.user && (
-            <>
-              {session.user.image && (
-                <img src={session.user.image} alt="User Avatar" />
-              )}
-              <p>{session.user.name}</p>
-            </>
-          )}
-        </>
+        </div>
       ) : (
-        <>
-          <form
-            action={async () => {
-              "use server";
-              await signIn("facebook");
-            }}
-          >
-            <button type="submit">Sign in with Facebook</button>
-          </form>
+        <div className="flex flex-col items-center justify-center gap-2">
           <form
             action={async () => {
               "use server";
               await signIn("google");
             }}
           >
-            <button type="submit">Sign in with google</button>
+            <Button variant={"outline"} type="submit">
+              Sign in with Google
+            </Button>
           </form>
-        </>
+          <form
+            action={async () => {
+              "use server";
+              await signIn("facebook");
+            }}
+          >
+            <Button variant={"outline"} type="submit">
+              Sign in with Facebook
+            </Button>
+          </form>
+        </div>
       )}
     </div>
   );

@@ -7,7 +7,6 @@ const DrizzlePage = () => {
     <section className="grid h-[100svh] items-center justify-center">
       <div>
         <Image
-          className="rounded-sm"
           src="/d85d022bedcf129ebd23a2b21e97ef19.jpg"
           alt=""
           width={300}

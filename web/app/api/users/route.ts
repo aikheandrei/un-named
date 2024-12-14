@@ -13,7 +13,7 @@ export async function GET() {
   try {
     const users = await database.select().from(usersSchema);
 
-    console.log(users);
+    // console.log(users);
     return NextResponse.json(users);
   } catch (error) {
     console.error("Error during HTTP GET request:", error);

@@ -23,6 +23,7 @@ const RoutePage = () => {
   const getSession = async () => {
     const session = await fetch(`/api/auth`).then((res) => res.json());
     setUserInfo(session);
+    console.log(session);
 
     if (session) {
       setIsSignedIn(true);
@@ -37,8 +38,6 @@ const RoutePage = () => {
   const fetchUsers = async () => {
     const users = await fetch(`/api/users`).then((res) => res.json());
     setUsers(users);
-
-    console.log(users);
   };
 
   useEffect(() => {
