@@ -1,5 +1,6 @@
 "use client";
 
+import { Comment } from "@/components/route/comment";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import React from "react";
@@ -23,7 +24,6 @@ const RoutePage = () => {
   const getSession = async () => {
     const session = await fetch(`/api/auth`).then((res) => res.json());
     setUserInfo(session);
-    console.log(session);
 
     if (session) {
       setIsSignedIn(true);
@@ -47,14 +47,14 @@ const RoutePage = () => {
   }, []);
 
   return (
-    <section className="grid h-[150svh] items-center justify-center">
-      <div>
-        <p>{userInfo?.user.name}</p>
+    <section>
+      <div className="mx-auto w-[40rem] border-x-2 border-b-2 pt-24">
+        {/* <p>{userInfo?.user.name}</p>
         <p>{userInfo?.userId}</p>
-        <img src={userInfo?.user.image} alt="User Avatar" />
+        <img src={userInfo?.user.image} alt="User Avatar" /> */}
 
         <form
-          className="mb-10 mt-10 space-y-2"
+          className="mb-10 space-y-2"
           onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
             const formData = new FormData(e.currentTarget);
@@ -92,12 +92,13 @@ const RoutePage = () => {
           console.log(user?.image);
 
           return (
-            <React.Fragment key={id}>
-              <img src={user?.image} alt="User Profile" />
-              <p>
-                {id} {user?.name} {content} {userId}
-              </p>
-            </React.Fragment>
+            <Comment
+              key={id}
+              img={user?.image}
+              userName={user?.name}
+              userId={user?.id}
+              content={content}
+            />
           );
         })}
       </div>
