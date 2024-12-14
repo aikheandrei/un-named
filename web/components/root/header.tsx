@@ -32,7 +32,7 @@ export const Header = () => {
           className={`${buttonVariants({ variant: "default" })} w-22 absolute right-4 font-geistsans`}
           href={"/router/overview"}
         >
-          {isSignedIn ? "Sign out" : "Sign in"}
+          {isSignedIn ? "Overview" : "Sign in"}
         </Link>
       )}
     </div>
