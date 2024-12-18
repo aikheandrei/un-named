@@ -16,10 +16,10 @@ const RoutePage = async () => {
   return (
     <section>
       <div className="mx-auto w-[40rem] border-x-2 pt-14">
-        <h2 className="w-full border border-b-2 py-6 text-center font-geistmono text-lg font-extrabold">
+        {/* <h2 className="w-full border border-b-2 py-6 text-center font-geistmono text-lg font-extrabold">
           Story
         </h2>
-        <Description />
+        <Description /> */}
         <h2 className="w-full border border-b-2 py-6 text-center font-geistmono text-lg font-extrabold">
           Testimonials
         </h2>

@@ -8,14 +8,16 @@ import { buttonVariants } from "../ui/button";
 import { RouteLinks } from "./utils/route-links";
 import { AverageRating } from "./utils/average-rating";
 import { usePathname } from "next/navigation";
+import { UserProps } from "@/types/props";
 
 export const Header = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const [user, setUser] = useState<UserProps | null>(null);
 
   const checkUserSignIn = async () => {
     const session = await fetch(`/api/auth`).then((res) => res.json());
 
-    // console.log(session);
+    setUser(session.user);
     if (session) {
       setIsSignedIn(true);
     } else {
@@ -40,7 +42,7 @@ export const Header = () => {
             {isSignedIn ? "Account" : "Sign in"}
           </Link>
           <RatingModal>Rate!</RatingModal>
-          {!inAdminPage && (
+          {user?.admin && (
             <Link
               className={`${buttonVariants({ variant: "outline" })} w-28 font-geistsans text-sm`}
               href={"/admin-dashboard"}
