@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "../../ui/button";
 import { Textarea } from "../../ui/textarea";
 import { Check } from "lucide-react";
-import { IoMdStar, IoMdStarOutline } from "react-icons/io";
+import { IoMdStar } from "react-icons/io";
 
 interface RatingFormProps {
   toggleModal: () => void;
@@ -91,7 +91,12 @@ export const RatingForm: React.FC<RatingFormProps> = ({ toggleModal }) => {
             );
           })}
         </div>
-        <Textarea required rows={4} name="review" placeholder="write a review..." />
+        <Textarea
+          required
+          rows={4}
+          name="review"
+          placeholder="write a review..."
+        />
         <Button
           className="mt-4 flex w-full items-center gap-1 text-center"
           type="submit"

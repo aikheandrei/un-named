@@ -8,6 +8,7 @@ import Hero from "@/layouts/root/Hero";
 import Story from "@/layouts/root/Story";
 import Testimonial from "@/layouts/root/Testimonial";
 import AssetGallery from "@/layouts/root/AssetGallery";
+import { Footer } from "@/layouts/root/Footer";
 
 // export const runtime = "edge";
 
@@ -30,6 +31,7 @@ const RootPage = () => {
       <AssetGallery />
       <Story />
       <Testimonial />
+      <Footer />
     </>
   );
 };
