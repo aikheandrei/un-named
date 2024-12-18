@@ -1,12 +1,9 @@
 import { AssetCarousel } from "@/components/landing/ui/asset-carousel";
-import { AverageRating } from "@/components/root/utils/average-rating";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
 
 export default function AssetGallery() {
   return (
     <section
-      id="about"
+      id="asset-gallery"
       className="inspect relative h-[120svh] flex-col text-white"
     >
       <img
@@ -15,7 +12,7 @@ export default function AssetGallery() {
         alt=""
       />
       <div className="absolute top-0 z-10 flex h-full w-full flex-col items-center justify-center">
-        <h1 className="font-newyear mb-10 text-5xl tracking-widest drop-shadow-[0_5px_10px_rgba(0,0,0,0.80)]">
+        <h1 className="mb-10 font-newyear text-5xl tracking-widest drop-shadow-[0_5px_10px_rgba(0,0,0,0.80)]">
           Asset Gallery
         </h1>
         <AssetCarousel />
