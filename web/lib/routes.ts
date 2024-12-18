@@ -1,7 +1,7 @@
 const Routes = [
   {
     Link: "/",
-    Text: "root",
+    Text: "jjx",
   },
   {
     Link: "/route",
