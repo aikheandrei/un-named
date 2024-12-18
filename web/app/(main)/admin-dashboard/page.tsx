@@ -56,7 +56,9 @@ const AdminDashboardPage = () => {
   if (loading) {
     return (
       <section className="grid h-[100svh] items-center justify-center font-geistmono">
-        <p>loading...</p>
+        <h2 className="font-geistmono text-2xl font-medium">
+          Loading Admin page...
+        </h2>
       </section>
     );
   }

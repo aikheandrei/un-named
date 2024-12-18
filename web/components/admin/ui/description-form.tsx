@@ -1,3 +1,4 @@
+import { Input } from "@/components/ui/input";
 import { Button } from "../../ui/button";
 import { Textarea } from "../../ui/textarea";
 import { Check } from "lucide-react";
@@ -22,7 +23,7 @@ export const DescriptionForm: React.FC<
 }) => {
   return (
     <div
-      className="rounded-md bg-card px-4 pb-6 pt-3 font-geistsans"
+      className="w-[40rem] rounded-md bg-card px-8 pb-10 pt-7 font-geistsans"
       onClick={(e) => e.stopPropagation()}
     >
       <form
@@ -66,22 +67,32 @@ export const DescriptionForm: React.FC<
           onDescriptionUpdate?.();
         }}
       >
-        <Textarea
-          className="my-4"
-          name="title"
-          defaultValue={setTitle}
-          placeholder="write a title..."
-        />
-        <Textarea
-          name="description"
-          defaultValue={setDescription}
-          placeholder="write a story..."
-        />
+        <div className="mb-4 space-y-1">
+          <h2 className="font-geistsans text-2xl font-semibold">Title</h2>
+          <Input
+            className=""
+            name="title"
+            defaultValue={setTitle}
+            placeholder="come up a title..."
+            required
+          />
+        </div>
+
+        <div className="mb-8 space-y-1">
+          <h2 className="font-geistsans text-2xl font-semibold">Story</h2>
+          <Textarea
+            name="description"
+            defaultValue={setDescription}
+            placeholder="write a long story..."
+            rows={8}
+            required
+          />
+        </div>
         <Button
-          className="mt-3 flex w-full items-center gap-1 text-center"
+          className="flex w-full items-center gap-1 text-center"
           type="submit"
         >
-          Rate
+          Submit Story
           <Check className="border-2 border-white/0" />
         </Button>
       </form>

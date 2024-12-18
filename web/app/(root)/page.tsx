@@ -9,7 +9,7 @@ import Story from "@/layouts/root/Story";
 import Testimonial from "@/layouts/root/Testimonial";
 import AssetGallery from "@/layouts/root/AssetGallery";
 
-export const runtime = "edge";
+// export const runtime = "edge";
 
 const RootPage = () => {
   useEffect(() => {
