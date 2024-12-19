@@ -41,8 +41,6 @@ export const Header = async () => {
     `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/users`,
   ).then((res) => res.json());
 
-  console.log(session?.user?.admin);
-
   return (
     <header>
       <nav className="fixed z-50 flex h-14 w-full items-center justify-between px-6 font-halimount">

@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "../../ui/button";
 import { Textarea } from "../../ui/textarea";
 import { Check } from "lucide-react";
-import { IoMdStarOutline } from "react-icons/io";
+import { IoMdStar, IoMdStarOutline } from "react-icons/io";
 
 interface RatingFormProps {
   toggleModal: () => void;
@@ -36,7 +36,8 @@ export const RatingForm: React.FC<RatingFormProps> = ({ toggleModal }) => {
 
   return (
     <div
-      className="rounded-md bg-card px-4 pb-6 pt-3 font-geistsans"
+      // className="w-[40rem] rounded-md bg-card px-8 pb-10 pt-7 font-geistsans"
+      className="w-[20rem] rounded-md bg-card px-8 pb-8 pt-7 font-geistsans"
       onClick={(e) => e.stopPropagation()}
     >
       <form
@@ -65,7 +66,8 @@ export const RatingForm: React.FC<RatingFormProps> = ({ toggleModal }) => {
           router.refresh();
         }}
       >
-        <div className="my-2 flex justify-between">
+        <h2 className="font-geistsans text-2xl font-semibold">Rate us!</h2>
+        <div className="mb-4 mt-2 flex justify-between">
           {[...Array(5)].map((star, index) => {
             index += 1;
             return (
@@ -77,8 +79,8 @@ export const RatingForm: React.FC<RatingFormProps> = ({ toggleModal }) => {
                 onMouseEnter={() => setHover(index)}
                 onMouseLeave={() => setHover(rating)}
               >
-                <IoMdStarOutline
-                  className={`size-7 ${
+                <IoMdStar
+                  className={`size-7 transition-colors ${
                     index <= (hover || rating)
                       ? "text-yellow-500"
                       : "text-gray-300"
@@ -89,12 +91,12 @@ export const RatingForm: React.FC<RatingFormProps> = ({ toggleModal }) => {
             );
           })}
         </div>
-        <Textarea name="review" placeholder="write a review..." />
+        <Textarea required rows={4} name="review" placeholder="write a review..." />
         <Button
-          className="mt-3 flex w-full items-center gap-1 text-center"
+          className="mt-4 flex w-full items-center gap-1 text-center"
           type="submit"
         >
-          Rate
+          Submit
           <Check className="border-2 border-white/0" />
         </Button>
       </form>
