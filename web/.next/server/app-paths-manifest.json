@@ -1,0 +1,12 @@
+{
+  "/(main)/route/page": "app-edge-has-no-entrypoint",
+  "/api/reviews/route": "app/api/reviews/route.js",
+  "/api/users/route": "app/api/users/route.js",
+  "/api/descriptions/route": "app/api/descriptions/route.js",
+  "/api/auth/route": "app/api/auth/route.js",
+  "/(main)/overview/page": "app/(main)/overview/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/(main)/admin-dashboard/page": "app-edge-has-no-entrypoint",
+  "/(root)/page": "app-edge-has-no-entrypoint",
+  "/_not-found/page": "app/_not-found/page.js"
+}

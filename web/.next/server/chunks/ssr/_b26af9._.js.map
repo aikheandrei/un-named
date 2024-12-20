@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/Admin/Desktop/ikeandrie/work/jje-fork/web/components/root/header.tsx/proxy.js"],"sourcesContent":["import { registerClientReference } from \"react-server-dom-turbopack/server.edge\";\nexport const Header = registerClientReference(\n    function() { throw new Error(\"Attempted to call Header() from the server but Header is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.\"); },\n    \"[project]/components/root/header.tsx <module evaluation>\",\n    \"Header\",\n);\n"],"names":[],"mappings":";;;AAAA;;AACO,MAAM,SAAS,CAAA,GAAA,yMAAA,CAAA,0BAAuB,AAAD,EACxC;IAAa,MAAM,IAAI,MAAM;AAA4N,GACzP,4DACA"}},
+    {"offset": {"line": 15, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 21, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/Admin/Desktop/ikeandrie/work/jje-fork/web/components/root/header.tsx/proxy.js"],"sourcesContent":["import { registerClientReference } from \"react-server-dom-turbopack/server.edge\";\nexport const Header = registerClientReference(\n    function() { throw new Error(\"Attempted to call Header() from the server but Header is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.\"); },\n    \"[project]/components/root/header.tsx\",\n    \"Header\",\n);\n"],"names":[],"mappings":";;;AAAA;;AACO,MAAM,SAAS,CAAA,GAAA,yMAAA,CAAA,0BAAuB,AAAD,EACxC;IAAa,MAAM,IAAI,MAAM;AAA4N,GACzP,wCACA"}},
+    {"offset": {"line": 29, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 35, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":""}},
+    {"offset": {"line": 39, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 45, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/Admin/Desktop/ikeandrie/work/jje-fork/web/app/%28main%29/router/layout.tsx"],"sourcesContent":["import { Header } from \"@/components/root/header\";\r\n\r\nexport default function RootLayout({\r\n  children,\r\n}: Readonly<{\r\n  children: React.ReactNode;\r\n}>) {\r\n  return (\r\n    <>\r\n      <Header />\r\n      <main>{children}</main>\r\n    </>\r\n  );\r\n}\r\n"],"names":[],"mappings":";;;;AAAA;;;AAEe,SAAS,WAAW,EACjC,QAAQ,EAGR;IACA,qBACE;;0BACE,qNAAC,qIAAA,CAAA,SAAM;;;;;0BACP,qNAAC;0BAAM;;;;;;;;AAGb"}},
+    {"offset": {"line": 70, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

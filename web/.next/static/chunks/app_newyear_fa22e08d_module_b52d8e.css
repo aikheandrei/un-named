@@ -1,0 +1,26 @@
+/* [project]/app/newyear_fa22e08d.module.css [app-client] (css) */
+@font-face {
+  font-family: newyear;
+  src: url("../media/NewyearGoo-s.p.c49c4cfe.otf") format("opentype");
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: newyear Fallback;
+  src: local(Arial);
+  ascent-override: 69.68%;
+  descent-override: 15.64%;
+  line-gap-override: 2.03%;
+  size-adjust: 127.87%;
+}
+
+.newyear_fa22e08d-module__m24PYa__className {
+  font-family: newyear, newyear Fallback;
+}
+
+.newyear_fa22e08d-module__m24PYa__variable {
+  --font-newyear: "newyear", "newyear Fallback";
+}
+
+/*# sourceMappingURL=app_newyear_fa22e08d_module_b52d8e.css.map*/

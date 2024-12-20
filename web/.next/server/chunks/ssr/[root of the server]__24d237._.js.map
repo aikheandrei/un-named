@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 39, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/Admin/Desktop/ikeandrie/work/jje-fork/web/components/root/header.tsx"],"sourcesContent":["import { buttonVariants } from \"../ui/button\";\r\nimport Link from \"next/link\";\r\n\r\nexport const HeaderLinks = async () => {\r\n  const checkUserSignIn = async () => {\r\n    try {\r\n      const session = await fetch(`/api/auth`);\r\n      return session.ok;\r\n    } catch (error) {\r\n      return false;\r\n    }\r\n  };\r\n\r\n  const isSignedIn = await checkUserSignIn();\r\n\r\n  return (\r\n    <div className=\"inspect flex h-14 w-[100%] items-center justify-center gap-2 whitespace-nowrap font-geistmono text-sm\">\r\n      <Link\r\n        className={`${buttonVariants({ variant: \"default\" })} mb-10`}\r\n        href=\"/route/overview\"\r\n      >\r\n        {isSignedIn ? \"Sign out\" : \"Sign in\"}\r\n      </Link>\r\n    </div>\r\n  );\r\n};\r\n"],"names":[],"mappings":";;;;AAAA;AACA;;;;AAEO,MAAM,cAAc;IACzB,MAAM,kBAAkB;QACtB,IAAI;YACF,MAAM,UAAU,MAAM,MAAM,CAAC,SAAS,CAAC;YACvC,OAAO,QAAQ,EAAE;QACnB,EAAE,OAAO,OAAO;YACd,OAAO;QACT;IACF;IAEA,MAAM,aAAa,MAAM;IAEzB,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC,4HAAA,CAAA,UAAI;YACH,WAAW,GAAG,CAAA,GAAA,2HAAA,CAAA,iBAAc,AAAD,EAAE;gBAAE,SAAS;YAAU,GAAG,MAAM,CAAC;YAC5D,MAAK;sBAEJ,aAAa,aAAa;;;;;;;;;;;AAInC"}},
+    {"offset": {"line": 77, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
