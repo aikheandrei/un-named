@@ -37,7 +37,7 @@ export const AverageRating: React.FC<{ isRoot?: boolean }> = ({ isRoot }) => {
     <>
       {isRoot ? (
         <div className="mt-2 flex flex-row gap-[0.4rem] text-yellow-400 drop-shadow-[0px_5px_5px_rgba(0,0,0,0.90)]">
-          <StarRating rating={ratingAverage} size={38} />
+          <StarRating rating={ratingAverage} size={30} />
         </div>
       ) : (
         <>

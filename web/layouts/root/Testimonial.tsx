@@ -1,5 +1,6 @@
 "use client";
 
+import { TestimonialCarousel } from "@/components/landing/ui/testimonial-carousel";
 import { UserReview } from "@/components/ui/user-review";
 import { ReviewProps, UserProps } from "@/types/props";
 import { useEffect, useState } from "react";
@@ -37,31 +38,12 @@ export default function Testimonial() {
         src="/testimonial-bg.png"
         alt=""
       />
-      <div className="absolute -top-24 z-10 flex h-full w-full flex-col items-center">
-        <h1 className="font-newyear text-5xl tracking-widest drop-shadow-[0_5px_10px_rgba(0,0,0,0.80)]">
-          "Testimonials"
+      <div className="absolute top-0 z-10 flex h-full w-full flex-col items-center justify-center">
+        <h1 className="mb-10 font-newyear text-5xl tracking-widest drop-shadow-[0_5px_10px_rgba(0,0,0,0.80)]">
+          Testimonials
         </h1>
-      </div>
-      <div className="absolute z-10 grid w-full grid-cols-3 grid-rows-3 gap-4 px-40">
-        {reviewsData
-          .filter(({ testimonial }) => testimonial)
-          .map(({ id, userId, review, rating, testimonial }) => {
-            const user = usersData.find((user) => user.id === userId);
-
-            return (
-              <UserReview
-                key={id}
-                id={id}
-                img={user?.image}
-                userName={user?.name}
-                userEmail={user?.email}
-                review={review}
-                rating={rating}
-                testimonial={testimonial}
-                isRoot={true}
-              />
-            );
-          })}
+        <TestimonialCarousel />
+        {/* <AssetCarousel /> */}
       </div>
 
       <div className="-z-20">
