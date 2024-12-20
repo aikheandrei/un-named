@@ -67,6 +67,9 @@ const AdminDashboardPage = () => {
         <>
           <section className="grid h-[100svh] items-center justify-center">
             <div className="mx-auto w-[40rem] border-x-2 pt-14">
+              <h2 className="w-full border border-b-2 py-6 text-center font-geistmono text-lg font-extrabold">
+                Story
+              </h2>
               <Description isAdmin={true} />
               <h2 className="w-full border border-b-2 py-6 text-center font-geistmono text-lg font-extrabold">
                 Testimonials

@@ -11,7 +11,7 @@ const HeaderLinks = [
     Text: "Story",
   },
   {
-    Href: "/reviews",
+    Href: "/route",
     Text: "Reviews",
   },
   {
