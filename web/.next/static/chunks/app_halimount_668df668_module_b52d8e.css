@@ -1,0 +1,26 @@
+/* [project]/app/halimount_668df668.module.css [app-client] (css) */
+@font-face {
+  font-family: halimount;
+  src: url("../media/Halimount-s.p.1916a9d5.otf") format("opentype");
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: halimount Fallback;
+  src: local(Arial);
+  ascent-override: 91.95%;
+  descent-override: 30.65%;
+  line-gap-override: 12.26%;
+  size-adjust: 81.57%;
+}
+
+.halimount_668df668-module__ef_MDq__className {
+  font-family: halimount, halimount Fallback;
+}
+
+.halimount_668df668-module__ef_MDq__variable {
+  --font-halimount: "halimount", "halimount Fallback";
+}
+
+/*# sourceMappingURL=app_halimount_668df668_module_b52d8e.css.map*/

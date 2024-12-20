@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack://[project]/app/halimount_668df668.module.css"],"sourcesContent":["@font-face {\n    font-family: 'halimount';\n    src: url('@vercel/turbopack-next/internal/font/local/font?{%22path%22:%22../fonts/Halimount.otf%22,%22preload%22:true,%22has_size_adjust%22:true}') format('opentype');\n    font-display: swap;\n    font-weight: 100 900;\n}\n\n@font-face {\n    font-family: 'halimount Fallback';\n    src: local(\"Arial\");\n    ascent-override: 91.95%;\ndescent-override: 30.65%;\nline-gap-override: 12.26%;\nsize-adjust: 81.57%;\n\n}\n\n.className {\n    font-family: 'halimount', 'halimount Fallback';\n    \n}\n\n.variable {\n    --font-halimount: 'halimount', 'halimount Fallback';\n}\n\n"],"names":[],"mappings":"AAAA;;;;;;;AAOA;;;;;;;;;AAUA;;;;AAKA"}},
+    {"offset": {"line": 24, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

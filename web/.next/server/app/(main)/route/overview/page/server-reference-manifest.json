@@ -1,0 +1,38 @@
+{
+  "node": {
+    "0084b8cd00a18f0df9b1fe95feb5ecc63ff10e482f": {
+      "workers": {
+        "app/(main)/route/overview/page": {
+          "moduleId": "[project]/.next-internal/server/app/(main)/route/overview/page/actions.js { ACTIONS_MODULE0 => \"[project]/components/sign-in.tsx [app-rsc] (ecmascript)\" } [app-rsc] (ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(main)/route/overview/page": "rsc"
+      }
+    },
+    "0089e6b379911dc5736754a5859ec24ad5607d2469": {
+      "workers": {
+        "app/(main)/route/overview/page": {
+          "moduleId": "[project]/.next-internal/server/app/(main)/route/overview/page/actions.js { ACTIONS_MODULE0 => \"[project]/components/sign-in.tsx [app-rsc] (ecmascript)\" } [app-rsc] (ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(main)/route/overview/page": "rsc"
+      }
+    },
+    "009b2f87f2aa3f702a960cb087c69f74e9ee13f41b": {
+      "workers": {
+        "app/(main)/route/overview/page": {
+          "moduleId": "[project]/.next-internal/server/app/(main)/route/overview/page/actions.js { ACTIONS_MODULE0 => \"[project]/components/sign-in.tsx [app-rsc] (ecmascript)\" } [app-rsc] (ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(main)/route/overview/page": "rsc"
+      }
+    }
+  },
+  "edge": {}
+}

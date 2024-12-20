@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/Admin/Desktop/ikeandrie/work/jje-fork/web/components/redirect.tsx"],"sourcesContent":["\"use client\";\r\n\r\nimport { useRouter } from \"next/navigation\";\r\n\r\nexport const Redirect = () => {\r\n  const router = useRouter();\r\n\r\n  const handleRedirect = () => {\r\n    router.push(\"/\"); // Redirect to the root\r\n  };\r\n\r\n  return <button onClick={handleRedirect}>Redirect</button>;\r\n};\r\n"],"names":[],"mappings":";;;;AAEA;;;AAFA;;AAIO,MAAM,WAAW;;IACtB,MAAM,SAAS,CAAA,GAAA,qIAAA,CAAA,YAAS,AAAD;IAEvB,MAAM,iBAAiB;QACrB,OAAO,IAAI,CAAC,MAAM,uBAAuB;IAC3C;IAEA,qBAAO,6LAAC;QAAO,SAAS;kBAAgB;;;;;;AAC1C;GARa;;QACI,qIAAA,CAAA,YAAS;;;KADb"}},
+    {"offset": {"line": 42, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
