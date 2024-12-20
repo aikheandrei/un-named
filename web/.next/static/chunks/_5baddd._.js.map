@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/Admin/Desktop/ikeandrie/work/jje-fork/web/components/root/header.tsx"],"sourcesContent":["\"use client\";\r\n\r\nimport Link from \"next/link\";\r\nimport { usePathname } from \"next/navigation\";\r\nimport { buttonVariants } from \"../ui/button\";\r\n\r\nexport const HeaderLinks = () => {\r\n  const isNotRoot = usePathname() !== \"/\";\r\n\r\n  return (\r\n    <>\r\n      {isNotRoot && (\r\n        <div className=\"inspect flex h-14 w-[100%] items-center justify-center gap-2 whitespace-nowrap font-geistmono text-sm\">\r\n          {/* <Link\r\n            className={`${buttonVariants({ variant: \"default\" })} mb-10`}\r\n            href=\"/route/overview\"\r\n          >\r\n            {userInfo?.user ? \"Sign out\" : \"Sign in\"}\r\n          </Link> */}\r\n        </div>\r\n      )}\r\n    </>\r\n  );\r\n};\r\n"],"names":[],"mappings":";;;;AAGA;;;AAHA;;AAMO,MAAM,cAAc;;IACzB,MAAM,YAAY,CAAA,GAAA,qIAAA,CAAA,cAAW,AAAD,QAAQ;IAEpC,qBACE;kBACG,2BACC,6LAAC;YAAI,WAAU;;;;;;;AAWvB;GAjBa;;QACO,qIAAA,CAAA,cAAW;;;KADlB"}},
-    {"offset": {"line": 40, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}

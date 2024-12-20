@@ -12,7 +12,10 @@
 /coverage
 
 # next.js
+.next/
+web/.next/
 /.next/
+/web/.next/
 /out/
 
 # production
