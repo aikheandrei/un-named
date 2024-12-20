@@ -61,26 +61,10 @@ const Description: React.FC<{ isAdmin?: boolean; isRoot?: boolean }> = ({
                   {title}
                 </h1>
                 <div className="mb-8 w-fit">
-                  <p className="font-halimount mt-2 text-center text-2xl tracking-[.05rem] drop-shadow-[0_5px_10px_rgba(0,0,0,0.50)]">
+                  <p className="mt-2 text-center font-halimount text-2xl tracking-[.05rem] drop-shadow-[0_5px_10px_rgba(0,0,0,0.50)]">
                     {description}
                   </p>
                 </div>
-                {isAdmin && (
-                  <div className="space-x-2 font-geistsans text-sm">
-                    <DescriptionModal
-                      request="PUT"
-                      onDescriptionUpdate={handleRefreshDescriptions}
-                      id={id}
-                      title={title}
-                      description={description}
-                    >
-                      Edit
-                    </DescriptionModal>
-                    <Button onClick={() => deleteDescription(id)}>
-                      Delete
-                    </Button>
-                  </div>
-                )}
               </div>
             ),
           )}

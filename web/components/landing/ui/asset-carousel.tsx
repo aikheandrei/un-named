@@ -12,16 +12,13 @@ const characters = [
     bg: "/about-bg.png",
   },
   {
-    imgUrl: "/.png",
-    bg: "/images/characters/backdrop3.png",
+    bg: "/hero-bg.png",
   },
   {
-    imgUrl: "/.png",
-    bg: "/images/characters/backdrop3.png",
+    bg: "/story-bg.png",
   },
   {
-    imgUrl: "/.png",
-    bg: "/images/characters/backdrop3.png",
+    bg: "/testimonial-bg.png",
   },
 ];
 
