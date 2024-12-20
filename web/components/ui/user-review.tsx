@@ -46,7 +46,7 @@ const UserReview: React.FC<
   return (
     <>
       {isRoot ? (
-        <div className="flex gap-2 rounded-lg border-[2.5px] bg-white px-6 py-4 text-black drop-shadow-[0_5px_10px_rgba(0,0,0,0.50)]">
+        <div className="flex gap-2 rounded-lg bg-white px-6 py-4 text-black">
           <img
             className="size-12 rounded-full border-[1px]"
             src={img}
@@ -62,7 +62,7 @@ const UserReview: React.FC<
             <div className="-ml-[.2rem] mt-[.15rem] flex flex-row gap-[0.03rem] text-yellow-400">
               <StarRating rating={rating ?? 0} size={20} />
             </div>
-            <p className="font-halimount mb-[1rem] mt-[.4rem] text-xl leading-5 tracking-wide">
+            <p className="mb-[1rem] mt-[.4rem] font-halimount text-xl leading-5 tracking-wide">
               {review}
             </p>
             {isAdmin && (
