@@ -9,16 +9,16 @@ const characters = [
     bg: "/TURN AROUND.png",
   },
   {
-    bg: "/about-bg.png",
+    bg: "/badges.png",
   },
   {
-    bg: "/hero-bg.png",
+    bg: "/wolf.png",
   },
   {
-    bg: "/story-bg.png",
+    bg: "/menu.png",
   },
   {
-    bg: "/testimonial-bg.png",
+    bg: "/sign.png",
   },
 ];
 
@@ -89,7 +89,7 @@ export const AssetCarousel = () => {
                   >
                     {char.bg && (
                       <img
-                        className="object- h-full w-full"
+                        className="h-full w-full object-contain"
                         src={char.bg}
                         alt=""
                       />
