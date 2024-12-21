@@ -36,6 +36,13 @@ export default function About() {
 
           <div className="flex flex-col gap-4">
             <div className="relative h-[12.5rem] w-[23rem] overflow-hidden rounded-xl border-4 border-white bg-white/40 drop-shadow-lg md:h-[20rem] md:w-[40rem] lg:h-[30rem] lg:w-[50rem] lg:border-[6px]">
+              <video
+                className="h-full w-full object-cover"
+                src="gameplay.mp4"
+                loop
+                autoPlay
+                muted
+              ></video>
               {/* <img
                 className="absolute h-full w-full object-cover"
                 src="/images/gameplay/gameplay.png"
