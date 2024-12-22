@@ -17,7 +17,7 @@
 
 @layer utilities {
   .inspect {
-    border: rgba(255, 0, 0, 0) solid 1px;
+    border: transparent solid 1px;
   }
 
   .inspection {

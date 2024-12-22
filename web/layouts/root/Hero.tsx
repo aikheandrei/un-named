@@ -15,7 +15,7 @@ export default function Hero() {
         "Leap, Swing, Survive, The jungle waits for no one!"
       </p>
       <a
-        className={`${buttonVariants({ variant: "outline" })} font-halimount mt-4 rounded-md border-[3px] border-white px-5 py-6 text-4xl tracking-wide drop-shadow-[0px_5px_5px_rgba(0,0,0,0.90)]`}
+        className={`${buttonVariants({ variant: "outline" })} bg-transparent font-halimount mt-4 rounded-md border-[3px] border-white px-5 py-6 text-4xl tracking-wide drop-shadow-[0px_5px_5px_rgba(0,0,0,0.90)]`}
         href="/jjx.exe"
         download
       >

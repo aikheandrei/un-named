@@ -27,7 +27,7 @@ export default function About() {
 
             <AverageRating isRoot={true} />
             <Link
-              className={`${buttonVariants({ variant: "outline" })} w-[12.5rem] rounded-md border-[3px] border-white py-5 font-halimount tracking-wide drop-shadow-[0px_5px_5px_rgba(0,0,0,0.90)]`}
+              className={`${buttonVariants({ variant: "outline" })} w-[12.5rem] bg-transparent rounded-md border-[3px] border-white py-5 font-halimount tracking-wide drop-shadow-[0px_5px_5px_rgba(0,0,0,0.90)]`}
               href="/route"
             >
               <p className="text-xl">SEE OTHER'S EXPERIENCE</p>

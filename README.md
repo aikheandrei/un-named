@@ -6,17 +6,19 @@ Nextjs (build tool) </br>
 React (component base) </br>
 Typescript (main language) </br>
 Tailwind & Sass (styling) </br>
+Shadcn (component library) </br>
 Motion & Lenis Scroll (animations) </br>
 React Three fiber (3d rendering) </br>
 Drizzle (ORM) </br>
-Docker (docker compose) </br>
-Next Auth (Auth.js) </br>
+Docker (dev db/docker compose) </br>
+Next Auth (authentication/Auth.js) </br>
 MySQL (RDBMS) </br>
 Avien (managed database) </br>
 Git (version control) </br>
 Cloudflare (hosting/deployment) </br>
 
-Neovim </br>
+Visual Studio Code </br>
+Windows Terminal </br>
 Docker Desktop </br>
 Figma </br>
 Adobe Photoshop </br>

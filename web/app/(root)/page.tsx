@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-import Lenis from "lenis";
+// import { useEffect } from "react";
+// import Lenis from "lenis";
 
 import About from "@/layouts/root/About";
 import Hero from "@/layouts/root/Hero";
@@ -14,16 +14,16 @@ import { GameMechanics } from "@/layouts/root/GameMechanics";
 // export const runtime = "edge";
 
 const RootPage = () => {
-  useEffect(() => {
-    const lenis = new Lenis();
+  // useEffect(() => {
+  //   const lenis = new Lenis();
 
-    function raf(time: DOMHighResTimeStamp) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+  //   function raf(time: DOMHighResTimeStamp) {
+  //     lenis.raf(time);
+  //     requestAnimationFrame(raf);
+  //   }
 
-    requestAnimationFrame(raf);
-  });
+  //   requestAnimationFrame(raf);
+  // });
 
   return (
     <>

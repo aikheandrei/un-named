@@ -73,7 +73,7 @@ export const Header = async () => {
             </Link>
           )} */}
           <Link
-            className={`${buttonVariants({ variant: "outline" })} mt-4 rounded-md border-[3px] border-white px-4 py-5 font-halimount text-2xl tracking-wide text-white drop-shadow-[0px_5px_5px_rgba(0,0,0,0.90)]`}
+            className={`${buttonVariants({ variant: "outline" })} mt-4 rounded-md bg-transparent border-[3px] border-white px-4 py-5 font-halimount text-2xl tracking-wide text-white drop-shadow-[0px_5px_5px_rgba(0,0,0,0.90)]`}
             href="/overview"
           >
             {session ? (
