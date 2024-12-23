@@ -1,5 +1,3 @@
-# jje
-
 ### Tech Stack:
 
 
