@@ -23,14 +23,18 @@ const AdminDashboardPage = () => {
     const reviews = await fetch(
       `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/reviews`,
     ).then((res) => res.json());
-    reviews ? setReviewsData(reviews) : [];
+    if (reviews) {
+      setReviewsData(reviews);
+    }
   };
 
   const fetchUsers = async () => {
     const users = await fetch(
       `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/users`,
     ).then((res) => res.json());
-    users ? setUsersData(users) : [];
+    if (users) {
+      setUsersData(users);
+    }
   };
 
   useEffect(() => {
