@@ -71,6 +71,11 @@
       - [ ] Signup
       - [ ] OTP full implementation
 
+    - Types
+
+      - [ ] LoginContextType
+      - [ ]
+
     - Better error handling
       - [x] Otp
       - [x] Sign-up

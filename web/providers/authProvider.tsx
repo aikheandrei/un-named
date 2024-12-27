@@ -12,13 +12,13 @@ import { useRouter } from "next/navigation";
 
 import { AuthApi } from "@/lib/auth/api";
 
-interface LoginContextProps {
+interface LoginContextType {
   loginError?: string;
   loginIsPending: boolean;
   handleLogin: (email: string, password: string) => void;
 }
 
-export const loginContext = createContext<LoginContextProps>({
+export const loginContext = createContext<LoginContextType>({
   loginError: undefined,
   loginIsPending: false,
   handleLogin: () => {},
