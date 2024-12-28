@@ -1,3 +1,12 @@
+import { AuthError } from "@supabase/supabase-js";
+
+const handleError = (error: unknown) => {
+  const errorMessage =
+    error instanceof AuthError ? error.message : "Unknown error";
+
+  return new Error(errorMessage);
+};
+
 export class AuthApi {
   private static readonly API_URL = "http://localhost:3000/api/auth";
 
@@ -27,9 +36,7 @@ export class AuthApi {
 
       return { success: true, ...responseData };
     } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Unknown error";
-      throw new Error(errorMessage);
+      throw handleError(error);
     }
   }
 }

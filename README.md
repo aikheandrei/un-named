@@ -64,8 +64,10 @@
         - [x] @providers/authProvider.tsx
         - [x] Modify useAuth hook to sync with auth provider
         - [x] Link auth form to useAuth hook
-      - [ ] KISS
-      - [ ] Better solution for api layer
+      - [x] KISS
+        - [x] Move login service to api layer (reduces complexity and applies KISS method)
+      - [x] Better solution for api layer
+        - [x] Error handling
       - [ ] Signup
       - [ ] OTP full implementation
 
