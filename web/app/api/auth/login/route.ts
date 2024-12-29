@@ -1,15 +1,24 @@
-import { login } from "@/lib/auth/service";
+import { createClient } from "@/lib/supabase/server";
 
 export async function POST(req: Request) {
-  try {
-    const { email, password } = await req.json();
+  const supabase = await createClient();
 
-    const { data, error } = await login({ email, password });
+  const { email, password } = await req.json();
+
+  const userData = {
+    email,
+    password,
+  };
+
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword(userData);
 
     if (error) {
-      return Response.json({ error }, { status: 400 });
+      console.log(error);
+      return Response.json({ error: error.message }, { status: 400 });
     }
 
+    console.log(data);
     return Response.json(data, { status: 200 });
   } catch (error) {
     const errorMessage =
