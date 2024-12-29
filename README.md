@@ -65,6 +65,7 @@
         - [x] Modify useAuth hook to sync with auth provider
         - [x] Link auth form to useAuth hook
       - [ ] KISS
+      - [ ] Better solution for api layer
       - [ ] Signup
       - [ ] OTP full implementation
 

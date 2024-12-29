@@ -37,23 +37,21 @@ async function login(req: { email: string; password: string }) {
 async function signupWithOtp(req: { email: string; password: string }) {
   const supabase = supabaseAdmin();
 
-  const { email, password } = req;
-
   const userData: GenerateLinkParams = {
     type: "signup",
-    email: email,
-    password: password,
+    email: req.email,
+    password: req.password,
   };
 
   try {
-    const { error } = await supabase.auth.admin.generateLink(userData);
+    const { data, error } = await supabase.auth.admin.generateLink(userData);
 
     if (error) {
       return { error: error.message };
     }
 
     console.log(userData);
-    return { email, password };
+    return { data };
   } catch (error) {
     throw handleError(error);
   }
