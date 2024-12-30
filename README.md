@@ -67,8 +67,6 @@
       - [ ] KISS
       - [ ] Signup
       - [ ] OTP full implementation
-      - [ ] Make use of useReducer
-        - Use when managing multiple switch cases
 
     - Better error handling
       - [x] Otp
@@ -83,6 +81,15 @@
     - [ ] Middleware filter (esp for api/trpc routes)
     - [ ] Metadata
     - [ ] Core functions to route handlers for CRUD management
+
+  - Tests
+    - [ ] Hooks
+    - [ ] Providers
+    - [ ] Reducers
+
+  - Misc
+    - [ ] Make use of useReducer
+      - Just like useActionState but use when managing multiple switch cases
 
   - [ ] Drizzle ORM
     - [ ] Install dependencies
