@@ -1,16 +1,17 @@
 "use client";
 
-import { startTransition, useActionState, useState } from "react";
+import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 // import { login, signupWithOtp } from "@/actions/auth/auth-actions";
-import { login } from "@/hooks/useAuth";
+import { useLogin } from "@/hooks/useAuth";
 
 import OtpForm from "./otp-form";
 import FormField from "./ui/auth-field";
+import { AuthProvider } from "@/providers/authProvider";
 
 const FormSchema = z
   .object({
@@ -41,7 +42,7 @@ const AuthForm = () => {
     },
   });
 
-  const { loginError, loginIsPending, handleLogin } = login();
+  const { loginError, loginIsPending, handleLogin } = useLogin();
 
   const onSubmit = (data: z.infer<typeof FormSchema>, isSignup: boolean) => {
     if (isSignup) {
