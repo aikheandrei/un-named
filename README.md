@@ -60,11 +60,13 @@
       - [x] @hooks/useAuth.ts
       - [x] Actually make it work
       - [x] Login
+      - [x] Auth provider (create/useContext)
+        - [x] @providers/authProvider.tsx
+        - [x] Modify useAuth hook to sync with auth provider
+        - [x] Link auth form to useAuth hook
       - [ ] KISS
-      - [ ] Auth provider (create/useContext)
-        - [ ] @providers/authProvider.tsx
-        - [ ] Modify useAuth hook and both auth & otp form to sync with auth provider
       - [ ] Signup
+      - [ ] OTP full implementation
       - [ ] Make use of useReducer
         - Use when managing multiple switch cases
 
