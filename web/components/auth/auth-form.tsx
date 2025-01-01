@@ -49,7 +49,8 @@ const AuthForm = () => {
   //   error: "",
   // });
 
-  const { loginIsPending, handleLogin } = login();
+  const { loginError, loginIsPending, handleLogin } = login();
+  // const [loginError, setLoginError] = useState<string | undefined>();
 
   const onSubmit = (data: z.infer<typeof FormSchema>, isSignup: boolean) => {
     if (isSignup) {
@@ -64,6 +65,9 @@ const AuthForm = () => {
       // });
 
       handleLogin(data.email, data.password);
+
+      // const error = handleLogin(data.email, data.password);
+      // setLoginError(error);
     }
   };
 
@@ -80,7 +84,6 @@ const AuthForm = () => {
           register={register}
           error={errors.email}
         />
-
         <label htmlFor="password">Password:</label>
         <FormField
           type="password"
@@ -88,7 +91,6 @@ const AuthForm = () => {
           register={register}
           error={errors.password}
         />
-
         <label htmlFor="confirm-password">Confirm Password:</label>
         <FormField
           type="password"
@@ -100,6 +102,8 @@ const AuthForm = () => {
         {/* {(otpState.error || loginState.error) && (
         //   <p style={{ color: "red" }}>{otpState.error || loginState.error}</p>
         // )} */}
+
+        {loginError && <p style={{ color: "red" }}>{loginError}</p>}
 
         <button
           type="button"
