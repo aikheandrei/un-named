@@ -53,10 +53,15 @@
     - [x] Clean up
     - [x] Actions/auth folder (to be replaced by route files)
 
-    - [ ] route files for auth
+    - [ ] Route files for auth
       - [x] @lib/auth/service.ts
       - [x] @app/api/auth/login/route.ts
       - [x] @lib/auth/api.ts
+      - [x] @hooks/useAuth.ts
+      - [x] Actually make it work
+      - [ ] Login state
+      - [ ] KISS
+      - [ ] Implement Signup
 
     - Better error handling
       - [x] Otp

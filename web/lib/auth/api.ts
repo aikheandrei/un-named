@@ -2,18 +2,18 @@ export class AuthApi {
   private static readonly API_URL = "http://localhost:3000/api/auth";
 
   static async login(
-    prevState: { error?: string },
-    data: { email: string; password: string },
+    prevState: { error?: string } | undefined,
+    credentials: { email: string; password: string },
   ) {
     try {
-      const userData = {
-        email: data.email,
-        password: data.password,
+      const userCredentials = {
+        email: credentials.email,
+        password: credentials.password,
       };
 
-      const response = await fetch(`${this.API_URL}/login`, {
+      const response = await fetch(`${AuthApi.API_URL}/login`, {
         method: "POST",
-        body: JSON.stringify(userData),
+        body: JSON.stringify(userCredentials),
         headers: {
           "Content-Type": "application/json",
         },
@@ -22,9 +22,10 @@ export class AuthApi {
       const responseData = await response.json();
 
       if (!response.ok) {
-        return { error: prevState.error ?? "Failed to login" };
+        return { error: "Failed to login" };
       }
 
+      console.log("hello world");
       return responseData;
     } catch (error) {
       if (error instanceof Error) {
