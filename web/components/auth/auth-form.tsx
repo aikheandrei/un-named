@@ -6,7 +6,8 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { login, signupWithOtp } from "@/actions/auth/auth-actions";
+// import { login, signupWithOtp } from "@/actions/auth/auth-actions";
+import { login } from "@/hooks/useAuth";
 
 import OtpForm from "./otp-form";
 import FormField from "./ui/auth-field";
@@ -40,77 +41,80 @@ const AuthForm = () => {
     },
   });
 
-  const [otpState, otpAction, otpIsPending] = useActionState(signupWithOtp, {
-    error: "",
-  });
+  // const [otpState, otpAction, otpIsPending] = useActionState(signupWithOtp, {
+  //   error: "",
+  // });
 
-  const [loginState, loginAction, loginIsPending] = useActionState(login, {
-    error: "",
-  });
+  // const [loginState, loginAction, loginIsPending] = useActionState(login, {
+  //   error: "",
+  // });
+
+  const { loginIsPending, handleLogin } = login();
 
   const onSubmit = (data: z.infer<typeof FormSchema>, isSignup: boolean) => {
     if (isSignup) {
-      startTransition(() => {
-        otpAction({ email: data.email, password: data.password });
-      });
-      router.replace(pathname + "?email=" + data.email);
-
-      setIsVerify(!isVerify);
+      // startTransition(() => {
+      //   otpAction({ email: data.email, password: data.password });
+      // });
+      // router.replace(pathname + "?email=" + data.email);
+      // setIsVerify(!isVerify);
     } else {
-      startTransition(() => {
-        loginAction({ email: data.email, password: data.password });
-      });
+      // startTransition(() => {
+      //   loginAction({ email: data.email, password: data.password });
+      // });
+
+      handleLogin(data.email, data.password);
     }
   };
 
   return (
     <>
-      {isVerify && !otpIsPending && !otpState.error ? (
-        <OtpForm />
-      ) : (
-        <form className="flex w-52 flex-col p-2">
-          <label htmlFor="email">Email:</label>
-          <FormField
-            type="email"
-            name="email"
-            register={register}
-            error={errors.email}
-          />
+      {/* {isVerify && !otpIsPending && !otpState.error ? (
+      //   <OtpForm />
+      // ) : ( */}
+      <form className="flex w-52 flex-col p-2">
+        <label htmlFor="email">Email:</label>
+        <FormField
+          type="email"
+          name="email"
+          register={register}
+          error={errors.email}
+        />
 
-          <label htmlFor="password">Password:</label>
-          <FormField
-            type="password"
-            name="password"
-            register={register}
-            error={errors.password}
-          />
+        <label htmlFor="password">Password:</label>
+        <FormField
+          type="password"
+          name="password"
+          register={register}
+          error={errors.password}
+        />
 
-          <label htmlFor="confirm-password">Confirm Password:</label>
-          <FormField
-            type="password"
-            name="confirmPassword"
-            register={register}
-            error={errors.confirmPassword}
-          />
+        <label htmlFor="confirm-password">Confirm Password:</label>
+        <FormField
+          type="password"
+          name="confirmPassword"
+          register={register}
+          error={errors.confirmPassword}
+        />
 
-          {(otpState.error || loginState.error) && (
-            <p style={{ color: "red" }}>{otpState.error || loginState.error}</p>
-          )}
+        {/* {(otpState.error || loginState.error) && (
+        //   <p style={{ color: "red" }}>{otpState.error || loginState.error}</p>
+        // )} */}
 
-          <button
-            type="button"
-            onClick={handleSubmit((data) => onSubmit(data, true))}
-          >
-            {otpIsPending ? "Signing up..." : "Sign up"}
-          </button>
-          <button
-            type="button"
-            onClick={handleSubmit((data) => onSubmit(data, false))}
-          >
-            {loginIsPending ? "Logging in..." : "Log in"}
-          </button>
-        </form>
-      )}
+        <button
+          type="button"
+          onClick={handleSubmit((data) => onSubmit(data, true))}
+        >
+          {/* {otpIsPending ? "Signing up..." : "Sign up"} */}
+        </button>
+        <button
+          type="button"
+          onClick={handleSubmit((data) => onSubmit(data, false))}
+        >
+          {loginIsPending ? "Logging in..." : "Log in"}
+        </button>
+      </form>
+      {/* )} */}
     </>
   );
 };
