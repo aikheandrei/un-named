@@ -43,22 +43,24 @@ const AuthForm = () => {
   const [otpState, otpAction, otpIsPending] = useActionState(signupWithOtp, {
     error: "",
   });
-  const handleSignup = (data: z.infer<typeof FormSchema>) => {
-    startTransition(() => {
-      otpAction({ email: data.email, password: data.password });
-    });
-    router.replace(pathname + "?email=" + data.email);
-
-    setIsVerify(!isVerify);
-  };
 
   const [loginState, loginAction, loginIsPending] = useActionState(login, {
     error: "",
   });
-  const handleLogin = (data: z.infer<typeof FormSchema>) => {
-    startTransition(() => {
-      loginAction({ email: data.email, password: data.password });
-    });
+
+  const onSubmit = (data: z.infer<typeof FormSchema>, isSignup: boolean) => {
+    if (isSignup) {
+      startTransition(() => {
+        otpAction({ email: data.email, password: data.password });
+      });
+      router.replace(pathname + "?email=" + data.email);
+
+      setIsVerify(!isVerify);
+    } else {
+      startTransition(() => {
+        loginAction({ email: data.email, password: data.password });
+      });
+    }
   };
 
   return (
@@ -95,12 +97,15 @@ const AuthForm = () => {
             <p style={{ color: "red" }}>{otpState.error || loginState.error}</p>
           )}
 
-          <button type="button" onClick={handleSubmit(handleSignup)}>
+          <button
+            type="button"
+            onClick={handleSubmit((data) => onSubmit(data, true))}
+          >
             {otpIsPending ? "Signing up..." : "Sign up"}
           </button>
           <button
             type="button"
-            onClick={handleSubmit((data) => handleLogin(data))}
+            onClick={handleSubmit((data) => onSubmit(data, false))}
           >
             {loginIsPending ? "Logging in..." : "Log in"}
           </button>
