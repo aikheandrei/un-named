@@ -14,6 +14,6 @@ export async function signOut() {
     redirect("/error");
   }
 
-  revalidatePath("/sign-in", "layout");
-  redirect("/sign-in");
+  revalidatePath("/sign-up", "layout");
+  redirect("/sign-up");
 }
