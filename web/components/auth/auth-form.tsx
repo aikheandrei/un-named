@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { startTransition, useActionState, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -40,20 +40,30 @@ const AuthForm = () => {
     },
   });
 
+  const [otpState, otpAction, otpIsPending] = useActionState(signupWithOtp, {
+    error: "",
+  });
   const handleSignup = (data: z.infer<typeof FormSchema>) => {
-    signupWithOtp({ email: data.email, password: data.password });
+    startTransition(() => {
+      otpAction({ email: data.email, password: data.password });
+    });
     router.replace(pathname + "?email=" + data.email);
 
     setIsVerify(!isVerify);
   };
 
+  const [loginState, loginAction, loginIsPending] = useActionState(login, {
+    error: "",
+  });
   const handleLogin = (data: z.infer<typeof FormSchema>) => {
-    login({ email: data.email, password: data.password });
+    startTransition(() => {
+      loginAction({ email: data.email, password: data.password });
+    });
   };
 
   return (
     <>
-      {isVerify ? (
+      {isVerify && !otpIsPending && !otpState.error ? (
         <OtpForm />
       ) : (
         <form className="flex w-52 flex-col p-2">
@@ -81,11 +91,18 @@ const AuthForm = () => {
             error={errors.confirmPassword}
           />
 
+          {(otpState.error || loginState.error) && (
+            <p style={{ color: "red" }}>{otpState.error || loginState.error}</p>
+          )}
+
           <button type="button" onClick={handleSubmit(handleSignup)}>
-            Sign up
+            {otpIsPending ? "Signing up..." : "Sign up"}
           </button>
-          <button type="button" onClick={handleSubmit(handleLogin)}>
-            Login
+          <button
+            type="button"
+            onClick={handleSubmit((data) => handleLogin(data))}
+          >
+            {loginIsPending ? "Logging in..." : "Log in"}
           </button>
         </form>
       )}

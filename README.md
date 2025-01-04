@@ -47,16 +47,16 @@
         - [x] auth-form
         - [x] otp-form
       - [x] Unexport OtpSchema & make a solution for passing zod validated otp to verifyOtp with useActionState
-      - [ ] 
+
     - [x] Login function with zod validation
     - [x] Clean up
     - [x] Actions/auth folder (to be replaced by route files)
     - [ ] route files for auth
 
-    - Error handling
+    - Better error handling
       - [x] Otp
-      - [ ] Sign-up
-      - [ ] Login
+      - [x] Sign-up
+      - [x] Login
 
   - [ ] Drizzle ORM
     - [ ] Install dependencies

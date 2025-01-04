@@ -6,79 +6,53 @@ import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import supabaseAdmin from "@/lib/supabase/admin";
 import { GenerateLinkParams } from "@supabase/supabase-js";
-import Mailjet from "node-mailjet";
+// import Mailjet from "node-mailjet";
 
-export async function login({
-  email,
-  password,
-}: {
-  email: string;
-  password: string;
-}) {
+export async function login(
+  prevState: { error?: string },
+  data: { email: string; password: string },
+) {
   const supabase = await createClient();
 
   const userData = {
-    email: email,
-    password: password,
+    email: data.email,
+    password: data.password,
   };
 
   const { error } = await supabase.auth.signInWithPassword(userData);
 
   if (error) {
-    console.log(error);
-    redirect("/error");
+    return { error: prevState.error || error.message };
   }
 
   revalidatePath("/", "layout");
   redirect("/");
 }
 
-export async function signup(formData: FormData) {
-  const supabase = await createClient();
-
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
-  const data = {
-    email: formData.get("email") as string,
-    password: formData.get("password") as string,
-  };
-
-  const { error } = await supabase.auth.signUp(data);
-
-  if (error) {
-    redirect("/error");
-  }
-
-  revalidatePath("/", "layout");
-  redirect("/");
-}
-
-export async function signupWithOtp({
-  email,
-  password,
-}: {
-  email: string;
-  password: string;
-}) {
+export async function signupWithOtp(
+  prevState: { error?: string },
+  data: { email: string; password: string },
+) {
   const supabase = supabaseAdmin();
 
-  const emailData: GenerateLinkParams = {
+  const { email, password } = data;
+
+  const userData: GenerateLinkParams = {
     type: "signup",
     email: email,
     password: password,
   };
 
-  const { data, error } = await supabase.auth.admin.generateLink(emailData);
+  const { error } = await supabase.auth.admin.generateLink(userData);
 
   if (error) {
-    console.log(error);
-    redirect("/error");
+    return { error: prevState.error || error.message };
   }
 
-  const mailjet = Mailjet.apiConnect(
-    `${process.env.MJ_APIKEY_PUBLIC}`,
-    `${process.env.MJ_APIKEY_PRIVATE}`,
-  );
+  // const mailjet = Mailjet.apiConnect(
+  //   `${process.env.MJ_APIKEY_PUBLIC}`,
+  //   `${process.env.MJ_APIKEY_PRIVATE}`,
+  // );
 
   // mailjet.post("send", { version: "v3.1" }).request({
   //   Messages: [
@@ -101,4 +75,5 @@ export async function signupWithOtp({
   // });
 
   console.log(data);
+  return { email, password };
 }
