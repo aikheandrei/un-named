@@ -33,7 +33,8 @@
     - [x] Route protection logic
       - [x] !user & in protectedPaths => sign-in 
       - [x] user & in authPaths => user
-    - [ ] OTP verification using Custom SMTP (mailjet integration)
+
+    - OTP verification using Custom SMTP (mailjet integration)
       - [x] Grab email_otp via createClient with supabase.auth.admin.generateLinfor elavated priviliges (administrative context)
       - [x] Sign up procedure:
         - [x] Update params on sign up
@@ -45,10 +46,18 @@
       - [x] Zod validation
         - [x] auth-form
         - [x] otp-form
-      - [ ] Error handling
+      - [x] Unexport OtpSchema & make a solution for passing zod validated otp to verifyOtp with useActionState
       - [ ] 
+    - [x] Login function with zod validation
     - [x] Clean up
+    - [x] Actions/auth folder (to be replaced by route files)
     - [ ] route files for auth
+
+    - Error handling
+      - [x] Otp
+      - [ ] Sign-up
+      - [ ] Login
+
   - [ ] Drizzle ORM
     - [ ] Install dependencies
     - [ ] Setup env

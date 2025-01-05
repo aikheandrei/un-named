@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { startTransition, useActionState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,8 +8,8 @@ import { z } from "zod";
 
 import { verifyOtp } from "@/actions/auth/verify-otp";
 
-export const OtpSchema = z.object({
-  otp: z.string().min(6, { message: "Invalid Token" }),
+const OtpSchema = z.object({
+  otp: z.string().min(6, { message: "Invalid OTP" }),
 });
 
 const OtpForm = () => {
@@ -29,14 +29,19 @@ const OtpForm = () => {
 
   const [state, formAction, isPending] = useActionState(verifyOtp, {
     error: "",
-    email: email || "",
   });
+
+  const handleOtpSubmit = (data: z.infer<typeof OtpSchema>) => {
+    startTransition(() => {
+      formAction({ otp: data.otp, email: email || "" });
+    });
+  };
 
   return (
     <main>
-      <form onSubmit={handleSubmit(formAction)}>
+      <form onSubmit={handleSubmit(handleOtpSubmit)}>
         <label htmlFor="token">OTP:</label>
-        <input placeholder="OTP" type="number" {...register("otp")} />
+        <input placeholder="OTP" {...register("otp")} />
         <button type="submit" disabled={isPending}>
           {isPending ? "Submitting..." : "Submit OTP"}
         </button>
