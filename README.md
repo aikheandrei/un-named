@@ -45,7 +45,6 @@
       - [x] Zod validation
         - [x] auth-form
         - [x] otp-form
-      - [ ] Logistics
       - [ ] Error handling
       - [ ] 
     - [x] Clean up
