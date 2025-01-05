@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { signupWithOtp } from "@/actions/auth/auth-actions";
+import { login, signupWithOtp } from "@/actions/auth/auth-actions";
 
 import OtpForm from "./otp-form";
 import FormField from "./ui/auth-field";
@@ -40,11 +40,15 @@ const AuthForm = () => {
     },
   });
 
-  const handleSignin = (data: z.infer<typeof FormSchema>) => {
+  const handleSignup = (data: z.infer<typeof FormSchema>) => {
     signupWithOtp({ email: data.email, password: data.password });
     router.replace(pathname + "?email=" + data.email);
 
     setIsVerify(!isVerify);
+  };
+
+  const handleLogin = (data: z.infer<typeof FormSchema>) => {
+    login({ email: data.email, password: data.password });
   };
 
   return (
@@ -52,10 +56,7 @@ const AuthForm = () => {
       {isVerify ? (
         <OtpForm />
       ) : (
-        <form
-          onSubmit={handleSubmit(handleSignin)}
-          className="flex w-52 flex-col p-2"
-        >
+        <form className="flex w-52 flex-col p-2">
           <label htmlFor="email">Email:</label>
           <FormField
             type="email"
@@ -80,7 +81,12 @@ const AuthForm = () => {
             error={errors.confirmPassword}
           />
 
-          <button type="submit">Send OTP</button>
+          <button type="button" onClick={handleSubmit(handleSignup)}>
+            Sign up
+          </button>
+          <button type="button" onClick={handleSubmit(handleLogin)}>
+            Login
+          </button>
         </form>
       )}
     </>
