@@ -36,7 +36,7 @@ export async function updateSession(request: NextRequest) {
   // IMPORTANT: DO NOT REMOVE auth.getUser()
 
   const protectedPaths = ["/user"];
-  const authPaths = ["/sign-in", "/verify-otp"];
+  const authPaths = ["/sign-up", "/verify-otp"];
 
   const user = await supabase.auth.getUser();
   const url = new URL(request.url);
@@ -49,7 +49,7 @@ export async function updateSession(request: NextRequest) {
   } else {
     if (protectedPaths.includes(url.pathname)) {
       return NextResponse.redirect(
-        new URL("/sign-in?next=" + (next || url.pathname), request.url),
+        new URL("/sign-up?next=" + (next || url.pathname), request.url),
       );
     }
   }

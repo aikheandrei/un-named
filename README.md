@@ -48,7 +48,8 @@
       - [ ] Logistics
       - [ ] Error handling
       - [ ] 
-      - [ ] Clean up
+    - [x] Clean up
+    - [ ] route files for auth
   - [ ] Drizzle ORM
     - [ ] Install dependencies
     - [ ] Setup env
@@ -64,7 +65,6 @@
 - STRUCTURE
 
   - [x] lib & utils folder
-  - [ ] route files for auth
   - [ ] Zod schema types
   - [ ] Types
 

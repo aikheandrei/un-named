@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-import { verifyOtp } from "../../app/verify-otp/action";
+import { verifyOtp } from "@/actions/auth/verify-otp";
 
 export const OtpSchema = z.object({
   otp: z.string().min(6, { message: "Invalid Token" }),
