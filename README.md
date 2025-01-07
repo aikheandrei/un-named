@@ -45,11 +45,10 @@
       - [x] Zod validation
         - [x] auth-form
         - [x] otp-form
-      - [ ] Tailwind merge (utils.ts)
       - [ ] Logistics
+      - [ ] Error handling
       - [ ] 
-    - [ ] Info addition
-      - Username
+      - [ ] Clean up
   - [ ] Drizzle ORM
     - [ ] Install dependencies
     - [ ] Setup env
@@ -58,7 +57,16 @@
     - [ ] Config file
     - [ ] Seed test
     - [ ] Link with supabase auth
+    - [ ] Info addition
+      - [ ] Username
+  - [ ] 
+
+- STRUCTURE
+
   - [x] lib & utils folder
+  - [ ] route files for auth
+  - [ ] Zod schema types
+  - [ ] Types
 
 - FRONT-END UI/UX (Figma/Photoshop)
 
@@ -69,6 +77,8 @@
   - [ ] tailwind variables
     - [ ] fonts
     - [ ]
+  - [ ] Tailwind merge (utils.ts)
+  - [ ]
 
 - MISCS
 
@@ -79,4 +89,5 @@
 
   - Optimized/maintainable code
   - KISS
+  - DRY
 

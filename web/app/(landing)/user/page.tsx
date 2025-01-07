@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/server";
-import { signOut } from "./action";
+import { signOut } from "@/actions/auth/sign-out";
 
 const UserPage = async () => {
   const supabase = await createClient();

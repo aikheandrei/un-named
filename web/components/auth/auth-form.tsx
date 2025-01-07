@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { signupWithOtp } from "../../app/sign-in/actions";
+import { signupWithOtp } from "@/actions/auth/auth-actions";
 
 import OtpForm from "./otp-form";
 import FormField from "./ui/auth-field";
