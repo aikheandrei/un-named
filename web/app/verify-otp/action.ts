@@ -1,22 +1,25 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { z } from "zod";
 
 import { createClient } from "@/lib/supabase/server";
 
+import { OtpSchema } from "@/components/auth/otp-form";
+
 export async function verifyOtp(
   prevState: { error?: string; email: string },
-  formData: FormData,
+  data: z.infer<typeof OtpSchema>,
 ) {
   const email = prevState.email;
-  const token = formData.get("token") as string;
+  const otp = data.otp;
 
-  if (prevState.email && token) {
+  if (prevState.email && otp) {
     const supabase = await createClient();
 
     const { error } = await supabase.auth.verifyOtp({
       email,
-      token,
+      token: otp,
       type: "email",
     });
 
