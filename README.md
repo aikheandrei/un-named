@@ -44,8 +44,9 @@
       - [x] Clean the mess you made 
       - [x] Zod validation
         - [x] auth-form
-        - [ ] otp-form
+        - [x] otp-form
       - [ ] Tailwind merge (utils.ts)
+      - [ ] Logistics
       - [ ] 
     - [ ] Info addition
       - Username
