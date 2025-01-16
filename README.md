@@ -13,9 +13,9 @@
   - [x] Project structure
   - [ ] Dependencies
     - [x] @supabase/supabase-js @supabase/ssr
-    - [ ] node-mailjet
-    - [ ] zod
-    - [ ] react-hook-form
+    - [x] node-mailjet
+    - [x] zod
+    - [x] react-hook-form
     - [ ] Shadcn
   - [ ] 
 
@@ -42,10 +42,10 @@
       - [x] Link mailjet to send OTP
       - [x] Get email on params if possible
       - [x] Clean the mess you made 
-      - [x] zod validation
+      - [x] Zod validation
         - [x] auth-form
         - [ ] otp-form
-      - [ ] twmerge (utils.ts)
+      - [ ] Tailwind merge (utils.ts)
       - [ ] 
     - [ ] Info addition
       - Username
