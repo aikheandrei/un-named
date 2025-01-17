@@ -1,26 +1,22 @@
 ### Tech Stack:
 
+- Next.js
+
 
 #### To-do:
 
 - NEXTJS
 
+  - [x] Installation
+  - [x] Clean junks
+  - [ ] Dependencies
+    - [ ] Shadcn
   - [ ]
 
-- APP STRUCTURE
+- BACKEND
 
-  - [ ]
-
-```
-structure/
-├──dir/
-│  ├──folder/
-│  │  ├──bar.txt
-│  │  └──nom.txt
-│  ├──yow.txt
-│  └──pom.txt
-└──README.md
-```
+  - [ ] Supabase authentication
+  - [ ] Drizzle ORM
 
 - FRONT-END UI/UX (Figma/Photoshop)
 
@@ -30,33 +26,7 @@ structure/
 
   - [ ]
 
-- BACK-END
-
-- BASIC
-
-  - [ ]
-
-
 - MISCS
 
   - [ ] Powershell autosuggestion
-  - [ ] Experiment with mySQL
-  - [ ] Lucia for another time (new blog project?)
-  - [ ] Motion-hell
 
-- README
-
-  - [ ]
-
-- GIT
-
-  - Issues (github cli)
-  - Code review
-
-- GOAL
-
-  - fugitive
-
-#### Not-to-do
-
-- BE INCONSISTENT
