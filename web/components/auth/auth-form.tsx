@@ -40,12 +40,11 @@ const AuthForm = () => {
     },
   });
 
-  const handleSignin = async (data: z.infer<typeof FormSchema>) => {
+  const handleSignin = (data: z.infer<typeof FormSchema>) => {
     signupWithOtp({ email: data.email, password: data.password });
-    setIsVerify(!isVerify);
     router.replace(pathname + "?email=" + data.email);
 
-    console.log(data);
+    setIsVerify(!isVerify);
   };
 
   return (
