@@ -43,6 +43,8 @@
       - [x] Get email on params if possible
       - [x] Clean the mess you made 
       - [x] zod validation
+        - [x] auth-form
+        - [ ] otp-form
       - [ ] twmerge (utils.ts)
       - [ ] 
     - [ ] Info addition
