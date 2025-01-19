@@ -9,9 +9,10 @@
 
   - [x] Installation
   - [x] Clean junks
+  - [x] Project structure
   - [ ] Dependencies
     - [ ] Shadcn
-  - [ ]
+  - [ ] 
 
 - BACKEND
 
@@ -24,7 +25,9 @@
 
 - STYLING
 
-  - [ ]
+  - [ ] tailwind variables
+    - [ ] fonts
+    - [ ]
 
 - MISCS
 
