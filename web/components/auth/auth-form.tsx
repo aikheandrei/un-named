@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm, FieldError, UseFormRegister } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { usePathname, useRouter } from "next/navigation";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signupWithOtp } from "../../app/sign-in/actions";
 
 import OtpForm from "./otp-form";
+import FormField from "./ui/auth-field";
 
 const FormSchema = z
   .object({
@@ -21,40 +22,9 @@ const FormSchema = z
     path: ["confirmPassword"],
   });
 
-type ValidFieldNames = "email" | "password" | "confirmPassword";
-
-type FormData = {
-  email: string;
-  password: string;
-  confirmPassword: string;
-};
-
-interface FormFieldProps {
-  type: string;
-  name: ValidFieldNames;
-  register: UseFormRegister<FormData>;
-  error: FieldError | undefined;
-}
-
-const FormField: React.FC<FormFieldProps> = ({
-  type,
-  name,
-  register,
-  error,
-}) => (
-  <>
-    <input
-      className="border-slate-600 border-2"
-      type={type}
-      {...register(name)}
-    />
-    {error && <span>{error.message}</span>}
-  </>
-);
-
 const AuthForm = () => {
-  // const pathname = usePathname();
-  // const router = useRouter();
+  const pathname = usePathname();
+  const router = useRouter();
   const [isVerify, setIsVerify] = useState(false);
 
   const {
@@ -71,9 +41,9 @@ const AuthForm = () => {
   });
 
   const handleSignin = async (data: z.infer<typeof FormSchema>) => {
-    // signupWithOtp(data);
-    // setIsVerify(!isVerify);
-    // router.replace(pathname + "?email=" + data.get("email"));
+    signupWithOtp({ email: data.email, password: data.password });
+    setIsVerify(!isVerify);
+    router.replace(pathname + "?email=" + data.email);
 
     console.log(data);
   };

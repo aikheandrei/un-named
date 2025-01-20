@@ -49,13 +49,19 @@ export async function signup(formData: FormData) {
   redirect("/");
 }
 
-export async function signupWithOtp(formData: FormData) {
+export async function signupWithOtp({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) {
   const supabase = supabaseAdmin();
 
   const emailData: GenerateLinkParams = {
     type: "signup",
-    email: formData.get("email") as string,
-    password: formData.get("password") as string,
+    email: email,
+    password: password,
   };
 
   const { data, error } = await supabase.auth.admin.generateLink(emailData);
