@@ -27,9 +27,9 @@
     - [x] Auth confirmation if email confirmation is turned on (default)
     - [x] Access user info from server component
     - [x] Sign out
-    - [ ] Route protection logic
-      - [ ] !user & in protectedPaths => sign-in 
-      - [ ] user & in authPaths => user
+    - [x] Route protection logic
+      - [x] !user & in protectedPaths => sign-in 
+      - [x] user & in authPaths => user
     - [x] Otp
       - [x] Sign in with OTP
       - [x] Verify OTP
