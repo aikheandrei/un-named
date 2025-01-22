@@ -1,6 +1,7 @@
 ### Tech Stack:
 
 - Next.js
+- Supabase
 
 
 #### To-do:
@@ -16,7 +17,7 @@
 
 - BACKEND
 
-  - [ ] Supabase authentication
+  - [ ] Supabase auth
   - [ ] Drizzle ORM
 
 - FRONT-END UI/UX (Figma/Photoshop)
@@ -31,5 +32,6 @@
 
 - MISCS
 
-  - [ ] Powershell autosuggestion
+  - [x] Neovim/neovide
+  - [ ] Powershell auto-suggestion
 
