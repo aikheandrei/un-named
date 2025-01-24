@@ -1,4 +1,4 @@
-import { login, signup } from "./actions";
+import { login, signinWithOtp, signup } from "./actions";
 
 const SignInPage = () => {
   return (
@@ -10,6 +10,7 @@ const SignInPage = () => {
         <input id="password" name="password" type="password" required />
         <button formAction={login}>Log in</button>
         <button formAction={signup}>Sign up</button>
+        <button formAction={signinWithOtp}>Send OTP</button>
       </form>
     </main>
   );
