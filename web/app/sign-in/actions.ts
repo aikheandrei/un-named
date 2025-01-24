@@ -44,3 +44,22 @@ export async function signup(formData: FormData) {
   revalidatePath("/", "layout");
   redirect("/");
 }
+
+export async function signinWithOtp(formData: FormData) {
+  const supabase = await createClient();
+
+  // type-casting here for convenience
+  // in practice, you should validate your inputs
+  const data = {
+    email: formData.get("email") as string,
+  };
+
+  const { error } = await supabase.auth.signInWithOtp(data);
+
+  if (error) {
+    redirect("/error");
+  }
+
+  revalidatePath("/verify-otp", "layout");
+  redirect(`/verify-otp?email=${data.email}`);
+}

@@ -29,7 +29,9 @@
     - [x] Protected Paths
         - [x] if !user && in user => sign-in
         - [x] if user && in sign-in => user
-    - [ ] Otp
+    - [x] Otp
+      - [x] Sign in with OTP
+      - [x] Verify OTP
     - [ ] Info addition
       - Username
   - [ ] Drizzle ORM
