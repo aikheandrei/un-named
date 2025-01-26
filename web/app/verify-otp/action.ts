@@ -13,6 +13,7 @@ export async function verifyOtp(
 
   if (email && token) {
     const supabase = await createClient();
+
     const { error } = await supabase.auth.verifyOtp({
       email,
       token,

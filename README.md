@@ -12,6 +12,7 @@
   - [x] Clean junks
   - [x] Project structure
   - [ ] Dependencies
+    - [x] @supabase/supabase-js @supabase/ssr
     - [ ] Shadcn
   - [ ] 
 
@@ -27,11 +28,14 @@
     - [x] Access user info from server component
     - [x] Sign out
     - [x] Protected Paths
-        - [x] if !user && in user => sign-in
-        - [x] if user && in sign-in => user
+      - [x] !user && in user => sign-in
+      - [x] user && in sign-in => user
+      - [ ] !user && in verify-otp => sign-in
+      - [ ] user && in verify-otp => user
     - [x] Otp
       - [x] Sign in with OTP
       - [x] Verify OTP
+      - [ ] Custom SMTP (mailjet integration)
     - [ ] Info addition
       - Username
   - [ ] Drizzle ORM
