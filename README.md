@@ -27,17 +27,20 @@
     - [x] Auth confirmation if email confirmation is turned on (default)
     - [x] Access user info from server component
     - [x] Sign out
-    - [x] Protected Paths
-      - [x] !user && in user => sign-in
-      - [x] user && in sign-in => user
-      - [x] !user && in verify-otp => sign-in
-      - [x] user && in verify-otp => user
+    - [ ] Route protection logic
+      - [ ] !user & in protectedPaths => sign-in 
+      - [ ] user & in authPaths => user
     - [x] Otp
       - [x] Sign in with OTP
       - [x] Verify OTP
       - [x] useActionState
     - [ ] Custom SMTP (mailjet integration)
+      - [x] Grab email_otp via createClient with supabase.auth.admin.generateLinfor elavated priviliges (administrative context)
+      - [ ] Sign up procedure:
+        - [ ] Update params
+        - [ ] Update form to OTP verification
       - [ ] Env variables (public & secret)
+      - [ ] 
     - [ ] Info addition
       - Username
   - [ ] Drizzle ORM

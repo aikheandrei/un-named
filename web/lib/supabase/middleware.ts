@@ -35,25 +35,47 @@ export async function updateSession(request: NextRequest) {
 
   // IMPORTANT: DO NOT REMOVE auth.getUser()
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const protectedPaths = ["/user"];
+  const authPaths = ["/sign-in", "/verify-otp"];
 
-  const url = request.nextUrl.clone();
+  const user = await supabase.auth.getUser();
+  const url = new URL(request.url);
+  const next = url.searchParams.get("next");
 
-  const requestUrl = (url: string) => {
-    return request.nextUrl.pathname.startsWith(`/${url}`);
-  };
-
-  if ((!user && requestUrl("user")) || requestUrl("verify-otp")) {
-    // no user & in user page, potentially respond by redirecting the user to the sign-in page
-    url.pathname = "sign-in";
-    return NextResponse.redirect(url);
-  } else if ((user && requestUrl("sign-in")) || requestUrl("verify-otp")) {
-    // user is signed in & in sign-in, redirect to user page
-    url.pathname = "/user";
-    return NextResponse.redirect(url);
+  if (user.data.user?.id) {
+    if (authPaths.includes(url.pathname)) {
+      return NextResponse.redirect(new URL("/user", request.url));
+    }
+  } else {
+    if (protectedPaths.includes(url.pathname)) {
+      return NextResponse.redirect(
+        new URL("/sign-in?next=" + (next || url.pathname), request.url),
+      );
+    }
   }
+
+  // const {
+  // data: { user },
+  // } = await supabase.auth.getUser();
+
+  // const url = request.nextUrl.clone();
+
+  // const requestUrl = (url: string) => {
+  //   return request.nextUrl.pathname.startsWith(`/${url}`);
+  // };
+
+  // console.log(user);
+
+  // if ((!user && requestUrl("user")) || requestUrl("verify-otp")) {
+  //   // no user & in user page, potentially respond by redirecting the user to the sign-in page
+  //   console.log(user);
+  //   url.pathname = "/sign-in";
+  //   return NextResponse.redirect(url);
+  // } else if ((user && requestUrl("sign-in")) || requestUrl("verify-otp")) {
+  //   // user is signed in & in sign-in, redirect to user page
+  //   url.pathname = "/user";
+  //   return NextResponse.redirect(url);
+  // }
 
   // IMPORTANT: You *must* return the supabaseResponse object as it is.
   // If you're creating a new response object with NextResponse.next() make sure to:
