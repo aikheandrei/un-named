@@ -1,7 +1,7 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 import { createClient } from "@/lib/supabase/server";
 import supabaseAdmin from "@/lib/supabase/admin";
@@ -48,7 +48,7 @@ export async function signup(formData: FormData) {
   redirect("/");
 }
 
-export async function signinWithOtp(formData: FormData) {
+export async function signupWithOtp(formData: FormData) {
   const supabase = supabaseAdmin();
 
   const emailData: GenerateLinkParams = {
@@ -65,6 +65,4 @@ export async function signinWithOtp(formData: FormData) {
   }
 
   console.log(data);
-  revalidatePath("/verify-otp", "layout");
-  redirect(`/verify-otp?email=${emailData.email}`);
 }

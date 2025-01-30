@@ -30,16 +30,13 @@
     - [x] Route protection logic
       - [x] !user & in protectedPaths => sign-in 
       - [x] user & in authPaths => user
-    - [x] Otp
-      - [x] Sign in with OTP
-      - [x] Verify OTP
-      - [x] useActionState
-    - [ ] Custom SMTP (mailjet integration)
+    - [ ] OTP verification using Custom SMTP (mailjet integration)
       - [x] Grab email_otp via createClient with supabase.auth.admin.generateLinfor elavated priviliges (administrative context)
       - [ ] Sign up procedure:
-        - [ ] Update params on sign up
-        - [ ] Update form to OTP verification (twmerge)
+        - [x] Update params on sign up
+        - [x] Update form to OTP verification (twmerge)
       - [ ] Env variables (public & secret)
+      - [ ] Clean the mess you made
       - [ ] 
     - [ ] Info addition
       - Username

@@ -1,6 +1,32 @@
-import { login, signinWithOtp, signup } from "./actions";
+"use client";
+
+import { useState, useActionState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+
+import { verifyOtp } from "../verify-otp/action";
+
+import { login, signupWithOtp, signup } from "./actions";
 
 const SignInPage = () => {
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email");
+  const [isVerify, setIsVerify] = useState(false);
+
+  const handleSignin = (formData: FormData) => {
+    signupWithOtp(formData);
+    setIsVerify(!isVerify);
+
+    router.replace(pathname + "?verify=true&email=" + formData.get("email"));
+  };
+
+  const [state, formAction, isPending] = useActionState(verifyOtp, {
+    error: "",
+    email: email || "",
+  });
+
   return (
     <main>
       <form>
@@ -10,8 +36,25 @@ const SignInPage = () => {
         <input id="password" name="password" type="password" required />
         <button formAction={login}>Log in</button>
         <button formAction={signup}>Sign up</button>
-        <button formAction={signinWithOtp}>Send OTP</button>
+        <button formAction={handleSignin}>Send OTP</button>
       </form>
+
+      {isVerify && (
+        <form action={formAction}>
+          <label htmlFor="token">OTP:</label>
+          <input
+            placeholder="OTP"
+            id="token"
+            name="token"
+            type="number"
+            required
+          />
+          <button disabled={isPending}>
+            {isPending ? "Submitting..." : "Submit OTP"}
+          </button>
+          {state.error && <p style={{ color: "red" }}>{state.error}</p>}
+        </form>
+      )}
     </main>
   );
 };
