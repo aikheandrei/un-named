@@ -37,8 +37,8 @@
     - [ ] Custom SMTP (mailjet integration)
       - [x] Grab email_otp via createClient with supabase.auth.admin.generateLinfor elavated priviliges (administrative context)
       - [ ] Sign up procedure:
-        - [ ] Update params
-        - [ ] Update form to OTP verification
+        - [ ] Update params on sign up
+        - [ ] Update form to OTP verification (twmerge)
       - [ ] Env variables (public & secret)
       - [ ] 
     - [ ] Info addition

@@ -51,19 +51,13 @@ export async function signup(formData: FormData) {
 export async function signinWithOtp(formData: FormData) {
   const supabase = supabaseAdmin();
 
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
-  const emailData = {
-    type: "magiclink",
+  const emailData: GenerateLinkParams = {
+    type: "signup",
     email: formData.get("email") as string,
     password: formData.get("password") as string,
   };
 
-  const { data, error } = await supabase.auth.admin.generateLink({
-    type: "signup",
-    email: formData.get("email") as string,
-    password: formData.get("password") as string,
-  });
+  const { data, error } = await supabase.auth.admin.generateLink(emailData);
 
   if (error) {
     console.log(error);
