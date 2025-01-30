@@ -27,5 +27,6 @@ export async function verifyOtp(
     redirect("/");
   }
 
+  console.log(email);
   return { email };
 }
