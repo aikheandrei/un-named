@@ -34,9 +34,12 @@
       - [x] Grab email_otp via createClient with supabase.auth.admin.generateLinfor elavated priviliges (administrative context)
       - [ ] Sign up procedure:
         - [x] Update params on sign up
-        - [x] Update form to OTP verification (twmerge)
-      - [ ] Env variables (public & secret)
-      - [ ] Clean the mess you made
+        - [x] Update form to OTP verification
+      - [x] Env variables (public & secret)
+      - [x] Link mailjet to send OTP
+      - [ ] Clean the mess you made 
+      - [ ] zod validation
+      - [ ] twmerge (utils.ts)
       - [ ] 
     - [ ] Info addition
       - Username

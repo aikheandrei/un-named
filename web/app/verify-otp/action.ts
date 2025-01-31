@@ -8,7 +8,7 @@ export async function verifyOtp(
   prevState: { error?: string; email: string },
   formData: FormData,
 ) {
-  const email = prevState.email;
+  const email = formData.get("email") as string;
   const token = formData.get("token") as string;
 
   if (email && token) {
@@ -24,9 +24,12 @@ export async function verifyOtp(
       return { email, error: error.message };
     }
 
+    console.log(email);
+    console.log(token);
     redirect("/");
   }
 
   console.log(email);
+  console.log(token);
   return { email };
 }
