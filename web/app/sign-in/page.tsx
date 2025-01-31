@@ -19,7 +19,7 @@ const SignInPage = () => {
     signupWithOtp(formData);
     setIsVerify(!isVerify);
 
-    router.replace(pathname + "?verify=true&email=" + formData.get("email"));
+    router.replace(pathname + "?email=" + formData.get("email"));
   };
 
   const [state, formAction, isPending] = useActionState(verifyOtp, {
@@ -41,6 +41,7 @@ const SignInPage = () => {
 
       {isVerify && (
         <form action={formAction}>
+          <input type="hidden" name="email" value={email || ""} />
           <label htmlFor="token">OTP:</label>
           <input
             placeholder="OTP"
