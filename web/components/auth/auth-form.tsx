@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, FieldError, UseFormRegister } from "react-hook-form";
 import { usePathname, useRouter } from "next/navigation";
 import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { signupWithOtp } from "../../app/sign-in/actions";
 
@@ -20,18 +21,61 @@ const FormSchema = z
     path: ["confirmPassword"],
   });
 
+type ValidFieldNames = "email" | "password" | "confirmPassword";
+
+type FormData = {
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
+
+interface FormFieldProps {
+  type: string;
+  name: ValidFieldNames;
+  register: UseFormRegister<FormData>;
+  error: FieldError | undefined;
+}
+
+const FormField: React.FC<FormFieldProps> = ({
+  type,
+  name,
+  register,
+  error,
+}) => (
+  <>
+    <input
+      className="border-slate-600 border-2"
+      type={type}
+      {...register(name)}
+    />
+    {error && <span>{error.message}</span>}
+  </>
+);
+
 const AuthForm = () => {
-  const pathname = usePathname();
-  const router = useRouter();
+  // const pathname = usePathname();
+  // const router = useRouter();
   const [isVerify, setIsVerify] = useState(false);
 
-  const form = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
 
-  const handleSignin = (formData: FormData) => {
-    signupWithOtp(formData);
-    setIsVerify(!isVerify);
+  const handleSignin = async (data: z.infer<typeof FormSchema>) => {
+    // signupWithOtp(data);
+    // setIsVerify(!isVerify);
+    // router.replace(pathname + "?email=" + data.get("email"));
 
-    router.replace(pathname + "?email=" + formData.get("email"));
+    console.log(data);
   };
 
   return (
@@ -39,33 +83,35 @@ const AuthForm = () => {
       {isVerify ? (
         <OtpForm />
       ) : (
-        <form className="flex w-52 flex-col p-2">
+        <form
+          onSubmit={handleSubmit(handleSignin)}
+          className="flex w-52 flex-col p-2"
+        >
           <label htmlFor="email">Email:</label>
-          <input
-            className="border-slate-600 border-2"
-            id="email"
-            name="email"
+          <FormField
             type="email"
-            required
-          />
-          <label htmlFor="password">Password:</label>
-          <input
-            className="border-slate-600 border-2"
-            id="password"
-            name="password"
-            type="password"
-            required
-          />
-          <label htmlFor="confirm-password">Confirm Password:</label>
-          <input
-            className="border-slate-600 border-2"
-            id="confirm-password"
-            name="confirm-password"
-            type="password"
-            required
+            name="email"
+            register={register}
+            error={errors.email}
           />
 
-          <button formAction={handleSignin}>Send OTP</button>
+          <label htmlFor="password">Password:</label>
+          <FormField
+            type="password"
+            name="password"
+            register={register}
+            error={errors.password}
+          />
+
+          <label htmlFor="confirm-password">Confirm Password:</label>
+          <FormField
+            type="password"
+            name="confirmPassword"
+            register={register}
+            error={errors.confirmPassword}
+          />
+
+          <button type="submit">Send OTP</button>
         </form>
       )}
     </>
