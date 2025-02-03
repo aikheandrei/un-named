@@ -236,6 +236,7 @@
 
 - FRONT-END UI/UX
 
+  - Landing
   - [ ] Auth
     - [ ] Login form
     - [ ] Signup form
@@ -251,6 +252,7 @@
 - MISCS
 
   - [x] Neovim/neovide
+  - [ ] Pnpm (faster npm)
   - [ ] Powershell auto-suggestion
 
 - TO KEEP IN MIND
@@ -259,3 +261,7 @@
   - KISS
   - DRY
 
+#### Inspi
+
+- [Midday](https://midday.ai/)
+- [Opennote](https://opennote.me/)
