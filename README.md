@@ -243,9 +243,9 @@
 - STYLING
 
   - [ ] tailwind variables
-    - [ ] fonts
-    - [ ]
-  - [ ] Tailwind merge (utils.ts)
+    - [x] fonts
+    - [ ] colorscheme
+  - [x] Tailwind merge (utils.ts)
   - [ ]
 
 - MISCS
