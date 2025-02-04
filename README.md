@@ -38,7 +38,7 @@
       - [x] Env variables (public & secret)
       - [x] Link mailjet to send OTP
       - [x] Get email on params if possible
-      - [ ] Clean the mess you made 
+      - [x] Clean the mess you made 
       - [ ] zod validation
       - [ ] twmerge (utils.ts)
       - [ ] 
