@@ -236,7 +236,9 @@
 
 - FRONT-END UI/UX
 
-  - Landing
+  - [ ] Landing
+    - [x] Initial
+    - [ ] 
   - [ ] Auth
     - [ ] Login form
     - [ ] Signup form
