@@ -18,8 +18,8 @@
     - [x] react-hook-form
     - [x] @hookform/resolvers
     - [x] @tanstack/react-query
-    - [ ] @tanstack/react-query-devtools
-    - [ ] Shadcn
+    - [x] @tanstack/react-query-devtools
+    - [x] Shadcn
   - [ ] 
 
 - BACKEND
