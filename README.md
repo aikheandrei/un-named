@@ -56,7 +56,7 @@
     - [ ] route files for auth
       - [x] @lib/auth/service.ts
       - [x] @app/api/auth/login/route.ts
-      - [ ] 
+      - [x] @lib/auth/api.ts
 
     - Better error handling
       - [x] Otp
