@@ -1,8 +1,5 @@
 "use server";
 
-import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
-
 import { createClient } from "@/lib/supabase/server";
 import supabaseAdmin from "@/lib/supabase/admin";
 import { GenerateLinkParams } from "@supabase/supabase-js";
@@ -14,6 +11,7 @@ export class AuthService {
     if (error instanceof AuthError) {
       return new Error(error.message);
     }
+
     return new Error("An unexpected error occurred");
   }
 
