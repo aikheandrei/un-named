@@ -47,13 +47,16 @@
         - [x] auth-form
         - [x] otp-form
       - [x] Unexport OtpSchema & make a solution for passing zod validated otp to verifyOtp with useActionState
+      - [ ] Rate limit
 
     - [x] Login function with zod validation
     - [x] Clean up
     - [x] Actions/auth folder (to be replaced by route files)
+
     - [ ] route files for auth
-      - [ ] @lib/auth/service
-      - [ ] app/auth/route.ts
+      - [x] @lib/auth/service.ts
+      - [x] @app/api/auth/login/route.ts
+      - [ ] 
 
     - Better error handling
       - [x] Otp
