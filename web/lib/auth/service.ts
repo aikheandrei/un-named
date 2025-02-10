@@ -17,10 +17,7 @@ export class AuthService {
     return new Error("An unexpected error occurred");
   }
 
-  async login(
-    prevState: { error?: string },
-    req: { email: string; password: string },
-  ) {
+  async login(req: { email: string; password: string }) {
     const supabase = await createClient();
 
     const userData = {
@@ -29,23 +26,19 @@ export class AuthService {
     };
 
     try {
-      const { error } = await supabase.auth.signInWithPassword(userData);
+      const { data, error } = await supabase.auth.signInWithPassword(userData);
 
       if (error) {
-        return { error: prevState.error || error.message };
+        return { error: error.message };
       }
 
-      revalidatePath("/", "layout");
-      redirect("/");
+      return { data };
     } catch (error) {
       throw this.handleError(error);
     }
   }
 
-  async signupWithOtp(
-    prevState: { error?: string },
-    req: { email: string; password: string },
-  ) {
+  async signupWithOtp(req: { email: string; password: string }) {
     const supabase = supabaseAdmin();
 
     const { email, password } = req;
@@ -60,7 +53,7 @@ export class AuthService {
       const { error } = await supabase.auth.admin.generateLink(userData);
 
       if (error) {
-        return { error: prevState.error || error.message };
+        return { error: error.message };
       }
 
       console.log(userData);
