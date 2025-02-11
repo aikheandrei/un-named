@@ -52,6 +52,7 @@
     - [x] Clean up
     - [x] Actions/auth folder (to be replaced by route files)
     - [ ] route files for auth
+      - [ ] @lib/auth/service
       - [ ] app/auth/route.ts
 
     - Better error handling
