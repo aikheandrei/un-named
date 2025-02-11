@@ -52,11 +52,21 @@
     - [x] Clean up
     - [x] Actions/auth folder (to be replaced by route files)
     - [ ] route files for auth
+      - [ ] app/auth/route.ts
 
     - Better error handling
       - [x] Otp
       - [x] Sign-up
       - [x] Login
+
+    - [ ] Google auth
+    - [ ] Facebook auth
+
+  - From Theo's new tutorial
+    - [ ] T3 env
+    - [ ] Middleware filter (esp for api/trpc routes)
+    - [ ] Metadata
+    - [ ] Core functions to route handlers for CRUD management
 
   - [ ] Drizzle ORM
     - [ ] Install dependencies
@@ -70,11 +80,23 @@
       - [ ] Username
   - [ ] 
 
+- DOCS
+  
+  - [ ] 
+
 - STRUCTURE
 
-  - [x] lib & utils folder
-  - [ ] Zod schema types
+  - [x] Lib 
+    - [x] supabase/
+    - [x] auth/
+  - [x] App/api
+  - [x] Hooks
+  - [x] Auth stucture
   - [ ] Types
+  - [ ] Utils
+  - [ ] Server
+  - [ ] Types
+    - [ ] Zod schema types
 
 - FRONT-END UI/UX (Figma/Photoshop)
 
