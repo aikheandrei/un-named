@@ -41,16 +41,7 @@ const AuthForm = () => {
     },
   });
 
-  // const [otpState, otpAction, otpIsPending] = useActionState(signupWithOtp, {
-  //   error: "",
-  // });
-
-  // const [loginState, loginAction, loginIsPending] = useActionState(login, {
-  //   error: "",
-  // });
-
   const { loginError, loginIsPending, handleLogin } = login();
-  // const [loginError, setLoginError] = useState<string | undefined>();
 
   const onSubmit = (data: z.infer<typeof FormSchema>, isSignup: boolean) => {
     if (isSignup) {
@@ -60,14 +51,7 @@ const AuthForm = () => {
       // router.replace(pathname + "?email=" + data.email);
       // setIsVerify(!isVerify);
     } else {
-      // startTransition(() => {
-      //   loginAction({ email: data.email, password: data.password });
-      // });
-
       handleLogin(data.email, data.password);
-
-      // const error = handleLogin(data.email, data.password);
-      // setLoginError(error);
     }
   };
 

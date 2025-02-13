@@ -7,11 +7,10 @@ import { AuthError } from "@supabase/supabase-js";
 // import Mailjet from "node-mailjet";
 
 const handleError = (error: unknown) => {
-  if (error instanceof AuthError) {
-    return new Error(error.message);
-  }
+  const errorMessage =
+    error instanceof AuthError ? error.message : "Unknown error";
 
-  return new Error("An unexpected error occurred");
+  return new Error(errorMessage);
 };
 
 async function login(req: { email: string; password: string }) {

@@ -4,7 +4,7 @@
 - Supabase
 
 
-#### To-do:
+#### To-:
 
 - NEXTJS
 
@@ -59,9 +59,14 @@
       - [x] @lib/auth/api.ts
       - [x] @hooks/useAuth.ts
       - [x] Actually make it work
-      - [ ] Login state
+      - [x] Login
       - [ ] KISS
-      - [ ] Implement Signup
+      - [ ] Auth provider (create/useContext)
+        - [ ] @providers/authProvider.tsx
+        - [ ] Modify useAuth hook and both auth & otp form to sync with auth provider
+      - [ ] Signup
+      - [ ] Make use of useReducer
+        - Use when managing multiple switch cases
 
     - Better error handling
       - [x] Otp

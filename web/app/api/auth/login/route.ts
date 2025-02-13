@@ -7,11 +7,9 @@ export async function POST(req: Request) {
     const { data, error } = await login({ email, password });
 
     if (error) {
-      // console.log(error);
       return Response.json({ error }, { status: 400 });
     }
 
-    console.log("hello world");
     return Response.json(data, { status: 200 });
   } catch (error) {
     const errorMessage =
