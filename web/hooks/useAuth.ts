@@ -26,11 +26,12 @@ export const login = () => {
   const handleLogin = (email: string, password: string) => {
     try {
       startTransition(() => {
-        console.log("hello world");
         loginAction({ email, password });
       });
     } catch (error) {
-      console.log(error);
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error";
+      console.log(Error(errorMessage));
     }
   };
 

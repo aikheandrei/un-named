@@ -22,18 +22,14 @@ export class AuthApi {
       const responseData = await response.json();
 
       if (!response.ok) {
-        console.log(responseData.error);
         return { error: responseData.error, success: prevState?.success };
       }
 
-      // console.log(responseData.error);
       return { success: true, ...responseData };
     } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      }
-
-      throw new Error("An unknown error occurred");
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error";
+      throw new Error(errorMessage);
     }
   }
 }
