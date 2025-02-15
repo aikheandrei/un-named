@@ -11,12 +11,7 @@ import type { FC, PropsWithChildren } from "react";
 import { useRouter } from "next/navigation";
 
 import { AuthApi } from "@/lib/auth/api";
-
-interface LoginContextType {
-  loginError?: string;
-  loginIsPending: boolean;
-  handleLogin: (email: string, password: string) => void;
-}
+import { LoginContextType } from "@/types/auth";
 
 export const loginContext = createContext<LoginContextType>({
   loginError: undefined,

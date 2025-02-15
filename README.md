@@ -73,7 +73,7 @@
 
     - Types
 
-      - [ ] LoginContextType
+      - [x] LoginContextType
       - [ ]
 
     - Better error handling
