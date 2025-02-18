@@ -48,6 +48,7 @@
         - [x] auth-form
         - [x] otp-form
       - [x] Unexport OtpSchema & make a solution for passing zod validated otp to verifyOtp with useActionState
+      - [ ] Implement on signup route
       - [ ] Rate limit
 
     - [x] Login function with zod validation
@@ -71,10 +72,15 @@
         - [x] Error handling
       - [x] Signup
       - [x] Clean out authForm 
-      - [ ] DRY
-        - [x] @providers/authProvider.tsx
-        - [ ] @auth/api.ts
       - [x] @hooks/useAuthAction.ts
+      - [x] DRY
+        - [x] @providers/authProvider.tsx
+        - [x] @auth/api.ts
+      - [ ] Implement useReducer for api layer
+        - [ ] Reusable auth function (both login & signup)
+        - [ ] authReducer (switch cases)
+        - [ ] 
+      - [ ] API_URL env
       - [ ] Otp verification
 
     - Types
@@ -90,6 +96,10 @@
     - [ ] Google auth
     - [ ] Facebook auth
 
+  - Misc
+    - [ ] Make use of useReducer
+      - Just like useActionState but use when managing multiple switch cases
+
   - From Theo's new tutorial
     - [ ] T3 env
     - [ ] Middleware filter (esp for api/trpc routes)
@@ -101,10 +111,6 @@
     - [ ] Providers
     - [ ] Reducers
     - [ ] Utils
-
-  - Misc
-    - [ ] Make use of useReducer
-      - Just like useActionState but use when managing multiple switch cases
 
   - [ ] Drizzle ORM
     - [ ] Install dependencies
@@ -118,10 +124,6 @@
       - [ ] Username
   - [ ] 
 
-- DOCS
-  
-  - [ ] 
-
 - STRUCTURE
 
   - [x] Lib 
@@ -131,8 +133,14 @@
   - [x] Hooks
   - [x] Types
   - [x] Providers
+  - [ ] Reducers
   - [x] Auth stucture
   - [ ] Utils
+
+
+- DOCS
+  
+  - [ ] 
 
 - FRONT-END UI/UX (Figma/Photoshop)
 
