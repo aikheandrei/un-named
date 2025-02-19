@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer, useRef } from "react";
 import type { FC, PropsWithChildren } from "react";
 import { useRouter } from "next/navigation";
 
@@ -21,29 +21,32 @@ export const signupContext = createAuthContext();
 
 export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
-
   const authState: AuthState = {
     error: "",
     success: false,
   };
 
   const [state, dispatch] = useReducer(authReducer, authState);
-
   const authAction = getAuthActions(dispatch);
+  const statePromiseRef = useRef<((value: AuthState) => void) | null>(null);
 
-  // useEffect(() => {
-  //   console.log(state);
-  // }, [state]);
+  useEffect(() => {
+    if (statePromiseRef.current) {
+      statePromiseRef.current(state);
+      statePromiseRef.current = null;
+    }
+  }, [state]);
 
   const callAuthReducer = (
     prevState: { error: string; success: boolean } | undefined,
     credentials: { email: string; password: string },
     authType: string,
-  ) => {
+  ): Promise<AuthState> => {
     authAction.login(prevState, credentials, authType);
 
-    console.log(state.error, state.success);
-    return { error: state.error, success: state.success };
+    return new Promise<AuthState>((resolve) => {
+      statePromiseRef.current = resolve;
+    });
   };
 
   const AuthApi = {
