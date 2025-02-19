@@ -76,9 +76,9 @@
       - [x] DRY
         - [x] @providers/authProvider.tsx
         - [x] @auth/api.ts
-      - [ ] Implement useReducer for api layer
-        - [ ] Reusable auth function (both login & signup)
-        - [ ] authReducer (switch cases)
+      - [x] Implement useReducer for api layer
+        - [ ] 
+        - [ ] 
         - [ ] 
       - [ ] API_URL env
       - [ ] Otp verification
