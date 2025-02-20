@@ -84,18 +84,20 @@
           - [x] AuthState
           - [x] AuthAction
           - [x] AuthDispatchActions
-        - [ ] Apply DRY rule
+        - [ ] Apply DRY rule ft.types
       - [ ] API_URL env
       - [ ] Otp verification
 
       - Logic
+        - api -> useAuthReducer -> authProvider
+        - useAuthAction -> authProvider -> useAuth
 
     - Types
 
       - [x] Auth
-        - [ ] Global authState
-        - [ ] useAuthAction
-        - [ ] useAuthReducer
+        - [x] Global authState
+        - [x] useAuthAction
+        - [x] useAuthReducer
 
     - Better error handling
       - [x] Otp
