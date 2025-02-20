@@ -84,6 +84,7 @@
           - [x] AuthState
           - [x] AuthAction
           - [x] AuthDispatchActions
+        - [ ] Rename (api function & AuthApi from authProvider)
         - [ ] Apply DRY rule ft.types
       - [ ] API_URL env
       - [ ] Otp verification

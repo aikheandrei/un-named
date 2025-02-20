@@ -3,6 +3,11 @@ import { Dispatch } from "react";
 import { authActions } from "@/lib/auth/api";
 import { AuthAction, AuthDispatchActions, AuthState } from "@/types/auth";
 
+export const authState: AuthState = {
+  error: "",
+  success: false,
+};
+
 export const getAuthActions = (
   dispatch: Dispatch<AuthAction>,
 ): AuthDispatchActions => ({
