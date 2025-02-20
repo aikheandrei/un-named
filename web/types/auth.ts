@@ -16,6 +16,23 @@ export interface AuthActions {
   onSuccess?: () => void;
 }
 
+export type AuthAction =
+  | { type: "LOGIN"; payload: AuthState }
+  | { type: "SIGNUP"; payload: AuthState };
+
+export interface AuthDispatchActions {
+  login: (
+    prevState: { error: string; success: boolean } | undefined,
+    credentials: { email: string; password: string },
+    authType: string,
+  ) => void;
+  signup: (
+    prevState: { error: string; success: boolean } | undefined,
+    credentials: { email: string; password: string },
+    authType: string,
+  ) => void;
+}
+
 export interface AuthContextType {
   error?: string;
   isPending: boolean;

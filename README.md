@@ -76,17 +76,26 @@
       - [x] DRY
         - [x] @providers/authProvider.tsx
         - [x] @auth/api.ts
-      - [x] Implement useReducer for api layer
-        - [ ] 
-        - [ ] 
-        - [ ] 
+      - [ ] Implement useReducer for api layer
+        - [x] Initial state
+        - [x] Reducer function (authReducer)
+        - [x] Dispatch actions (getAuthActions)
+        - [x] Types
+          - [x] AuthState
+          - [x] AuthAction
+          - [x] AuthDispatchActions
+        - [ ] Apply DRY rule
       - [ ] API_URL env
       - [ ] Otp verification
 
+      - Logic
+
     - Types
 
-      - [x] LoginContextType
       - [x] Auth
+        - [ ] Global authState
+        - [ ] useAuthAction
+        - [ ] useAuthReducer
 
     - Better error handling
       - [x] Otp
