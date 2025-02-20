@@ -1,12 +1,11 @@
 "use client";
 
-import { createContext, useEffect, useReducer, useRef } from "react";
+import { createContext, useEffect, useMemo, useReducer, useRef } from "react";
 import type { FC, PropsWithChildren } from "react";
 import { useRouter } from "next/navigation";
 
-import AuthApi, { authReducer, getAuthActions } from "@/lib/auth/api";
+import authReducer, { getAuthActions } from "@/reducers/authReducer";
 import useAuthAction from "@/hooks/useAuthAction";
-
 import { AuthContextType, AuthState } from "@/types/auth";
 
 const createAuthContext = () =>
@@ -21,13 +20,12 @@ export const signupContext = createAuthContext();
 
 export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
-  const authState: AuthState = {
+
+  const [state, dispatch] = useReducer(authReducer, {
     error: "",
     success: false,
-  };
-
-  const [state, dispatch] = useReducer(authReducer, authState);
-  const authAction = getAuthActions(dispatch);
+  });
+  const authAction = useMemo(() => getAuthActions(dispatch), [dispatch]);
   const statePromiseRef = useRef<((value: AuthState) => void) | null>(null);
 
   useEffect(() => {
@@ -37,31 +35,27 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     }
   }, [state]);
 
-  const callAuthReducer = (
-    prevState: { error: string; success: boolean } | undefined,
-    credentials: { email: string; password: string },
-    authType: string,
-  ): Promise<AuthState> => {
-    authAction.login(prevState, credentials, authType);
-
-    return new Promise<AuthState>((resolve) => {
-      statePromiseRef.current = resolve;
-    });
-  };
-
   const AuthApi = {
     login: async (
       prevState: { error: string; success: boolean } | undefined,
       credentials: { email: string; password: string },
     ): Promise<AuthState> => {
-      return callAuthReducer(prevState, credentials, "login");
+      authAction.login(prevState, credentials, "login");
+
+      return new Promise<AuthState>((resolve) => {
+        statePromiseRef.current = resolve;
+      });
     },
 
     signup: async (
       prevState: { error: string; success: boolean } | undefined,
       credentials: { email: string; password: string },
     ): Promise<AuthState> => {
-      return callAuthReducer(prevState, credentials, "signup");
+      authAction.login(prevState, credentials, "signup");
+
+      return new Promise<AuthState>((resolve) => {
+        statePromiseRef.current = resolve;
+      });
     },
   };
 
