@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 import authReducer, { authState, getAuthActions } from "@/reducers/authReducer";
 import useAuthAction from "@/hooks/useAuthAction";
-import { AuthContextType, AuthState } from "@/types/auth";
+import { AuthContextType, AuthState, AuthType } from "@/types/auth";
 
 const createAuthContext = () =>
   createContext<AuthContextType>({
@@ -33,7 +33,7 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   }, [state]);
 
   const handleAuth =
-    (authType: string) =>
+    (authType: AuthType) =>
     async (
       prevState: { error: string; success: boolean } | undefined,
       credentials: { email: string; password: string },

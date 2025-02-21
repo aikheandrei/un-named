@@ -38,3 +38,5 @@ export interface AuthContextType {
   isPending: boolean;
   handleAuth: (email: string, password: string) => void;
 }
+
+export type AuthType = "login" | "signup";
