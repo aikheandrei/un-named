@@ -8,36 +8,35 @@ export const authState: AuthState = {
   success: false,
 };
 
+const handleAuthAction = async (
+  dispatch: Dispatch<AuthAction>,
+  prevState: { error: string; success: boolean } | undefined,
+  credentials: { email: string; password: string },
+  authType: string,
+  type: "LOGIN" | "SIGNUP",
+) => {
+  const { error, success } = await authApi(prevState, credentials, authType);
+
+  dispatch({
+    type,
+    payload: { error, success },
+  });
+};
+
 export const getAuthActions = (
   dispatch: Dispatch<AuthAction>,
 ): AuthDispatchActions => ({
   login: async (prevState, credentials, authType) => {
-    const { error, success } = await authApi(prevState, credentials, authType);
-
-    dispatch({
-      type: "LOGIN",
-      payload: { error: error, success: success },
-    });
+    handleAuthAction(dispatch, prevState, credentials, authType, "LOGIN");
   },
   signup: async (prevState, credentials, authType) => {
-    const { error, success } = await authApi(prevState, credentials, authType);
-
-    dispatch({
-      type: "SIGNUP",
-      payload: { error, success },
-    });
+    handleAuthAction(dispatch, prevState, credentials, authType, "LOGIN");
   },
 });
 
 const authReducer = (state: AuthState, action: AuthAction) => {
   switch (action.type) {
-    case "LOGIN": {
-      return {
-        ...state,
-        error: action.payload.error,
-        success: action.payload.success,
-      };
-    }
+    case "LOGIN":
     case "SIGNUP":
       return {
         ...state,

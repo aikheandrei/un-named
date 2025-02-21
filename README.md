@@ -87,8 +87,9 @@
         - [x] Rename (api function & AuthApi from authProvider)
         - [ ] Apply DRY rule ft.types
           - [x] AuthProvider
-          - [ ] useAuth
+          - [x] useAuth
           - [ ] authReducer
+          - [ ] Auth types
       - [ ] Single responsibility concept SRC
       - [ ] Constants
       - [ ] API_URL env
@@ -104,6 +105,7 @@
         - [x] Global authState
         - [x] useAuthAction
         - [x] useAuthReducer
+      - [ ] Typesafety
 
     - Better error handling
       - [x] Otp
@@ -117,7 +119,6 @@
     - [x] Make use of useReducer
       - Just like useActionState but use when managing multiple switch cases
     - [ ] useQuery()
-    - [ ] Typesafety
 
   - From Theo's new tutorial
     - [ ] T3 env

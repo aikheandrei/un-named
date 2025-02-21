@@ -40,3 +40,16 @@ export interface AuthContextType {
 }
 
 export type AuthType = "login" | "signup";
+
+export interface AuthReturnTypes {
+  login: {
+    loginError: string | null;
+    loginIsPending: boolean;
+    handleLogin: (email: string, password: string) => Promise<void>;
+  };
+  signup: {
+    signupError: string | null;
+    signupIsPending: boolean;
+    handleSignup: (email: string, password: string) => Promise<void>;
+  };
+}
