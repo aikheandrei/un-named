@@ -1,6 +1,6 @@
 import { Dispatch } from "react";
 
-import { authActions } from "@/lib/auth/api";
+import { authApi } from "@/lib/auth/api";
 import { AuthAction, AuthDispatchActions, AuthState } from "@/types/auth";
 
 export const authState: AuthState = {
@@ -12,11 +12,7 @@ export const getAuthActions = (
   dispatch: Dispatch<AuthAction>,
 ): AuthDispatchActions => ({
   login: async (prevState, credentials, authType) => {
-    const { error, success } = await authActions(
-      prevState,
-      credentials,
-      authType,
-    );
+    const { error, success } = await authApi(prevState, credentials, authType);
 
     dispatch({
       type: "LOGIN",
@@ -24,11 +20,7 @@ export const getAuthActions = (
     });
   },
   signup: async (prevState, credentials, authType) => {
-    const { error, success } = await authActions(
-      prevState,
-      credentials,
-      authType,
-    );
+    const { error, success } = await authApi(prevState, credentials, authType);
 
     dispatch({
       type: "SIGNUP",

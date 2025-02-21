@@ -84,8 +84,13 @@
           - [x] AuthState
           - [x] AuthAction
           - [x] AuthDispatchActions
-        - [ ] Rename (api function & AuthApi from authProvider)
+        - [x] Rename (api function & AuthApi from authProvider)
         - [ ] Apply DRY rule ft.types
+          - [x] AuthProvider
+          - [ ] useAuth
+          - [ ] authReducer
+      - [ ] Single responsibility concept SRC
+      - [ ] Constants
       - [ ] API_URL env
       - [ ] Otp verification
 
@@ -145,7 +150,7 @@
   - [x] Hooks
   - [x] Types
   - [x] Providers
-  - [ ] Reducers
+  - [x] Reducers
   - [x] Auth stucture
   - [ ] Utils
 

@@ -1,6 +1,6 @@
 import { AuthError } from "@supabase/supabase-js";
 
-export const authActions = async (
+export const authApi = async (
   prevState: { error: string; success: boolean } | undefined,
   credentials: { email: string; password: string },
   authType: string,
