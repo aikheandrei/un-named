@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useLogin, useSignup } from "@/hooks/useAuth";
+import { useAuth } from "@/hooks/useAuth";
 
 import OtpForm from "./otp-form";
 import FormField from "./ui/auth-field";
@@ -40,8 +40,8 @@ const AuthForm = () => {
     },
   });
 
-  const { loginError, loginIsPending, handleLogin } = useLogin();
-  const { signupError, signupIsPending, handleSignup } = useSignup();
+  const { loginError, loginIsPending, handleLogin } = useAuth("login");
+  const { signupError, signupIsPending, handleSignup } = useAuth("signup");
 
   const onSubmit = (data: z.infer<typeof FormSchema>, isSignup: boolean) => {
     if (isSignup) {

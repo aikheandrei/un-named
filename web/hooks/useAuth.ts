@@ -3,23 +3,21 @@
 import { useContext } from "react";
 
 import { loginContext, signupContext } from "@/providers/authProvider";
+import { AuthReturnTypes, AuthType } from "@/types/auth";
 
-export const useLogin = () => {
-  const { error, isPending, handleAuth } = useContext(loginContext);
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
-  return {
-    loginError: error,
-    loginIsPending: isPending,
-    handleLogin: handleAuth,
-  };
-};
+export const useAuth = <T extends AuthType>(
+  authType: T,
+): AuthReturnTypes[T] => {
+  const context =
+    authType === "login" ? useContext(loginContext) : useContext(signupContext);
 
-export const useSignup = () => {
-  const { error, isPending, handleAuth } = useContext(signupContext);
+  const { error, isPending, handleAuth } = context;
 
   return {
-    signupError: error,
-    signupIsPending: isPending,
-    handleSignup: handleAuth,
-  };
+    [`${authType}Error`]: error,
+    [`${authType}IsPending`]: isPending,
+    [`handle${capitalize(authType)}`]: handleAuth,
+  } as AuthReturnTypes[T];
 };
