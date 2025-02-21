@@ -32,37 +32,26 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     }
   }, [state]);
 
-  const AuthApi = {
-    login: async (
+  const handleAuth =
+    (authType: string) =>
+    async (
       prevState: { error: string; success: boolean } | undefined,
       credentials: { email: string; password: string },
     ): Promise<AuthState> => {
-      authAction.login(prevState, credentials, "login");
+      authAction.login(prevState, credentials, authType);
 
       return new Promise<AuthState>((resolve) => {
         statePromiseRef.current = resolve;
       });
-    },
-
-    signup: async (
-      prevState: { error: string; success: boolean } | undefined,
-      credentials: { email: string; password: string },
-    ): Promise<AuthState> => {
-      authAction.login(prevState, credentials, "signup");
-
-      return new Promise<AuthState>((resolve) => {
-        statePromiseRef.current = resolve;
-      });
-    },
-  };
+    };
 
   const loginAuth = useAuthAction({
-    action: AuthApi.login,
+    action: handleAuth("login"),
     onSuccess: () => router.push("/"),
   });
 
   const signupAuth = useAuthAction({
-    action: AuthApi.signup,
+    action: handleAuth("signup"),
   });
 
   return (
