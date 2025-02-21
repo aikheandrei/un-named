@@ -114,8 +114,10 @@
     - [ ] Facebook auth
 
   - Misc
-    - [ ] Make use of useReducer
+    - [x] Make use of useReducer
       - Just like useActionState but use when managing multiple switch cases
+    - [ ] useQuery()
+    - [ ] Typesafety
 
   - From Theo's new tutorial
     - [ ] T3 env
