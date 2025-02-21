@@ -7,9 +7,7 @@ import { AuthReturnTypes, AuthType } from "@/types/auth";
 
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
-export const useAuth = <T extends AuthType>(
-  authType: T,
-): AuthReturnTypes[T] => {
+const useAuth = <T extends AuthType>(authType: T): AuthReturnTypes[T] => {
   const context =
     authType === "login" ? useContext(loginContext) : useContext(signupContext);
 
@@ -21,3 +19,5 @@ export const useAuth = <T extends AuthType>(
     [`handle${capitalize(authType)}`]: handleAuth,
   } as AuthReturnTypes[T];
 };
+
+export default useAuth;

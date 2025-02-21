@@ -48,7 +48,7 @@
         - [x] auth-form
         - [x] otp-form
       - [x] Unexport OtpSchema & make a solution for passing zod validated otp to verifyOtp with useActionState
-      - [ ] Implement on signup route
+      - [x] Implement on signup route
       - [ ] Rate limit
 
     - [x] Login function with zod validation
@@ -76,7 +76,7 @@
       - [x] DRY
         - [x] @providers/authProvider.tsx
         - [x] @auth/api.ts
-      - [ ] Implement useReducer for api layer
+      - [x] Implement useReducer for api layer
         - [x] Initial state
         - [x] Reducer function (authReducer)
         - [x] Dispatch actions (getAuthActions)
@@ -84,16 +84,15 @@
           - [x] AuthState
           - [x] AuthAction
           - [x] AuthDispatchActions
-        - [x] Rename (api function & AuthApi from authProvider)
-        - [x] Apply DRY rule ft.types
-          - [x] AuthProvider
-          - [x] useAuth
-          - [x] authReducer
-          - [x] Auth types
-      - [ ] Single responsibility concept SRC
-      - [ ] Constants
+      - [x] Rename (api function & AuthApi from authProvider)
+      - [x] Apply DRY rule ft.types
+        - [x] AuthProvider
+        - [x] useAuth
+        - [x] authReducer
+        - [x] Auth types
       - [ ] API_URL env
       - [ ] Otp verification
+      - [ ] Sign out
 
       - Logic
         - api -> useAuthReducer -> authProvider
@@ -105,7 +104,7 @@
         - [x] Global authState
         - [x] useAuthAction
         - [x] useAuthReducer
-      - [ ] Typesafety
+      - [x] Typesafety
 
     - Better error handling
       - [x] Otp
@@ -118,6 +117,7 @@
   - Misc
     - [x] Make use of useReducer
       - Just like useActionState but use when managing multiple switch cases
+    - [ ] Single responsibility concept SRC
     - [ ] useQuery()
 
   - From Theo's new tutorial
