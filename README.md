@@ -85,11 +85,11 @@
           - [x] AuthAction
           - [x] AuthDispatchActions
         - [x] Rename (api function & AuthApi from authProvider)
-        - [ ] Apply DRY rule ft.types
+        - [x] Apply DRY rule ft.types
           - [x] AuthProvider
           - [x] useAuth
-          - [ ] authReducer
-          - [ ] Auth types
+          - [x] authReducer
+          - [x] Auth types
       - [ ] Single responsibility concept SRC
       - [ ] Constants
       - [ ] API_URL env

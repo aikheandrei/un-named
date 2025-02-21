@@ -1,7 +1,11 @@
+// Global
+
 export interface AuthState {
   error: string;
   success: boolean;
 }
+
+// useAuthAction
 
 export interface AuthCredentials {
   email: string;
@@ -16,22 +20,26 @@ export interface AuthActions {
   onSuccess?: () => void;
 }
 
+// authReducer
+
 export type AuthAction =
   | { type: "LOGIN"; payload: AuthState }
   | { type: "SIGNUP"; payload: AuthState };
 
+export type AuthActionType = "LOGIN" | "SIGNUP";
+
+type AuthDispatchFunction = (
+  prevState: { error: string; success: boolean } | undefined,
+  credentials: { email: string; password: string },
+  authType: string,
+) => void;
+
 export interface AuthDispatchActions {
-  login: (
-    prevState: { error: string; success: boolean } | undefined,
-    credentials: { email: string; password: string },
-    authType: string,
-  ) => void;
-  signup: (
-    prevState: { error: string; success: boolean } | undefined,
-    credentials: { email: string; password: string },
-    authType: string,
-  ) => void;
+  login: AuthDispatchFunction;
+  signup: AuthDispatchFunction;
 }
+
+// authProvider
 
 export interface AuthContextType {
   error?: string;
@@ -39,7 +47,7 @@ export interface AuthContextType {
   handleAuth: (email: string, password: string) => void;
 }
 
-export type AuthType = "login" | "signup";
+// useAuth
 
 export interface AuthReturnTypes {
   login: {
@@ -53,3 +61,7 @@ export interface AuthReturnTypes {
     handleSignup: (email: string, password: string) => Promise<void>;
   };
 }
+
+// authProvider & useAuth
+
+export type AuthType = "login" | "signup";
