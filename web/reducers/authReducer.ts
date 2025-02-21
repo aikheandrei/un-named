@@ -1,7 +1,12 @@
 import { Dispatch } from "react";
 
 import { authApi } from "@/lib/auth/api";
-import { AuthAction, AuthDispatchActions, AuthState } from "@/types/auth";
+import {
+  AuthAction,
+  AuthActionType,
+  AuthDispatchActions,
+  AuthState,
+} from "@/types/auth";
 
 export const authState: AuthState = {
   error: "",
@@ -13,26 +18,33 @@ const handleAuthAction = async (
   prevState: { error: string; success: boolean } | undefined,
   credentials: { email: string; password: string },
   authType: string,
-  type: "LOGIN" | "SIGNUP",
+  type: AuthActionType,
 ) => {
   const { error, success } = await authApi(prevState, credentials, authType);
 
   dispatch({
     type,
     payload: { error, success },
-  });
+  } as AuthAction);
 };
 
 export const getAuthActions = (
   dispatch: Dispatch<AuthAction>,
-): AuthDispatchActions => ({
-  login: async (prevState, credentials, authType) => {
-    handleAuthAction(dispatch, prevState, credentials, authType, "LOGIN");
-  },
-  signup: async (prevState, credentials, authType) => {
-    handleAuthAction(dispatch, prevState, credentials, authType, "LOGIN");
-  },
-});
+): AuthDispatchActions => {
+  const authHandler =
+    (type: AuthActionType) =>
+    (
+      prevState: AuthState | undefined,
+      credentials: { email: string; password: string },
+      authType: string,
+    ) =>
+      handleAuthAction(dispatch, prevState, credentials, authType, type);
+
+  return {
+    login: authHandler("LOGIN"),
+    signup: authHandler("SIGNUP"),
+  };
+};
 
 const authReducer = (state: AuthState, action: AuthAction) => {
   switch (action.type) {
@@ -40,8 +52,7 @@ const authReducer = (state: AuthState, action: AuthAction) => {
     case "SIGNUP":
       return {
         ...state,
-        error: action.payload.error,
-        success: action.payload.success,
+        ...action.payload,
       };
     default:
       return state;
