@@ -5,21 +5,22 @@ export const authApi = async (
   credentials: { email: string; password: string },
   authType: string,
 ) => {
-  const API_URL = "http://localhost:3000/api/auth";
-
   try {
     const userCredentials = {
       email: credentials.email,
       password: credentials.password,
     };
 
-    const response = await fetch(`${API_URL}/${authType}`, {
-      method: "POST",
-      body: JSON.stringify(userCredentials),
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/${authType}`,
+      {
+        method: "POST",
+        body: JSON.stringify(userCredentials),
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
-    });
+    );
 
     const responseData = await response.json();
 
