@@ -17,7 +17,7 @@ export interface AuthActions {
     currentState: AuthState,
     credentials: AuthCredentials,
   ) => Promise<AuthState>;
-  onSuccess?: () => void;
+  onSuccess: (email?: string) => void;
 }
 
 // authReducer

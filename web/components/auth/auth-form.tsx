@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,8 +22,6 @@ const FormSchema = z
   });
 
 const AuthForm = () => {
-  const pathname = usePathname();
-  const router = useRouter();
   const [isVerify, setIsVerify] = useState(false);
 
   const {
@@ -46,9 +43,6 @@ const AuthForm = () => {
   const onSubmit = (data: z.infer<typeof FormSchema>, isSignup: boolean) => {
     if (isSignup) {
       handleSignup(data.email, data.password);
-      console.log(signupError);
-
-      router.replace(pathname + "?email=" + data.email);
 
       setIsVerify(!isVerify);
     } else {

@@ -2,7 +2,7 @@
 
 import { createContext, useEffect, useMemo, useReducer, useRef } from "react";
 import type { FC, PropsWithChildren } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import authReducer, { authState, getAuthActions } from "@/reducers/authReducer";
 import useAuthAction from "@/hooks/useAuthAction";
@@ -20,6 +20,7 @@ export const signupContext = createAuthContext();
 
 export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
+  const pathname = usePathname();
 
   const [state, dispatch] = useReducer(authReducer, authState);
   const authAction = useMemo(() => getAuthActions(dispatch), [dispatch]);
@@ -52,6 +53,7 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const signupAuth = useAuthAction({
     action: handleAuth("signup"),
+    onSuccess: (email) => router.replace(pathname + "?email=" + email),
   });
 
   return (

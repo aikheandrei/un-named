@@ -1,6 +1,6 @@
 import { Dispatch } from "react";
 
-import { authApi } from "@/lib/auth/api";
+import authApi from "@/lib/auth/api";
 import {
   AuthAction,
   AuthActionType,
