@@ -91,6 +91,7 @@
         - [x] authReducer
         - [x] Auth types
       - [x] API_URL env (needs to prefix the env variable to NEXT_PUBLIC_ to make it accesible in the browser (env vars run on nodejs environment by default))
+      - [x] Replace router if no signup error (solving this is a hastle)
       - [ ] Otp verification
       - [ ] Sign out
 
