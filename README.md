@@ -90,13 +90,13 @@
         - [x] useAuth
         - [x] authReducer
         - [x] Auth types
-      - [ ] API_URL env
+      - [x] API_URL env (needs to prefix the env variable to NEXT_PUBLIC_ to make it accesible in the browser (env vars run on nodejs environment by default))
       - [ ] Otp verification
       - [ ] Sign out
 
       - Logic
         - api -> useAuthReducer -> authProvider
-        - useAuthAction -> authProvider -> useAuth
+        - useAuthAction -> authProvider -> useAuth -> auth-form
 
     - Types
 
@@ -121,6 +121,7 @@
     - [ ] useQuery()
 
   - From Theo's new tutorial
+    - [ ] Trpc
     - [ ] T3 env
     - [ ] Middleware filter (esp for api/trpc routes)
     - [ ] Metadata
@@ -131,6 +132,7 @@
     - [ ] Providers
     - [ ] Reducers
     - [ ] Utils
+    - [ ] @next-data/generators
 
   - [ ] Drizzle ORM
     - [ ] Install dependencies
@@ -156,6 +158,11 @@
   - [x] Reducers
   - [x] Auth stucture
   - [ ] Utils
+  - [ ] @next-data (GET)
+    - [ ] generators (POST)
+      - [ ] \_\_tests__
+    - [ ] providers (used as import by next-data default)
+    - generator -> providers -> next-data
 
 
 - DOCS
