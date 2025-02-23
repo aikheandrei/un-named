@@ -1,22 +1,33 @@
+"use client";
+
+import { useTransition } from "react";
 import { redirect } from "next/navigation";
 
-import { createClient } from "@/lib/supabase/server";
-// import { useSignOut } from "@/hooks/useAuth";
-import { signOut } from "@/actions/auth/sign-out";
+import { createBrowser } from "@/lib/supabase/client";
 
-const UserPage = async () => {
-  const supabase = await createClient();
+const UserPage = () => {
+  const supabase = createBrowser();
 
-  const { data, error } = await supabase.auth.getUser();
-  if (error || !data?.user) {
-    redirect("/sign-un");
-  }
+  const [signOutPending, startSignOut] = useTransition();
+
+  const signOut = () => {
+    startSignOut(async () => {
+      await supabase.auth.signOut();
+      redirect("/sign-up");
+    });
+  };
+
+  // const { data, error } = await supabase.auth.getUser();
+  // if (error || !data?.user) {
+  //   redirect("/sign-un");
+  // }
 
   return (
     <main>
-      <p>Hello {data.user.email}</p>
       <form action={signOut}>
-        <button type="submit">Sign out</button>
+        <button type="submit">
+          {signOutPending ? "Signing out..." : "Sign out"}
+        </button>
       </form>
     </main>
   );
