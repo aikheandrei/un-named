@@ -1,9 +1,9 @@
 import { VerifyOtpParams } from "@supabase/supabase-js";
 
-import { createClient } from "@/lib/supabase/server";
+import { createServer } from "@/lib/supabase/server";
 
 export async function POST(req: Request) {
-  const supabase = await createClient();
+  const supabase = await createServer();
 
   const { otp, email } = await req.json();
 

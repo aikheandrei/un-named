@@ -4,7 +4,7 @@ import { useContext, startTransition, useActionState, useEffect } from "react";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
-import { createClient } from "@/lib/supabase/server";
+import { createServer } from "@/lib/supabase/server";
 
 import { loginContext, signupContext } from "@/providers/authProvider";
 import { verifyOtp } from "@/lib/auth/api";
