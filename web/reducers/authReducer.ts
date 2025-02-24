@@ -8,36 +8,20 @@ export const authState: AuthState = {
   success: false,
 };
 
-const handleAuthAction = async (
-  dispatch: Dispatch<AuthAction>,
-  prevState: { error: string; success: boolean },
-  credentials: { email: string; password: string },
-  authType: string,
-) => {
-  const { error, success } = await authApi(prevState, credentials, authType);
+export const getAuthAction =
+  (dispatch: Dispatch<AuthAction>) =>
+  async (
+    prevState: AuthState,
+    credentials: { email: string; password: string },
+    authType: string,
+  ) => {
+    const { error, success } = await authApi(prevState, credentials, authType);
 
-  dispatch({
-    type: authType,
-    payload: { error, success },
-  } as AuthAction);
-};
-
-export const getAuthActions = (
-  dispatch: Dispatch<AuthAction>,
-): AuthDispatchAction => {
-  const authHandler =
-    () =>
-    (
-      prevState: AuthState,
-      credentials: { email: string; password: string },
-      authType: string,
-    ) => {
-      console.log(authType);
-      handleAuthAction(dispatch, prevState, credentials, authType);
-    };
-
-  return authHandler();
-};
+    dispatch({
+      type: authType,
+      payload: { error, success },
+    } as AuthAction);
+  };
 
 const authReducer = (state: AuthState, action: AuthAction) => {
   switch (action.type) {
