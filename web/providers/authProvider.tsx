@@ -4,7 +4,7 @@ import { createContext, useEffect, useMemo, useReducer, useRef } from "react";
 import type { FC, PropsWithChildren } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-import authReducer, { authState, getAuthActions } from "@/reducers/authReducer";
+import authReducer, { authState, getAuthAction } from "@/reducers/authReducer";
 import useAuthAction from "@/hooks/useAuthAction";
 import { AuthActionType, AuthContextType, AuthState } from "@/types/auth";
 
@@ -23,7 +23,7 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const pathname = usePathname();
 
   const [state, dispatch] = useReducer(authReducer, authState);
-  const authAction = useMemo(() => getAuthActions(dispatch), [dispatch]);
+  const authAction = useMemo(() => getAuthAction(dispatch), [dispatch]);
   const statePromiseRef = useRef<((value: AuthState) => void) | null>(null);
 
   useEffect(() => {
