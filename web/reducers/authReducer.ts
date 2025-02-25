@@ -37,8 +37,10 @@ export const getAuthActions = (
       prevState: AuthState,
       credentials: { email: string; password: string },
       authType: string,
-    ) =>
+    ) => {
+      console.log(authType);
       handleAuthAction(dispatch, prevState, credentials, authType, type);
+    };
 
   return {
     login: authHandler("LOGIN"),
