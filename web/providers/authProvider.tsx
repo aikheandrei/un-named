@@ -39,6 +39,10 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
       prevState: { error: string; success: boolean },
       credentials: { email: string; password: string },
     ): Promise<AuthState> => {
+      // const action =
+      //   authType === "login" ? authAction.login : authAction.signup;
+      // action(prevState, credentials, authType);
+
       authAction.login(prevState, credentials, authType);
 
       return new Promise<AuthState>((resolve) => {

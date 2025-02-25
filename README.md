@@ -94,6 +94,8 @@
       - [x] Replace router if no signup error (solving this is a hastle)
       - [x] Otp verification
       - [x] Sign out
+      - [ ] Proper getUser (useActionState)
+      - [ ] Seperate signup and login
       - [ ] Proper api route file/s for auth (DRY)
 
       - Logic
@@ -123,6 +125,52 @@
       - Just like useActionState but use when managing multiple switch cases
     - [ ] Single responsibility concept SRC
     - [ ] useQuery()
+
+  - Node.js website inspiration
+    - [ ] Structure
+      - [x] Multi-Purpose React Hooks are defined on `apps/site/hooks`
+        - If the Hook as a wider usability or can be used by other components, it should be placed in the root `hooks` folder.
+      - [ ] Utility functions
+        - Small utility functions that is then used by hooks
+      - [x] Multi-Purpose TypeScript definitions are defined on `apps/site/types`
+      - [x] React Context Providers are defined on `apps/site/providers`
+      - [ ] Build-time Data Fetching Scripts are defined on `apps/site/next-data`
+        - Used for Node.js Release data fetching
+        - Generation of build-time indexes such as blog data
+        - Provider of generated data
+        ```text
+        CRUD
+        - Creating, updating & deleting data on api
+        - Data fetching on next-data
+          - Generation for fetching
+          - Seperate provider for passing generated/fethed data
+        ```
+      - [ ] Storybook Configuration is done within `apps/site/.storybook`
+        - We use an almost out-of-the-box Storybook Experience with a few extra customisations
+
+    - [ ] Components
+      - [ ] Creating components
+        - Structure template
+          ```text
+          - ComponentName
+            - __tests__/ // component tests (such as unit tests, etc)
+              - index.test.mjs // unit tests should be done in ESM and not TypeScript
+            - index.tsx // the component itself
+            - index.module.css // all styles of the component are placed there
+            - index.stories.tsx // component Storybook stories
+            - SubComponentName
+              - same philosophy
+          ```
+        - always export components as default
+        - Avoid making a component too big. Deconstruct it into smaller Components/Hooks whenever possible.
+      - [ ] Styling
+        - PostCSS + Tailwind
+        - CSS classes should be camelCase
+        - Use Tailwind's `@apply` selector to apply Tailwind Tokens
+        - Create mixins for reusable animations, effects and more `@styles/mixins`
+      - [ ] 
+
+    - [ ] Storybook for Manual Testing and Visual Regression Tests of React Components
 
   - From Theo's new tutorial
     - [ ] Trpc

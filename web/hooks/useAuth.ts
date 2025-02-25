@@ -1,3 +1,5 @@
+"use client";
+
 import { useContext, startTransition, useActionState, useEffect } from "react";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
@@ -50,14 +52,14 @@ export const useVerifyOtp = (): OtpReturnType => {
 };
 
 export const useSignOut = async () => {
-  const supabase = await createClient();
-
-  const { error } = await supabase.auth.signOut();
-
-  if (error) {
-    redirect("/error");
-  }
-
-  revalidatePath("/sign-up", "layout");
-  redirect("/sign-up");
+  //   const supabase = await createClient();
+  //
+  //   const { error } = await supabase.auth.signOut();
+  //
+  //   if (error) {
+  //     console.log(error);
+  //   }
+  //
+  //   revalidatePath("/sign-up", "layout");
+  //   redirect("/sign-up");
 };
