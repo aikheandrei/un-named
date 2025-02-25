@@ -2,7 +2,6 @@ import { redirect } from "next/navigation";
 import { startTransition, useActionState, useEffect } from "react";
 
 import { verifyOtp } from "@/lib/auth/api";
-
 import { OtpReturnType, OtpVerifyAction } from "@/types/otp";
 
 const useVerifyOtp = (): OtpReturnType => {
