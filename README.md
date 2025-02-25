@@ -93,7 +93,8 @@
       - [x] API_URL env (needs to prefix the env variable to NEXT_PUBLIC_ to make it accesible in the browser (env vars run on nodejs environment by default))
       - [x] Replace router if no signup error (solving this is a hastle)
       - [x] Otp verification
-      - [ ] Sign out
+      - [x] Sign out
+      - [ ] Proper api route file/s for auth (DRY)
 
       - Logic
         - route -> api -> useAuthReducer -> authProvider
