@@ -92,7 +92,7 @@
         - [x] Auth types
       - [x] API_URL env (needs to prefix the env variable to NEXT_PUBLIC_ to make it accesible in the browser (env vars run on nodejs environment by default))
       - [x] Replace router if no signup error (solving this is a hastle)
-      - [ ] Otp verification
+      - [x] Otp verification
       - [ ] Sign out
 
       - Logic
@@ -105,6 +105,8 @@
         - [x] Global authState
         - [x] useAuthAction
         - [x] useAuthReducer
+      - [x] Otp
+        - [x] useVerifyOtp
       - [x] Typesafety
 
     - Better error handling

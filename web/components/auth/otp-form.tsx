@@ -1,12 +1,11 @@
 "use client";
 
-import { startTransition, useActionState } from "react";
+import { startTransition } from "react";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-import { verifyOtp } from "@/actions/auth/verify-otp";
 import useVerifyOtp from "@/hooks/useVerifyOtp";
 
 const OtpSchema = z.object({
@@ -26,10 +25,6 @@ const OtpForm = () => {
     defaultValues: {
       otp: "",
     },
-  });
-
-  const [state, formAction, isPending] = useActionState(verifyOtp, {
-    error: "",
   });
 
   const { otpError, otpIsPending, handleOtpVerify } = useVerifyOtp();

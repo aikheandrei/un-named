@@ -1,5 +1,14 @@
 const ErrorPage = () => {
-  return <p>Sorry, something went wrong</p>;
+  return (
+    <>
+      <div>
+        <form>
+          <input placeholder="something" required />
+          <button>Submmit</button>
+        </form>
+      </div>
+    </>
+  );
 };
 
 export default ErrorPage;

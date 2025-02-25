@@ -34,7 +34,7 @@ export const verifyOtp = async (
   }
 };
 
-const authApi = async (
+export const authApi = async (
   prevState: { error: string; success: boolean },
   credentials: { email: string; password: string },
   authType: string,
@@ -70,5 +70,3 @@ const authApi = async (
     throw new Error(errorMessage);
   }
 };
-
-export default authApi;
