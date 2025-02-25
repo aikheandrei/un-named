@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 
 import authReducer, { authState, getAuthActions } from "@/reducers/authReducer";
 import useAuthAction from "@/hooks/useAuthAction";
-import { AuthContextType, AuthState, AuthType } from "@/types/auth";
+import { AuthActionType, AuthContextType, AuthState } from "@/types/auth";
 
 const createAuthContext = () =>
   createContext<AuthContextType>({
@@ -34,16 +34,12 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   }, [state]);
 
   const handleAuth =
-    (authType: AuthType) =>
+    (authType: AuthActionType) =>
     async (
       prevState: { error: string; success: boolean },
       credentials: { email: string; password: string },
     ): Promise<AuthState> => {
-      // const action =
-      //   authType === "login" ? authAction.login : authAction.signup;
-      // action(prevState, credentials, authType);
-
-      authAction.login(prevState, credentials, authType);
+      authAction(prevState, credentials, authType);
 
       return new Promise<AuthState>((resolve) => {
         statePromiseRef.current = resolve;
@@ -51,12 +47,12 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     };
 
   const loginAuth = useAuthAction({
-    action: handleAuth("login"),
+    action: handleAuth("LOGIN"),
     onSuccess: () => router.push("/"),
   });
 
   const signupAuth = useAuthAction({
-    action: handleAuth("signup"),
+    action: handleAuth("SIGNUP"),
     onSuccess: (email) => router.replace(pathname + "?email=" + email),
   });
 

@@ -1,12 +1,7 @@
 import { Dispatch } from "react";
 
 import { authApi } from "@/lib/auth/api";
-import {
-  AuthAction,
-  AuthActionType,
-  AuthDispatchActions,
-  AuthState,
-} from "@/types/auth";
+import { AuthAction, AuthDispatchAction, AuthState } from "@/types/auth";
 
 export const authState: AuthState = {
   error: "",
@@ -18,34 +13,29 @@ const handleAuthAction = async (
   prevState: { error: string; success: boolean },
   credentials: { email: string; password: string },
   authType: string,
-  type: AuthActionType,
 ) => {
   const { error, success } = await authApi(prevState, credentials, authType);
 
   dispatch({
-    type,
+    type: authType,
     payload: { error, success },
   } as AuthAction);
 };
 
 export const getAuthActions = (
   dispatch: Dispatch<AuthAction>,
-): AuthDispatchActions => {
+): AuthDispatchAction => {
   const authHandler =
-    (type: AuthActionType) =>
+    () =>
     (
       prevState: AuthState,
       credentials: { email: string; password: string },
       authType: string,
     ) => {
-      console.log(authType);
-      handleAuthAction(dispatch, prevState, credentials, authType, type);
+      handleAuthAction(dispatch, prevState, credentials, authType);
     };
 
-  return {
-    login: authHandler("LOGIN"),
-    signup: authHandler("SIGNUP"),
-  };
+  return authHandler;
 };
 
 const authReducer = (state: AuthState, action: AuthAction) => {
