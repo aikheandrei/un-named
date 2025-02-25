@@ -30,16 +30,11 @@ export type AuthAction =
 
 export type AuthActionType = "LOGIN" | "SIGNUP";
 
-type AuthDispatchFunction = (
+export type AuthDispatchAction = (
   prevState: { error: string; success: boolean },
   credentials: { email: string; password: string },
   authType: string,
 ) => void;
-
-export interface AuthDispatchActions {
-  login: AuthDispatchFunction;
-  signup: AuthDispatchFunction;
-}
 
 // authProvider
 
@@ -63,7 +58,3 @@ export interface AuthReturnTypes {
     handleSignup: AuthHandlerAction;
   };
 }
-
-// authProvider & useAuth
-
-export type AuthType = "login" | "signup";
