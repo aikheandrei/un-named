@@ -36,7 +36,7 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const handleAuth =
     (authType: AuthType) =>
     async (
-      prevState: { error: string; success: boolean } | undefined,
+      prevState: { error: string; success: boolean },
       credentials: { email: string; password: string },
     ): Promise<AuthState> => {
       authAction.login(prevState, credentials, authType);
