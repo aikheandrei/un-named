@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
 import { verifyOtp } from "@/actions/auth/verify-otp";
+import useVerifyOtp from "@/hooks/useVerifyOtp";
 
 const OtpSchema = z.object({
   otp: z.string().min(6, { message: "Invalid OTP" }),
@@ -31,9 +32,11 @@ const OtpForm = () => {
     error: "",
   });
 
+  const { otpError, otpIsPending, handleOtpVerify } = useVerifyOtp();
+
   const handleOtpSubmit = (data: z.infer<typeof OtpSchema>) => {
     startTransition(() => {
-      formAction({ otp: data.otp, email: email || "" });
+      handleOtpVerify(data.otp, email);
     });
   };
 
@@ -42,11 +45,11 @@ const OtpForm = () => {
       <form onSubmit={handleSubmit(handleOtpSubmit)}>
         <label htmlFor="token">OTP:</label>
         <input placeholder="OTP" {...register("otp")} />
-        <button type="submit" disabled={isPending}>
-          {isPending ? "Submitting..." : "Submit OTP"}
+        <button type="submit" disabled={otpIsPending}>
+          {otpIsPending ? "Submitting..." : "Submit OTP"}
         </button>
         {errors.otp && <span>{errors.otp.message}</span>}
-        {state.error && <p style={{ color: "red" }}>{state.error}</p>}
+        {otpError && <p style={{ color: "red" }}>{otpError}</p>}
       </form>
     </main>
   );

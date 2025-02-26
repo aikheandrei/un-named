@@ -28,15 +28,9 @@ const useAuthAction = ({ action, onSuccess }: AuthActions) => {
   }, [state]);
 
   const handleAuth = (email: string, password: string) => {
-    try {
-      startTransition(async () => {
-        authAction({ email, password });
-      });
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Unknown error";
-      console.log(Error(errorMessage));
-    }
+    startTransition(async () => {
+      authAction({ email, password });
+    });
   };
 
   return { error, isPending, handleAuth };
