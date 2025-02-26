@@ -1,7 +1,7 @@
 import { AuthError } from "@supabase/supabase-js";
 
 export const verifyOtp = async (
-  prevState: { error: string; success: boolean } | undefined,
+  prevState: { error: string; success: boolean },
   data: { otp: string; email: string | null },
 ) => {
   try {
@@ -35,7 +35,7 @@ export const verifyOtp = async (
 };
 
 const authApi = async (
-  prevState: { error: string; success: boolean } | undefined,
+  prevState: { error: string; success: boolean },
   credentials: { email: string; password: string },
   authType: string,
 ) => {

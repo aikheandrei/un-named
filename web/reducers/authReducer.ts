@@ -15,7 +15,7 @@ export const authState: AuthState = {
 
 const handleAuthAction = async (
   dispatch: Dispatch<AuthAction>,
-  prevState: { error: string; success: boolean } | undefined,
+  prevState: { error: string; success: boolean },
   credentials: { email: string; password: string },
   authType: string,
   type: AuthActionType,
@@ -34,7 +34,7 @@ export const getAuthActions = (
   const authHandler =
     (type: AuthActionType) =>
     (
-      prevState: AuthState | undefined,
+      prevState: AuthState,
       credentials: { email: string; password: string },
       authType: string,
     ) =>

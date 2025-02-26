@@ -3,15 +3,9 @@ import { startTransition, useActionState, useEffect } from "react";
 
 import { verifyOtp } from "@/lib/auth/api";
 
-type OtpVerifyAction = (otp: string, email: string | null) => Promise<void>;
+import { OtpReturnType, OtpVerifyAction } from "@/types/otp";
 
-interface OtpReturnTypes {
-  otpError: string | null;
-  otpIsPending: boolean;
-  handleOtpVerify: OtpVerifyAction;
-}
-
-const useVerifyOtp = (): OtpReturnTypes => {
+const useVerifyOtp = (): OtpReturnType => {
   const [state, formAction, isPending] = useActionState(verifyOtp, {
     error: "",
     success: false,
