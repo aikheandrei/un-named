@@ -96,7 +96,7 @@
       - [ ] Sign out
 
       - Logic
-        - api -> useAuthReducer -> authProvider
+        - route -> api -> useAuthReducer -> authProvider
         - useAuthAction -> authProvider -> useAuth -> auth-form
 
     - Types
@@ -159,7 +159,7 @@
   - [x] Reducers
   - [x] Auth stucture
   - [ ] Utils
-  - [ ] @next-data (GET)
+  - [ ] @next-data (GET) CRUD stuffs
     - [ ] generators (POST)
       - [ ] \_\_tests__
     - [ ] providers (used as import by next-data default)
