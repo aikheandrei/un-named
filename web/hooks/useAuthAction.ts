@@ -25,7 +25,6 @@ const useAuthAction = ({ action, onSuccess }: AuthActions) => {
     } else {
       setError(state.error);
     }
-    console.log(currentEmail);
   }, [state]);
 
   const handleAuth = (email: string, password: string) => {

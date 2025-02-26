@@ -43,7 +43,6 @@ const AuthForm = () => {
   const onSubmit = (data: z.infer<typeof FormSchema>, isSignup: boolean) => {
     if (isSignup) {
       handleSignup(data.email, data.password);
-
       setIsVerify(!isVerify);
     } else {
       handleLogin(data.email, data.password);
