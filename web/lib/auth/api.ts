@@ -1,7 +1,7 @@
 import { AuthError } from "@supabase/supabase-js";
 
 export const verifyOtp = async (
-  prevState: { error?: string },
+  prevState: { error: string; success: boolean } | undefined,
   data: { otp: string; email: string | null },
 ) => {
   try {
@@ -21,14 +21,14 @@ export const verifyOtp = async (
     const responseData = await response.json();
 
     if (!response.ok) {
-      return { error: prevState.error || responseData.error };
+      return { error: responseData.error, success: prevState?.success };
     }
 
-    console.log(...responseData);
-    return { ...responseData };
+    return { success: true, ...responseData };
   } catch (error) {
+    console.error("Error in verifyOtp:", error);
     const errorMessage =
-      error instanceof AuthError ? error.message : "Unknown error";
+      error instanceof AuthError ? error.message : "haha error";
 
     throw new Error(errorMessage);
   }

@@ -1,7 +1,9 @@
-import { verifyOtp } from "@/lib/auth/api";
-import { startTransition, useActionState } from "react";
+import { redirect } from "next/navigation";
+import { startTransition, useActionState, useEffect } from "react";
 
-type OtpVerifyAction = (otp: string, email: string) => Promise<void>;
+import { verifyOtp } from "@/lib/auth/api";
+
+type OtpVerifyAction = (otp: string, email: string | null) => Promise<void>;
 
 interface OtpReturnTypes {
   otpError: string | null;
@@ -12,6 +14,7 @@ interface OtpReturnTypes {
 const useVerifyOtp = (): OtpReturnTypes => {
   const [state, formAction, isPending] = useActionState(verifyOtp, {
     error: "",
+    success: false,
   });
 
   const handleOtpVerify: OtpVerifyAction = async (otp, email) => {
@@ -19,6 +22,10 @@ const useVerifyOtp = (): OtpReturnTypes => {
       formAction({ otp, email });
     });
   };
+
+  useEffect(() => {
+    state.success && redirect("/user");
+  }, [state]);
 
   return {
     otpError: state.error,
