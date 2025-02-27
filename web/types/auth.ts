@@ -58,3 +58,7 @@ export interface AuthReturnTypes {
     handleSignup: AuthHandlerAction;
   };
 }
+
+// authProvider & useAuth
+
+export type AuthType = "login" | "signup";

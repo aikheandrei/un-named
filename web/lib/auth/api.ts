@@ -46,7 +46,7 @@ export const authApi = async (
     };
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/${authType}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/${authType.toLowerCase()}`,
       {
         method: "POST",
         body: JSON.stringify(userCredentials),
