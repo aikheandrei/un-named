@@ -32,10 +32,11 @@ export const getAuthActions = (
       credentials: { email: string; password: string },
       authType: string,
     ) => {
+      console.log(authType);
       handleAuthAction(dispatch, prevState, credentials, authType);
     };
 
-  return authHandler;
+  return authHandler();
 };
 
 const authReducer = (state: AuthState, action: AuthAction) => {
