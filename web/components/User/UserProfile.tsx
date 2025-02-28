@@ -1,23 +1,17 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 import { User } from "@supabase/supabase-js";
 
 import { createBrowser } from "@/lib/supabase/client";
 
+import SignOut from "./SignOut";
+
 const UserPage = () => {
   const supabase = createBrowser();
 
-  const [signOutPending, startSignOut] = useTransition();
   const [user, setUser] = useState<User>();
-
-  const signOut = () => {
-    startSignOut(async () => {
-      await supabase.auth.signOut();
-      redirect("/sign-up");
-    });
-  };
 
   const fetchUser = async () => {
     const { data, error } = await supabase.auth.getUser();
@@ -34,11 +28,7 @@ const UserPage = () => {
   return (
     <main>
       <h1>{user?.email}</h1>
-      <form action={signOut}>
-        <button type="submit">
-          {signOutPending ? "Signing out..." : "Sign out"}
-        </button>
-      </form>
+      <SignOut />
     </main>
   );
 };
