@@ -94,7 +94,8 @@
       - [x] Replace router if no signup error (solving this is a hastle)
       - [x] Otp verification
       - [x] Sign out
-      - [ ] Proper getUser (useActionState)
+      - [ ] Proper getUser 
+        - `useQuery()`
       - [ ] Seperate signup and login
       - [ ] Proper api route file/s for auth (DRY)
 
