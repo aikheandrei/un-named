@@ -17,6 +17,8 @@
     - [x] zod
     - [x] react-hook-form
     - [x] @hookform/resolvers
+    - [x] @tanstack/react-query
+    - [ ] @tanstack/react-query-devtools
     - [ ] Shadcn
   - [ ] 
 
@@ -104,8 +106,8 @@
         - useAuthAction -> authProvider -> useAuth -> auth-form
 
       - Misc
-        - [ ] useQuery for otp verification
         - [ ] Proper api route file/s for auth (DRY)
+        - [ ] @tanstack/react-query-devtools inside QueryProvider
 
     - Types
 
@@ -139,17 +141,19 @@
         - Small utility functions that is then used by hooks
       - [x] Multi-Purpose TypeScript definitions are defined on `apps/site/types`
       - [x] React Context Providers are defined on `apps/site/providers`
-      - [ ] Build-time Data Fetching Scripts are defined on `apps/site/next-data`
-        - Used for Node.js Release data fetching
-        - Generation of build-time indexes such as blog data
-        - Provider of generated data
-        ```text
-        CRUD
-        - Creating, updating & deleting data on api
-        - Data fetching on next-data
-          - Generation for fetching
-          - Seperate provider for passing generated/fethed data
-        ```
+      - NOTE: unsure if this is the way to fetch and get data so research more.
+        - [ ] Build-time Data Fetching Scripts are defined on `apps/site/next-data`
+          - Used for Node.js Release data fetching
+          - Generation of build-time indexes such as blog data
+          - Provider of generated data
+          ```text
+          CRUD
+          - Creating, updating & deleting data on api
+          - Data fetching on next-data
+            - Utilize useQuery()
+            - Generation for fetching
+            - Seperate provider for passing generated/fethed data
+          ```
       - [ ] Storybook Configuration is done within `apps/site/.storybook`
         - We use an almost out-of-the-box Storybook Experience with a few extra customisations
 
@@ -226,9 +230,11 @@
   
   - [ ] 
 
-- FRONT-END UI/UX (Figma/Photoshop)
+- FRONT-END UI/UX
 
-  - [ ]
+  - [ ] Auth
+    - [ ] Login form
+    - [ ] Signup form
 
 - STYLING
 
