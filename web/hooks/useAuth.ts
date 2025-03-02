@@ -11,21 +11,11 @@ import { verifyOtp } from "@/lib/auth/api";
 import { AuthReturnTypes, AuthType } from "@/types/auth";
 import { OtpReturnType, OtpVerifyAction } from "@/types/otp";
 
-const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
-
-export const useAuth = <T extends AuthType>(
-  authType: T,
-): AuthReturnTypes[T] => {
-  const context =
+export const useAuth = <T extends AuthType>(authType: T) => {
+  const { error, isPending, handleAuth } =
     authType === "login" ? useContext(loginContext) : useContext(signupContext);
 
-  const { error, isPending, handleAuth } = context;
-
-  return {
-    [`${authType}Error`]: error,
-    [`${authType}IsPending`]: isPending,
-    [`handle${capitalize(authType)}`]: handleAuth,
-  } as AuthReturnTypes[T];
+  return { error, isPending, handleAuth };
 };
 
 export const useVerifyOtp = (): OtpReturnType => {

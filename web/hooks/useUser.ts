@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 import { User } from "@supabase/supabase-js";
 
