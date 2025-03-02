@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,6 +9,7 @@ import { useAuth } from "@/hooks/useAuth";
 
 import OtpForm from "./otp-form";
 import FormField from "./ui/auth-field";
+import { AuthType } from "@/types/auth";
 
 const FormSchema = z
   .object({
@@ -21,7 +22,9 @@ const FormSchema = z
     path: ["confirmPassword"],
   });
 
-const AuthForm = () => {
+type AuthFormProp = { authType: AuthType };
+
+const AuthForm: FC<AuthFormProp> = ({ authType }) => {
   const [isVerify, setIsVerify] = useState(false);
 
   const {
@@ -37,21 +40,18 @@ const AuthForm = () => {
     },
   });
 
-  const { loginError, loginIsPending, handleLogin } = useAuth("login");
-  const { signupError, signupIsPending, handleSignup } = useAuth("signup");
+  const { error, isPending, handleAuth } = useAuth(authType);
 
-  const onSubmit = (data: z.infer<typeof FormSchema>, isSignup: boolean) => {
-    if (isSignup) {
-      handleSignup(data.email, data.password);
+  const onSubmit = (data: z.infer<typeof FormSchema>) => {
+    handleAuth(data.email, data.password);
+    if (authType === "signup") {
       setIsVerify(!isVerify);
-    } else {
-      handleLogin(data.email, data.password);
     }
   };
 
   return (
     <>
-      {isVerify && !signupIsPending && !signupError ? (
+      {isVerify && !isPending && !error ? (
         <OtpForm />
       ) : (
         <form className="flex w-52 flex-col p-2">
@@ -77,21 +77,19 @@ const AuthForm = () => {
             error={errors.confirmPassword}
           />
 
-          {(signupError || loginError) && (
-            <p style={{ color: "red" }}>{signupError || loginError}</p>
-          )}
+          {error && <p style={{ color: "red" }}>{error}</p>}
 
           <button
             type="button"
-            onClick={handleSubmit((data) => onSubmit(data, true))}
+            onClick={handleSubmit((data) => onSubmit(data))}
           >
-            {signupIsPending ? "Signing up..." : "Sign up"}
-          </button>
-          <button
-            type="button"
-            onClick={handleSubmit((data) => onSubmit(data, false))}
-          >
-            {loginIsPending ? "Logging in..." : "Log in"}
+            {isPending
+              ? authType === "login"
+                ? "Logging in..."
+                : "Signing up..."
+              : authType === "login"
+                ? "Log in"
+                : "Sign up"}
           </button>
         </form>
       )}

@@ -94,9 +94,10 @@
       - [x] Replace router if no signup error (solving this is a hastle)
       - [x] Otp verification
       - [x] Sign out
-      - [ ] Proper getUser 
-        - `useQuery()`
-      - [ ] Seperate signup and login
+      - [x] Proper getUser 
+        - React query `useQuery()`
+        - With pending state from useQuery()
+      - [x] Seperate signup and login
       - [ ] Proper api route file/s for auth (DRY)
 
       - Logic
