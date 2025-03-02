@@ -2,16 +2,13 @@
 
 import { useContext, startTransition, useActionState, useEffect } from "react";
 import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
-
-import { createServer } from "@/lib/supabase/server";
 
 import { loginContext, signupContext } from "@/providers/authProvider";
 import { verifyOtp } from "@/lib/auth/api";
-import { AuthReturnTypes, AuthType } from "@/types/auth";
+import { AuthContextType, AuthType } from "@/types/auth";
 import { OtpReturnType, OtpVerifyAction } from "@/types/otp";
 
-export const useAuth = <T extends AuthType>(authType: T) => {
+export const useAuth = (authType: AuthType): AuthContextType => {
   const { error, isPending, handleAuth } =
     authType === "login" ? useContext(loginContext) : useContext(signupContext);
 
@@ -39,17 +36,4 @@ export const useVerifyOtp = (): OtpReturnType => {
     otpIsPending: isPending,
     handleOtpVerify,
   };
-};
-
-export const useSignOut = async () => {
-  //   const supabase = await createClient();
-  //
-  //   const { error } = await supabase.auth.signOut();
-  //
-  //   if (error) {
-  //     console.log(error);
-  //   }
-  //
-  //   revalidatePath("/sign-up", "layout");
-  //   redirect("/sign-up");
 };

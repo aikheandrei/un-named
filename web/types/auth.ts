@@ -44,21 +44,6 @@ export interface AuthContextType {
   handleAuth: AuthHandlerAction;
 }
 
-// useAuth
-
-export interface AuthReturnTypes {
-  login: {
-    loginError: string | null;
-    loginIsPending: boolean;
-    handleLogin: AuthHandlerAction;
-  };
-  signup: {
-    signupError: string | null;
-    signupIsPending: boolean;
-    handleSignup: AuthHandlerAction;
-  };
-}
-
 // authProvider & useAuth
 
 export type AuthType = "login" | "signup";
