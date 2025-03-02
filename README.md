@@ -98,11 +98,14 @@
         - React query `useQuery()`
         - With pending state from useQuery()
       - [x] Seperate signup and login
-      - [ ] Proper api route file/s for auth (DRY)
 
-      - Logic
+      - Signup & login logic
         - route -> api -> useAuthReducer -> authProvider
         - useAuthAction -> authProvider -> useAuth -> auth-form
+
+      - Misc
+        - [ ] useQuery for otp verification
+        - [ ] Proper api route file/s for auth (DRY)
 
     - Types
 
