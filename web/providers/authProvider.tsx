@@ -18,7 +18,7 @@ const createAuthContext = () =>
 export const loginContext = createAuthContext();
 export const signupContext = createAuthContext();
 
-export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
+const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -64,3 +64,5 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     </loginContext.Provider>
   );
 };
+
+export default AuthProvider;
