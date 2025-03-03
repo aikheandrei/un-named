@@ -6,13 +6,13 @@ import WithNavBar from "@/components/withNavBar";
 import WithFooter from "@/components/withFooter";
 import { buttonVariants } from "@/components/ui/button";
 
-export default function Landing() {
+export default function RandomLayout() {
   return (
     <>
       <WithNavBar />
 
       <section className="w-full flex">
-        <div className="font-dmsans h-60 mx-14 p-6 border-dashed border-black/30 border-x-2 flex flex-col gap-3 tracking-tight max-w-[50rem]">
+        <div className="font-dmsans h-60 mx-14 p-6 border-dashed border-x-2 flex flex-col gap-3 tracking-tight max-w-[50rem]">
           <h1 className="leading-none text-4xl font-black">Un-named</h1>
           <p className="text-xl leading-6 opacity-85">
             Im doing it and I'll finish this by the{" "}
@@ -27,7 +27,7 @@ export default function Landing() {
             className={`${buttonVariants({ variant: "default", size: "sm" })} max-w-fit`}
             href={"/sign-up"}
           >
-            Get Started <ArrowRight />
+            Get Started <ArrowRight className="" />
           </Link>
         </div>
       </section>
