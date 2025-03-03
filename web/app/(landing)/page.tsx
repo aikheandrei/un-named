@@ -1,11 +1,12 @@
-import Landing from "@/layouts/Landing";
+import WithLayout from "@/components/withLayout";
+import HomePage from "@/pages/home";
 
-const LandingPage = () => {
+const Home = () => {
   return (
-    <main>
-      <Landing />
-    </main>
+    <WithLayout layout="home">
+      <HomePage />
+    </WithLayout>
   );
 };
 
-export default LandingPage;
+export default Home;
