@@ -13,7 +13,7 @@ export default function RandomLayout() {
 
       <section className="w-full flex">
         <div className="font-dmsans h-60 mx-14 p-6 border-dashed border-x-2 flex flex-col gap-3 tracking-tight max-w-[50rem]">
-          <h1 className="leading-none text-4xl font-black">Un-named</h1>
+          <h1 className="leading-none text-4xl font-black">Page not found</h1>
           <p className="text-xl leading-6 opacity-85">
             Im doing it and I'll finish this by the{" "}
             <strong>end of this month</strong>, I've been slacking off this past
