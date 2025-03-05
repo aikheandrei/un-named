@@ -7,8 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { useAuth } from "@/hooks/useAuth";
 
-import OtpForm from "./otp-form";
-import FormField from "./ui/auth-field";
+import OtpForm from "./OtpForm";
+import FormField from "./AuthFormField";
 import { AuthType } from "@/types/auth";
 
 const FormSchema = z
@@ -91,6 +91,8 @@ const AuthForm: FC<AuthFormProp> = ({ authType }) => {
                 ? "Log in"
                 : "Sign up"}
           </button>
+
+          {authType === "signup" && <a href="/login">Go to Login</a>}
         </form>
       )}
     </>

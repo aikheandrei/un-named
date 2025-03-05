@@ -158,12 +158,17 @@
         - We use an almost out-of-the-box Storybook Experience with a few extra customisations
 
     - [ ] Components
-      - [ ] Creating components
+      - [x] Creating components
         - Structure template
           ```text
           - ComponentName
             - __tests__/ // component tests (such as unit tests, etc)
               - index.test.mjs // unit tests should be done in ESM and not TypeScript
+            - NOTE: Don't follow this structure when:
+              - The component is simple
+              - A wrapper of other component with context usage 
+              - It's only gonna be used in one place
+              - Not reusable
             - index.tsx // the component itself
             - index.module.css // all styles of the component are placed there
             - index.stories.tsx // component Storybook stories
@@ -177,7 +182,6 @@
         - CSS classes should be camelCase
         - Use Tailwind's `@apply` selector to apply Tailwind Tokens
         - Create mixins for reusable animations, effects and more `@styles/mixins`
-      - [ ] 
 
     - [ ] Storybook for Manual Testing and Visual Regression Tests of React Components
 
