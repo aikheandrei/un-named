@@ -28,7 +28,7 @@ export const useVerifyOtp = (): OtpReturnType => {
   };
 
   useEffect(() => {
-    state.success && redirect("/user");
+    state.success && redirect("/");
   }, [state]);
 
   return {
