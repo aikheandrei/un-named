@@ -37,10 +37,18 @@ export async function updateSession(request: NextRequest) {
 
   const protectedPaths = ["/user"];
   const authPaths = ["/sign-up", "/verify-otp"];
+  const rootPath = ["/"];
 
   const user = await supabase.auth.getUser();
   const url = new URL(request.url);
   const next = url.searchParams.get("next");
+
+  if (rootPath.includes(url.pathname)) {
+    if (user.data.user?.id) {
+      return NextResponse.redirect(new URL("/user", request.url));
+    }
+    return NextResponse.redirect(new URL("/home", request.url));
+  }
 
   if (user.data.user?.id) {
     if (authPaths.includes(url.pathname)) {
