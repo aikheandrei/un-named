@@ -3,7 +3,7 @@ import WithFooter from "@/components/withFooter";
 import type { FC, PropsWithChildren } from "react";
 import HomePage from "@/_pages/home";
 
-const HomeLayout: FC<PropsWithChildren> = ({ children }) => {
+const DefaultLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <WithNavBar />
@@ -18,4 +18,4 @@ const HomeLayout: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-export default HomeLayout;
+export default DefaultLayout;
