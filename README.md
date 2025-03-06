@@ -127,6 +127,11 @@
     - [ ] Google auth
     - [ ] Facebook auth
 
+  - [ ] Routing
+    - [x] Dynamic routing
+    - [x] Default route as home + middleware checks
+    - [ ] notFound() page (not-found.tsx)
+
   - Misc
     - [x] Make use of useReducer
       - Just like useActionState but use when managing multiple switch cases

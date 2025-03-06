@@ -11,7 +11,7 @@ const layouts: Record<Layouts, FC<PropsWithChildren<{}>>> = {
 type WithLayoutProps<L = Layouts> = PropsWithChildren<{ layout: L }>;
 
 const WithLayout: FC<WithLayoutProps<Layouts>> = ({ layout, children }) => {
-  const LayoutComponent = layouts[layout] ?? RandomLayout;
+  const LayoutComponent = layouts[layout] ?? DefaultLayout;
 
   return <LayoutComponent>{children}</LayoutComponent>;
 };
