@@ -130,7 +130,7 @@
   - [ ] Routing
     - [x] Dynamic routing
     - [x] Default route as home + middleware checks
-    - [ ] notFound() page (not-found.tsx)
+    - [ ] notFound() page handler (not-found.tsx)
 
   - Misc
     - [x] Make use of useReducer
