@@ -1,3 +1,7 @@
+# **Katha**
+
+A vault system to keep me from **completely losing my mind**. This is a simple and neat inventory management system where I can store everything that matters, *so I can stay present and not spiral into insanity**. "Katha" means **"created by the mind"**, which means it's up to me to turn thoughts into reality… or at least attempt to.
+
 ### Tech Stack:
 
 - Next.js
@@ -234,7 +238,6 @@
     - [ ] providers (used as import by next-data default)
     - generator -> providers -> next-data
 
-
 - DOCS
   
   - [ ] 
@@ -268,7 +271,8 @@
   - KISS
   - DRY
 
-#### Inspi
+
+### Inspi
 
 - [Midday](https://midday.ai/)
 - [Opennote](https://opennote.me/)
